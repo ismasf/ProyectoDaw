@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../library/jquery-2.1.4.js"> </script>
+     <script type="text/javascript" src="../library/remodal.js"> </script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="dialog.js"> </script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="estiloDialogo.css" />
+     <link rel="stylesheet" href="../library/remodal-default-theme.css" />
+    <link rel="stylesheet" href="../library/remodal.css" />
+    <script type="text/javascript" src="../library/js/datepicker.js"></script>
+    <script type="text/javascript" src="../library/js/datepicker.es.js"></script>
+    <link rel="stylesheet" href="../library/css/datepicker.min.css" />
+    
+    
+</head>
+    
+    <body>
+        
+        <input type="button" id="abrir" value="abrir">
+        
+        <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  <h1>Registro</h1>
+            
+        <form id="miForm" action="ggggg.php">    
+          <div id="labelRegister">
+              
+            <table>
+              <tr>
+                <td><label for="idNombre">Nombre: </label></td><td><input type="text" id="idNombre" name="idNombre" ></td>
+                  <td><label class="error" for="idNombre" generated="true"></label></td>
+                
+                </tr>
+                 <tr>
+                <td><label for="idApellidos">Apellidos: </label></td><td><input type="text" id="idApellidos" name="idApellidos"></td>
+                     <td><label class="error" for="idApellidos" generated="true"></label></td>
+                
+                </tr>
+                
+                 <tr>
+                <td><label for="idFechaN">Fecha de Nacimiento: </label></td><td><input type="text" id="idFechaN" name="idFechaN"></td>
+                     <td><label class="error" for="idFechaN" generated="true"></label></td>
+                
+                </tr>
+                
+                
+                 <tr>
+                <td><label for="idCorreo">Correo: </label></td><td><input type="text" id="idCorreo" name="idCorreo"></td>
+                      <td><label class="error" for="idCorreo" generated="true"></label></td>
+                
+                </tr>
+                 <tr>
+                <td><label for="idPassword">Contraseña: </label></td><td><input type="password" id="idPassword" name="idPassword"></td>
+                <td><label class="error" for="idPassword" generated="true"></label></td>
+                </tr>
+              
+              
+              </table>
+                
+            
+            </div>
+            
+            
+            
+            <button type="submit"  class="remodal-confirm"  id="idBtnRegistrar">Registrar</button>
+           
+        </form>
+            
+        </div>
+        
+    
+    
+    </body>
+
+</html>

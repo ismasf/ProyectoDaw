@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQuery UI Dialog - Uso básico</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="estiloDialogo.css" />
+<script>
+$(function () {
+$("#dialog").dialog();
+});
+</script>
+</head>
+
+<body>
+Diálogo:
+<div id="dialog" title="Dialogo básico">
+<div id="dialog" title="Dialogo básico">
+            
+            
+          <div id="labelRegister">
+                <label for="idNombre">Nombre: </label><br>
+                <label for="idApellidos">Apellidos: </label><br>
+                <label for="idCorreo">Correo: </label><br>
+                <label for="idPassword">Contraseña: </label><br>
+            
+            </div>
+            
+            <div id="inputRegister">
+                <input type="text" id="idNombre"><br>
+                <input type="text" id="idApellidos"><br>
+                <input type="text" id="idCorreo"><br>
+                <input type="password" id="idPassword"><br>
+            
+            </div>
+            
+        </div>
+</div>
+</body>
+</html>

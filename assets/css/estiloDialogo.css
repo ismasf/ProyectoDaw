@@ -1,0 +1,45 @@
+
+
+div#dialog label{
+    display:inline-block;
+    margin-bottom: 10%;
+    
+}
+
+
+div#dialog input{
+    
+    
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.myClass.ui-dialog{
+    width: 50%;
+    height: 50%;
+    
+}
+
+div.remodal{
+	
+	margin: 0 auto;
+    /*margin-left: 200px;*/
+    
+}
+
+div#dialog table{
+    margin-left: 20%;
+}
+div#dialog table td{
+    margin-left: 10%;
+}
+
+div#dialog tr{
+    height: 40%;
+}
+div#dialog label.error{
+    margin-left: 20%;
+    width: 100%;
+    color: red;
+    font-family: inherit;
+}

@@ -1,0 +1,82 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            
+            
+                
+                $("#formToPushAd").validate({
+        rules:{
+            file:{
+                required:true
+            },
+            adUrl:{
+                required:true,
+                url:true
+            },
+            datepicker1:{
+                required:true,
+                date:true
+            },
+            datepicker2:{
+                required:true,
+                date:true,
+            }
+        },
+        messages:{      
+            file:{
+                required:"Please Select a frequency"
+            },
+            adUrl:{
+                required:"Please enter ad url"
+            },
+            datepicker1:{
+                required:"Please Enter a date",
+                date:"Please Enter a valid date"    
+            },
+            datepicker2:{
+                required:"Please Enter a date",
+                date:"Please Enter a valid date"
+            }
+        }
+
+    
+                
+                
+                
+            });
+            
+        });
+    
+    
+    
+    </script>
+</head>
+    <body>
+        <form  enctype="multipart/form-data" action="upload_data.jsp"  id="formToPushAd" method="post">
+    <table>
+        <tr>
+            <td width="100px">Ad Image:</td>
+            <td><input type="file" name="file"/></td>
+        </tr>  
+        <tr>
+            <td width="100px">Ad URL:</td>
+            <td><input type="text" name="adUrl"/></td>
+        </tr>  
+        <tr>
+            <td>Starting Date:</td>
+            <td><input type="text" id="datepicker1" name="datepicker1" /></td>
+        </tr>       
+        <tr>
+            <td>Ending Date:</td>
+            <td><input type="text" id="datepicker2" name="datepicker2" onchange="dateSelected()"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="validar"/></td>
+        </form>
+    
+    </body>
+</html>
