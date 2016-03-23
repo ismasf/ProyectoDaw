@@ -55,17 +55,54 @@ class Usuarios_model extends CI_Model{
 			
 			$id=R::store($usuario);
 			
-			$to = $correo;
-			$message = 'Hello etc';
 			
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
-			$headers .= 'From: Website <admin@example.com>' . "\r\n";
-			mail($to, 'User Registration', $message, $headers);
+			//....::::EMAIL VERIFICACION::::......
 			
 			
 			
+			$this->load->library('email');
+
+            $subject = 'Verificacion Cine DAW2';
+            $message = '<p>Por favor verifique su correo electronico atraves de este enlace: </p><br>';
+            $message.=base_url().'Usuarios/verificarCorreo?correo='.$correo;
+
+            // Get full html:
+            $body =
+'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset='.strtolower(config_item('charset')).'" />
+    <title>'.html_escape($subject).'</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, Verdana, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+'.$message.'
+</body>
+</html>';
+            // Also, for getting full html you may use the following internal method:
+            //$body = $this->email->full_html($subject, $message);
+
+            $result = $this->email
+                ->from('cinemaproyecto2016@gmail.com')
+                ->reply_to('cinemaproyecto2016@gmail.com')    // Optional, an account where a human being reads.
+                ->to('charly.9349@gmail.com')
+                ->subject($subject)
+                ->message($body)
+                ->send();
+
+            //var_dump($result);
+            //echo '<br />';
+            //echo $this->email->print_debugger();
 			
+		///..:::FIN ENVIAR CORREO::....	
+			
+		
+        ///...:::Respuesta AJAX:::......
 			echo "ok";
 			
 			
@@ -85,6 +122,14 @@ class Usuarios_model extends CI_Model{
 	}
 
 
+	public function verificarCorreo($correo){
+		
+		$query="UPDATE usuario SET verificado='SI' WHERE user='$correo'";
+		
+		$estado=R::exec( $query );
+		return $estado;
+		
+	}
 
 
 

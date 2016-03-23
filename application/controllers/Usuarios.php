@@ -31,6 +31,18 @@ function guardar(){
 	
 }
 
+function verificarCorreo(){
+	
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	
+	$correo=$this->input->get('correo');
+	
+	$this->load->model ( 'Usuarios_model', '', true );
+	$datos ['status'] = $this->Usuarios_model->verificarCorreo ($correo);
+	$this->load->view('registro/verificado',$datos);
+	
+	
+}
 
 
 
