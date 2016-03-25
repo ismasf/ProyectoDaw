@@ -11,7 +11,7 @@ class Pelicula extends CI_Controller{
 		$datos["sesiones"]=$this->sesion_model->getSesionPelicula($idPelicula,"a");
 		
 		R::close();
-		$this->load->view("pelicula",$datos);
+		$this->load->view("pelicula/pelicula",$datos);
 	}
 	
 	
