@@ -3,6 +3,12 @@
 <head>
 <style>
 	body{padding-top: 30px}
+	#footer{
+		position:absolute;
+		bottom: 0;
+		width:100%;
+		background-color: black;
+	}
 </style>
 <title><?php echo $title; ?></title>
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
@@ -39,8 +45,29 @@
         </div>
         <!-- /.container -->
     </nav>
-
+<div class="container">
 <?php echo $body; ?>
+</div>
+
+<div id="footer"><!--footer-->
+  <div class="container">
+      	<div class="row">
+          <ul class="list-unstyled">
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Trabaja con nosotros</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Politicas de Privacidad</a>
+            </li>
+            <li class="col-sm-4 col-xs-6">
+              <a href="#">Ayuda</a>
+            </li>
+
+          </ul>
+		</div><!--/row-->
+
+  </div><!--/container-->
+</div><!--/footer-->
 <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-2.1.3.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 </body>
