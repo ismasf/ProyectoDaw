@@ -58,7 +58,7 @@ class Usuarios_model extends CI_Model{
 			
 			//....::::EMAIL VERIFICACION::::......
 			
-			
+			//https://github.com/ivantcholakov/codeigniter-phpmailer
 			
 			$this->load->library('email');
 
@@ -90,7 +90,7 @@ class Usuarios_model extends CI_Model{
             $result = $this->email
                 ->from('cinemaproyecto2016@gmail.com')
                 ->reply_to('cinemaproyecto2016@gmail.com')    // Optional, an account where a human being reads.
-                ->to('charly.9349@gmail.com')
+                ->to($correo)
                 ->subject($subject)
                 ->message($body)
                 ->send();
@@ -103,7 +103,14 @@ class Usuarios_model extends CI_Model{
 			
 		
         ///...:::Respuesta AJAX:::......
-			echo "ok";
+        
+            
+            if($result){
+            	echo "ok";
+            }else{
+            	echo "false";
+            }
+			
 			
 			
 			
