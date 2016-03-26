@@ -1,5 +1,13 @@
+
+
+
+
+
+
 <br>_________<br>
 CARTELERA:<br>
+<?php $this->load->view('registro/dialogRegistrar');?>
+<a id="registrar">Registrar</a><br>
 
 <div class="container">
 <br/>

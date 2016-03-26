@@ -1,61 +1,77 @@
-<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
+ <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
   <button data-remodal-action="close" class="remodal-close"></button>
-      <div id="dialog">      
+           
   <h1>Registro</h1>
             
         <form id="miForm" action="Usuarios/guardar" method="post">    
-          
-              
-            <table>
-              <tr>
-                <td><label for="idNombre">Nombre: </label></td><td><input type="text" id="idNombre" name="idNombre" ></td>
-                  <td><label class="error" for="idNombre" generated="true"></label></td>
+            
+            <div class="form-registrar">
                 
-                </tr>
-                 <tr>
-                <td><label for="idApellidos">Apellidos: </label></td><td><input type="text" id="idApellidos" name="idApellidos"></td>
-                     <td><label class="error" for="idApellidos" generated="true"></label></td>
+                <div class="form-fondo-blanco">
                 
-                </tr>
+                    <div class="form-row">
+                        <label>
+                            <span>Nombre: </span>
+                            <input type="text" id="idNombre" name="idNombre" >
+                        </label>
+                        <span class="error" for="idNombre" generated="true"></span>
+                    </div>
                 
-                 <tr>
-                <td><label for="idCiudad">Ciudad: </label></td><td><input type="text" id="idCiudad" name="idCiudad"></td>
-                      <td><label class="error" for="idCiudad" generated="true" ></label></td>
+                 <div class="form-row">
+                    <label> 
+                         <span>Apellidos: </span>
+                        <input type="text" id="idApellidos" name="idApellidos" >
+                    </label>
+                    <label class="error" for="idApellidos" generated="true"></label>
+                </div>
+                    
+                     <div class="form-row">
+                         <label>
+                             <span>Ciudad: </span>
+                             <input type="text" id="idCiudad" name="idCiudad" >
+                        </label>
+                        <label class="error" for="idCiudad" generated="true"></label>
+                    </div>
                 
-                </tr>
+            <div class="form-row">
                 
-                 <tr>
-                <td><label for="idFechaN">Fecha de Nacimiento: </label></td><td><input type="text" id="idFechaN" name="idFechaN"></td>
-                     <td><label class="error" for="idFechaN" generated="true"></label></td>
+                <label>
+                    <span>Fecha de Nacimiento: </span>
+                    <input type="text" id="idFechaN" name="idFechaN" >
+                </label>
+                <label class="error" for="idFechaN" generated="true"></label>
+            </div>
+            
+          <div class="form-row">
+              <label>
+                    <span>Contraseña: </span>
+                    <input type="password" id="idPassword" name="idPassword" >
+              </label>
+              <label class="error" for="idPassword" generated="true"></label>
+          </div>
+            
+           
+        <div class="form-row">
+            <label>
+                <span>Re-Contraseña: </span>
+                <input type="password" id="idPasswordConfirm" name="idPasswordConfirm" >
+            </label>
+            <label class="error" for="idPasswordConfirm" generated="true"></label>
+        </div>
+        
+        
                 
-                </tr>
                 
-                
-                 <tr>
-                <td><label for="idCorreo">Correo: </label></td><td><input type="text" id="idCorreo" name="idCorreo"></td>
-                      <td><label class="error" for="idCorreo" generated="true" id="error2"></label></td>
-                
-                </tr>
-                 <tr>
-                <td><label for="idPassword">Contraseña: </label></td><td><input type="password" id="idPassword" name="idPassword"></td>
-                <td><label class="error" for="idPassword" generated="true" ></label></td>
-                </tr>
-              
-                <tr>
-                <td><label for="idPasswordConfirm">Re-Contraseña: </label></td><td><input type="password" id="idPasswordConfirm" name="idPasswordConfirm"></td>
-                <td><label class="error" for="idPasswordConfirm" generated="true" ></label></td>
-                </tr>
-              
-              </table>
                 
             
+            </div>
             
-            
+       
             
             
             <button type="submit"  class="remodal-confirm"  id="idBtnRegistrar">Registrar</button>
            
-        </form>
+        
           </div>
-            
+         </form>   
         </div>
