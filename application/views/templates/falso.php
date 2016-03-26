@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1">
 <style>
 	body{padding-top: 30px}
-	#footer{
-		position:absolute;
+	footer{
 		bottom: 0;
 		width:100%;
 		background-color: black;
+		position: fixed;
+	}
+	.limpiar{
+		clear: both;
 	}
 
 </style>
@@ -52,7 +56,7 @@
 <?php echo $body; ?>
 </div>
 
-<div id="footer"><!--footer-->
+<footer class="limpiar"><!--footer-->
   <div class="container">
       	<div class="row">
           <ul class="list-unstyled">
@@ -70,7 +74,7 @@
 		</div><!--/row-->
 
   </div><!--/container-->
-</div><!--/footer-->
+</footer><!--/footer-->
 
 <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
 </body>

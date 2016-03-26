@@ -11,7 +11,7 @@ CARTELERA:<br>
 
 <div class="container">
 <br/>
-	<div class="col-md-6">
+	<div class="col-md-3">
 		<div id="carousel-1" class="carousel slide" data-ride="carousel">
 			<!-- Señaladores -->
 			<ol class="carousel-indicators">
