@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1">
 <style>
 	body{padding-top: 30px}
 	#footer{
@@ -9,6 +10,7 @@
 		width:100%;
 		background-color: black;
 	}
+
 </style>
 <title><?php echo $title; ?></title>
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
