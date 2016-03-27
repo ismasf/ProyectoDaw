@@ -11,7 +11,7 @@ class Inicial extends CI_Controller{
 		$data["cartelera"]= $this->cartelera_model->getCartelera();
 		
 		R::close();
-		$this->template->load("falso","inicio",$data);
+		$this->template->load("plantilla","inicio",$data);
 		
 	}
 	
