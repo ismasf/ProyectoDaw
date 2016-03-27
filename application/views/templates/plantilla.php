@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1">
 <style>
 	body{padding-top: 30px}

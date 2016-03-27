@@ -11,63 +11,71 @@
                 
                     <div class="form-row">
                         <label>
-                            <span>Nombre: </span>
+                            <span class="lab">Nombre: </span>
                             <input type="text" id="idNombre" name="idNombre" >
+                            <div class="errordiv"></div>
                         </label>
-                        <span class="error" for="idNombre" generated="true"></span>
+                        
                     </div>
                 
                  <div class="form-row">
                     <label> 
-                         <span>Apellidos: </span>
+                         <span class="lab">Apellidos: </span>
                         <input type="text" id="idApellidos" name="idApellidos" >
+                         <div class="errordiv"></div>
                     </label>
-                    <label class="error" for="idApellidos" generated="true"></label>
+                    
                 </div>
                     
                      <div class="form-row">
                          <label>
-                             <span>Ciudad: </span>
+                             <span class="lab">Ciudad: </span>
                              <input type="text" id="idCiudad" name="idCiudad" >
+                              <div class="errordiv"></div>
                         </label>
-                        <label class="error" for="idCiudad" generated="true"></label>
+                       
                     </div>
                 
             <div class="form-row">
                 
                 <label>
-                    <span>Fecha de Nacimiento: </span>
+                    <span class="lab">Fecha de Nacimiento: </span>
                     <input type="text" id="idFechaN" name="idFechaN" >
+                     <div class="errordiv"></div>
                 </label>
-                <label class="error" for="idFechaN" generated="true"></label>
+               
             </div>
+            
+            <div class="form-row">
+              <label>
+                    <span class="lab">Usuario: </span>
+                    <input type="text" id="idCorreo" name="idCorreo" >
+                     <div class="errordiv"></div>
+              </label>
+              
+          </div>
             
           <div class="form-row">
               <label>
-                    <span>Contraseña: </span>
+                    <span class="lab">Contraseña: </span>
                     <input type="password" id="idPassword" name="idPassword" >
+                     <div class="errordiv"></div>
               </label>
-              <label class="error" for="idPassword" generated="true"></label>
+              
           </div>
             
            
         <div class="form-row">
             <label>
-                <span>Re-Contraseña: </span>
+                <span class="lab">Re-Contraseña: </span>
                 <input type="password" id="idPasswordConfirm" name="idPasswordConfirm" >
+                 <div class="errordiv"></div>
             </label>
-            <label class="error" for="idPasswordConfirm" generated="true"></label>
+           
         </div>
-        
-        
-                
-                
-                
-            
+  
             </div>
-            
-       
-            
+        
             
             <button type="submit"  class="remodal-confirm"  id="idBtnRegistrar">Registrar</button>
            
