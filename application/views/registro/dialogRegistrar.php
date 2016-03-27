@@ -46,6 +46,15 @@
                
             </div>
             
+            <div class="form-row">
+              <label>
+                    <span class="lab">Usuario: </span>
+                    <input type="text" id="idCorreo" name="idCorreo" >
+                     <div class="errordiv"></div>
+              </label>
+              
+          </div>
+            
           <div class="form-row">
               <label>
                     <span class="lab">Contraseña: </span>
