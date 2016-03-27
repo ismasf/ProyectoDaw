@@ -11,7 +11,7 @@ CARTELERA:<br>
 
 <div class="container">
 <br/>
-	<div class="col-md-3">
+	<div class="col-md-6">
 		<div id="carousel-1" class="carousel slide" data-ride="carousel">
 			<!-- Señaladores -->
 			<ol class="carousel-indicators">
@@ -42,7 +42,6 @@ CARTELERA:<br>
 		
 
 </div>
-
 <?php foreach ($cartelera as $pelicula):?>
 <a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><?=$pelicula["titulo"]?></a><br>
 <?php endforeach;?>

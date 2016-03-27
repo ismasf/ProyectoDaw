@@ -11,12 +11,8 @@
 		background-color: black;
 		position: fixed;
 	}
-	.limpiar{
-		clear: both;
-	}
-
 </style>
-<title><?php echo $title; ?></title>
+<title>Tu Cine</title>
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
 <?php $this->load->view('registro/scripts');?>
 </head>
@@ -55,8 +51,8 @@
 <div class="container">
 <?php echo $body; ?>
 </div>
-
-<footer class="limpiar"><!--footer-->
+<br/><br/><br/>
+<footer><!--footer-->
   <div class="container">
       	<div class="row">
           <ul class="list-unstyled">
