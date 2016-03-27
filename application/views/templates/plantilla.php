@@ -56,13 +56,13 @@
   <div class="container">
       	<div class="row">
           <ul class="list-unstyled">
-            <li class="col-sm-4 col-xs-6">
+            <li class="col-sm-4 col-xs-5">
               <a href="#">Trabaja con nosotros</a>
             </li>
-            <li class="col-sm-4 col-xs-6">
+            <li class="col-sm-4 col-xs-5">
               <a href="#">Politicas de Privacidad</a>
             </li>
-            <li class="col-sm-4 col-xs-6">
+            <li class="col-sm-4 col-xs-2">
               <a href="#">Ayuda</a>
             </li>
 
