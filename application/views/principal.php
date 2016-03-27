@@ -12,7 +12,10 @@ $this->load->view('registro/scripts');
 
 <body>
 
-<?php $this->load->view('registro/dialogRegistrar');?>
+<?php //$this->load->view('registro/dialogRegistrar');?>
+<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
+  <button data-remodal-action="close" class="remodal-close"></button>
+  </div>
 <a id="registrar">Registrar</a>
 <br>_________<br>
 CARTELERA:<br>

@@ -21,17 +21,16 @@
     
 }
 
-
-
-.form-registrar label.error{
-    width: 150px;
-    display: inline-flex;
-    overflow: hidden;
-    word-wrap: break-word; text-overflow: ellipsis;
-        text-align: left;
-        padding: 0 50% 0;
-        margin-top:1%;
+.form-registrar div.errordiv{
+	width: 200px;
+    margin-left: 46%;
+    margin-top: 2%;
 }
+
+.form-registrar div.errordiv span{
+	color:darkred;
+}
+
 
 
 .form-registrar .form-row{
@@ -39,8 +38,14 @@
     margin-bottom: 15px;
 }
 
+.form-registrar div.errordiv{
+	width: 200px;
+    margin-left: 45%;
+    margin-top: 2%;
+}
 
-.form-registrar .form-row > label span{
+
+.form-registrar .form-row > label span.lab{
     display: inline-block;
     box-sizing: border-box;
     color:  #5f5f5f;
@@ -50,39 +55,7 @@
 }
 
 
-@media (max-width: 900px) {
 
-     .form-registrar{
-        margin: 20px auto;
-    }
-
-    .form-registrar{
-        position: relative;
-        display: block;
-        margin: 0;
-    }
-
-    .form-registrar .form-fondo-blanco{
-        margin: 0 auto 32px;
-    }
-
-    ..form-registrar:after{
-        bottom: -80px;
-        left: 50%;
-        margin-left: -25px;
-    }
-
-     .form-registrar span.error{
-    width: 150px;
-    display: inline-flex;
-    overflow: hidden;
-    word-wrap: break-word; text-overflow: ellipsis;
-        text-align: left;
-        padding: 0 47% 0;
-}
-    
-
-}
 
 
 @media (max-width: 625px) {
@@ -119,6 +92,12 @@
     word-wrap: break-word; text-overflow: ellipsis;
         text-align: left;
         padding: 0 18% 0;
+}
+
+.form-registrar div.errordiv{
+	width: 200px;
+    margin-left: 5%;
+    margin-top: 2%;
 }
 
 }
