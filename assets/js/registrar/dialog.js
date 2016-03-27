@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+	$('div.remodal').load("/Proyecto/assets/html/registro.html");
     
     
     
