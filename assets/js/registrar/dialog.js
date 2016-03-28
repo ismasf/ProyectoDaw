@@ -62,7 +62,7 @@ $.validator.addMethod("dateFormat",
     
     
     
-    $('#registrar').on('click',function(){
+   /* $('#registrar').on('click',function(){
         
     	
        var inst = $('[data-remodal-id=modal]').remodal();
@@ -71,7 +71,18 @@ $.validator.addMethod("dateFormat",
         
         
         
-    });
+    });*/
+ 
+    $('#btnRegistrar').on('click',function(){
+        
+    	
+        var inst = $('[data-remodal-id=modal]').remodal();
+         
+         inst.open();
+         
+         
+         
+     });
     
     
     

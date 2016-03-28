@@ -10,7 +10,7 @@ CARTELERA:<br>
  <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
  
   </div>
-<a id="registrar">Registrar</a><br>
+<!-- <a id="registrar">Registrar</a><br> -->
 
 <div class="container">
 <br/>
