@@ -82,7 +82,7 @@ $.validator.addMethod("dateFormat",
          
          
          
-     });
+    
     
     
     
@@ -250,6 +250,7 @@ $.validator.addMethod("dateFormat",
           
           
       }); 
+    });
 
           /*$('#miForm').on('submit',function(e){
     
