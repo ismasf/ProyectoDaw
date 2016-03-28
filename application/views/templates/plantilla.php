@@ -14,7 +14,11 @@
 </style>
 <title>Tu Cine</title>
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-pull.css"); ?>" />
+<link rel="stylesheet" href="<?php echo base_url("assets/css/login.css"); ?>" />
+
 <?php $this->load->view('registro/scripts');?>
+<?= script_tag('assets/js/login/login.js') ?>
 </head>
 
 <body>
@@ -43,6 +47,20 @@
                         <a href="#">Estamos aquÃ­</a>
                     </li>
                 </ul>
+                 <ul class="nav navbar-nav nav pull-left-xs pull-right-md pull-right-lg" id="dropDownLogin">
+          <li class="dropdown" id="menuLogin">
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+            <div class="dropdown-menu" style="padding:17px;">
+              <form class="form" id="formlogin"> 
+              	<label class="change-color-sm">Correo: </label>
+                <input name="username" id="username" type="text" placeholder="Correo"> <br>
+                <br><label class="change-color-sm">Contraseña: </label>
+                <input name="loginpassword" id="loginpassword" type="password" placeholder="Contraseña"><br><br>
+                <input type="submit" id="btnLogin" class="btn" value="login">
+              </form>
+            </div>
+            </li>
+            </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>

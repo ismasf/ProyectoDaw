@@ -137,6 +137,36 @@ class Usuarios_model extends CI_Model{
 		return $estado;
 		
 	}
+	
+	public function hacerLogin($correo, $contraseña) {
+		
+		$fila = R::getAll("SELECT hash FROM usuario WHERE user = '$correo'");
+		
+		
+		if(count($fila)!="0"){
+			
+			$hash=$fila['0']['hash'];
+			
+			if(password_verify($contraseña, $hash)){
+					
+				echo "ok";
+					
+			}else{
+					
+				echo "mal";
+					
+			}
+			
+			
+		}else{
+					
+				echo "mal";
+		}
+		
+		
+		
+		
+	}
 
 
 

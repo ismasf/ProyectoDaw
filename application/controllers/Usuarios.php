@@ -44,6 +44,22 @@ function verificarCorreo(){
 	
 }
 
+function login(){
+	
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	
+	$correo=$this->input->post('username');
+	$contraseña=$this->input->post('loginpassword');
+	
+	if(trim($correo)!="" && trim($contraseña)!=""){
+		
+		$this->load->model ( 'Usuarios_model', '', true );
+		$datos ['status'] = $this->Usuarios_model->hacerLogin ($correo, $contraseña);
+		
+	}
+	
+}
+
 
 
 
