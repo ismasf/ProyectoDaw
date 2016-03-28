@@ -82,7 +82,20 @@ $.validator.addMethod("dateFormat",
          
          
          
-    
+         
+         //....:::::DatePicker:::::....
+         
+         var fechaHoy=new Date();
+         var fechaAyer=new Date(fechaHoy.getFullYear(), fechaHoy.getMonth(), fechaHoy.getDate()-1);
+         
+         //DatePicker http://www.jqueryrain.com/?A_MO0kvZ
+         $('#idFechaN').datepicker({
+     	language: 'es',
+     	minDate: new Date("1970","0","1"),
+         view: "years",
+         autoClose: true,
+         maxDate: fechaAyer// Now can select only dates, which goes after today
+     })
     
     
     

@@ -12,7 +12,7 @@ class Usuarios_model extends CI_Model{
 	
 	public function emailExiste($correo){
 		
-		$result = R::getAll("SELECT * FROM usuario WHERE user = '$correo'");
+		$result = R::getAll("SELECT * FROM usuario WHERE user = :correo", array(':correo'=>$correo));
 		
 		$cantidad=count($result);
 	
@@ -31,7 +31,7 @@ class Usuarios_model extends CI_Model{
 	public function guardarUsuario($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha){
 		
 		
-		$result = R::getAll("SELECT * FROM usuario WHERE user = '$correo'");
+		$result = R::getAll("SELECT * FROM usuario WHERE user = :correo", array(':correo'=>$correo));
 		
 		$cantidad=count($result);
 		
@@ -141,7 +141,7 @@ class Usuarios_model extends CI_Model{
 	
 	public function hacerLogin($correo, $contraseña) {
 		
-		$fila = R::getAll("SELECT * FROM usuario WHERE user = '$correo'");
+		$fila = R::getAll("SELECT * FROM usuario WHERE verificado='SI' and user = :correo", array(':correo'=>$correo));
 		
 		
 		if(count($fila)!="0"){
@@ -168,6 +168,16 @@ class Usuarios_model extends CI_Model{
 		}
 		
 		
+		
+		
+	}
+	
+	function desconectarUser(){
+		
+		unset($_SESSION['idUser']);
+		unset($_SESSION['correoUser']);
+		
+		echo "ok";
 		
 		
 	}

@@ -60,6 +60,14 @@ function login(){
 	
 }
 
+function desconectar(){
+	
+	$this->load->model ( 'Usuarios_model', '', true );
+	$datos ['status'] = $this->Usuarios_model->desconectarUser ();
+	
+	
+}
+
 
 
 

@@ -27,3 +27,23 @@
     
     
     
+    
+    <!-- ...:::Popup Cookies::... -->
+    
+    <!-- https://silktide.com/tools/cookie-consent/docs/installation/ -->
+    <script>
+    window.cookieconsent_options = {
+        learnMore: 'Mas info',
+        link: 'http://example.com/cookiepolicy',
+        message: 'Esta pagina usa cookies para guardar informacion del usuario, para poderle prestar un mejor servicio.',
+        dismiss: 'De acuerdo'
+    };
+</script>
+    
+     <?= script_tag('assets/js/cookies/cookieconsent.js') ?>
+     <!-- ...::Fin PopUp Cookies::... -->
+    
+    
+    
+    
+    

@@ -79,6 +79,7 @@ session_start();
             <div class="dropdown-menu" style="padding:17px;">
             
             	<a href="#">Mi cuenta</a>
+            	<button class="btn" id="idBtnDesconectar">Desconectar</button>
             </div>
             <?php endif;?>
             </li>

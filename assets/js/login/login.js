@@ -51,7 +51,7 @@ $(document).ready(function(){
                 		 $('li#menuLogin').removeClass('open');
                 		 usuario=$('input[name="username"]').val();
                 		 $('a#navLogin').text(usuario);
-                		 $('div.dropdown-menu').html('<a href="#">'+"Mi cuenta"+'</a>');
+                		 $('div.dropdown-menu').html('<a href="#">'+"Mi cuenta"+'</a> <button class="btn" id="idBtnDesconectar">Desconectar</button>');
                 		 
                 		 
                 		 
@@ -73,6 +73,34 @@ $(document).ready(function(){
           
           
       }); 
+	
+	$('li').on('click', 'button#idBtnDesconectar',  function(){
+		
+		$.ajax({
+            type: "POST",
+            url: "Usuarios/desconectar",
+            
+            success: function (response) {
+                
+           	 if(response.trim()=="ok"){
+           		 
+           		location.reload();
+           		 
+           		 
+           		 
+           	 }else{
+           		 alert(response)
+           	 }
+           	 
+            }
+                });
+		
+		
+		
+		
+	})
+	
+	
 	
 	
 	
