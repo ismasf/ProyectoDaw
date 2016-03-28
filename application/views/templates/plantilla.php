@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php 
+session_name("cineProyecto");
+ini_set("session.cookie_lifetime","7200");
+ini_set("session.gc_maxlifetime","7200");
+
+
+session_start();
+
+
+ ?>
+
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1">
 <style>
@@ -52,6 +63,7 @@
                  <li id="btnRegistrar"><a href="#">Registrar</a></li>
                   	<li class="divider-vertical"></li>
           <li class="dropdown" id="menuLogin">
+          <?php if(!isset($_SESSION['idUser'])):?>
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
             <div class="dropdown-menu" style="padding:17px;">
               <form class="form" id="formlogin"> 
@@ -62,6 +74,13 @@
                 <input type="submit" id="btnLogin" class="btn" value="login">
               </form>
             </div>
+            <?php else :?>
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><?= $_SESSION['correoUser']; ?></a>
+            <div class="dropdown-menu" style="padding:17px;">
+            
+            	<a href="#">Mi cuenta</a>
+            </div>
+            <?php endif;?>
             </li>
             </ul>
             </div>

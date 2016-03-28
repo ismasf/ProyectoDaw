@@ -1,5 +1,6 @@
 <?php
-
+session_name("cineProyecto");
+session_start();
 
 require_once ('application/libraries/rb.php');
 
@@ -140,7 +141,7 @@ class Usuarios_model extends CI_Model{
 	
 	public function hacerLogin($correo, $contraseña) {
 		
-		$fila = R::getAll("SELECT hash FROM usuario WHERE user = '$correo'");
+		$fila = R::getAll("SELECT * FROM usuario WHERE user = '$correo'");
 		
 		
 		if(count($fila)!="0"){
@@ -148,7 +149,10 @@ class Usuarios_model extends CI_Model{
 			$hash=$fila['0']['hash'];
 			
 			if(password_verify($contraseña, $hash)){
-					
+				
+				$_SESSION['idUser']=$fila['0']['id'];
+				$_SESSION['correoUser']=$correo;
+				
 				echo "ok";
 					
 			}else{
