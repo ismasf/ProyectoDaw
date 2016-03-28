@@ -4,7 +4,7 @@ class Sesion_model extends CI_Model{
 	
 	public function getSesionPelicula($idPelicula, $dia){
 		
-		$sesion = R::getAll("SELECT * FROM sesion WHERE hora >= \"2016-03-20 00:00:00\" AND hora < \"2016-03-21 00:00:00\" AND pelicula_id = $idPelicula");
+		$sesion = R::getAll("SELECT * FROM sesion WHERE hora >= \"2016-03-20 00:00:00\" AND hora < \"2016-03-21 00:00:00\" AND pelicula_id = :id", array(':id'=>$idPelicula));
 		
 		
 		return $sesion;

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+	$('div.remodal').load("/Proyecto/assets/html/registro.html");
     
     
     
@@ -60,7 +62,7 @@ $.validator.addMethod("dateFormat",
     
     
     
-    $('#registrar').on('click',function(){
+   /* $('#registrar').on('click',function(){
         
     	
        var inst = $('[data-remodal-id=modal]').remodal();
@@ -69,7 +71,31 @@ $.validator.addMethod("dateFormat",
         
         
         
-    });
+    });*/
+ 
+    $('#btnRegistrar').on('click',function(){
+        
+    	
+        var inst = $('[data-remodal-id=modal]').remodal();
+         
+         inst.open();
+         
+         
+         
+         
+         //....:::::DatePicker:::::....
+         
+         var fechaHoy=new Date();
+         var fechaAyer=new Date(fechaHoy.getFullYear(), fechaHoy.getMonth(), fechaHoy.getDate()-1);
+         
+         //DatePicker http://www.jqueryrain.com/?A_MO0kvZ
+         $('#idFechaN').datepicker({
+     	language: 'es',
+     	minDate: new Date("1970","0","1"),
+         view: "years",
+         autoClose: true,
+         maxDate: fechaAyer// Now can select only dates, which goes after today
+     })
     
     
     
@@ -237,6 +263,7 @@ $.validator.addMethod("dateFormat",
           
           
       }); 
+    });
 
           /*$('#miForm').on('submit',function(e){
     
