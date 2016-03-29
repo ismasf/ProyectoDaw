@@ -1,0 +1,1 @@
+Creada factura con asientos <br><a href="<?=base_url()?>">Volver</a>

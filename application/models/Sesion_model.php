@@ -20,6 +20,11 @@ class Sesion_model extends CI_Model{
 	
 	}
 	
+	public function getSalaSesion($idSesion){
+		$sesion =R::load("sesion",$idSesion);
+		return $sesion->sala_id;
+	}
+	
 	
 	
 	
