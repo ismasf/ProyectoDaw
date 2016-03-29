@@ -32,7 +32,7 @@ $(document).ready(function(){
     
     
     jQuery.validator.addMethod('lettersonly', function(value, element) {
-    return this.optional(element) || /^[a-z áãâäàéêëèíîïìóõôöòúûüùç]+$/i.test(value);
+    return this.optional(element) || /^[a-zA-Z áÁãâäàéÉêëèíÍîïìóÓõôöòúÚûüùçÑñ]+$/i.test(value);
 }, "Letras y espacios solo");
     
     
