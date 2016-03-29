@@ -45,43 +45,20 @@ function asientoDesbloquear(id){
 
 </head>
 <body>
-	Estas con el usuario 1, porque aun no he puesto sistema de usuarios.<br>
+<?php
+
+session_name("cineProyecto");
+session_start();
+print_r($_SESSION);
+?>
+	<br>Estas con el usuario, <?=isset($_SESSION["idUser"])?$_SESSION["idUser"]:"No has iniciado sesion"?>.<br>
 		Asientos:
 		<div id="divAsientos"></div>
 		
 		
 		
-<?php
-
-print_r ( $sesion );
-?>
-<!-- NAAAAAAAAAAAA
-<table border=1>
 
 
-<?php
-$cont = 0;
-foreach ( $asientos as $asiento ) {
-	$color = "green";
-	foreach ( $reservas as $reserva ) {
-		if (in_array ( $asiento ["id"], $reserva )) {
-			$color = "red";
-		}
-	}
-	if ($cont % 10 == 0) {
-		
-		echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\">" . $asiento ["nom"] . "</td>";
-	} else {
-		echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\">" . $asiento ["nom"] . "</td>";
-	}
-	$cont ++;
-}
-
-?>
-
-</table>
-
- -->
 
 </body>
 </html>

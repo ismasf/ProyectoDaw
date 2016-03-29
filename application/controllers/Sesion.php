@@ -15,8 +15,6 @@ class Sesion extends CI_Controller{
 		$datos["reservas"]=$this->entradareserva_model->getAsientosReservadosSesion($datos["sesion"]->id);
 		*/
 		$datos["idAle"]=$idAleatoria = rand(1, 20000);
-		session_start();
-		$datos["sesion"]=$_SESSION;
 		R::close();
 		$this->load->view("sesion/sesion",$datos);
 	}
