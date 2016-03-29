@@ -57,7 +57,7 @@ session_start();
                         <a href="#">Promociones</a>
                     </li>
                     <li>
-                        <a href="#">Estamos aquí</a>
+                        <a href="<?=base_url()?>Aqui">Estamos aquí</a>
                     </li>
                 </ul>
                  <ul class="nav navbar-nav nav pull-left-xs pull-right-md pull-right-lg" id="dropDownLogin">
