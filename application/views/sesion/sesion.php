@@ -23,6 +23,7 @@ $(document).ready(function(){
 		    //alert('Respuesta = '+datos);
 		    $("#divAsientos").html(datos);
 		  });
+		
 	}, 1500);
 	
 	
@@ -32,6 +33,8 @@ function asiento(id){
 	$.get('<?= base_url()?>sesion/asientoBloqueado/<?=$idAle ?>', { sesion: "<?=$_GET["idSesion"]?>", asiento : id }, function(datos) {
 	    alert("bloquear");
 	  });
+	  
+	  
 }
 function asientoDesbloquear(id){
 	$.get('<?= base_url()?>sesion/asientoDesbloquear/<?=$idAle ?>', { sesion: "<?=$_GET["idSesion"]?>", asiento : id }, function(datos) {
@@ -57,7 +60,11 @@ print_r($_SESSION);
 		
 		
 		
-
+<form action="<?=base_url()?>entrada" method="get">
+<br><input type="text" id="asientos" name="asientos">
+<br><input type="text" id="sesion" name="sesion" value="<?=$_GET["idSesion"]?>">
+<br><input type="submit">
+</form>
 
 
 </body>

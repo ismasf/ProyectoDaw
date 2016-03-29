@@ -9,6 +9,21 @@ class Entradareserva_model extends CI_Model{
 	
 	}
 	
+	public function crearEntradaReserva($fecha,$sala,$sesion,$asientos){
+		$id=array();
+		foreach ($asientos as $asiento){
+			$entradareserva = R::dispense("entradareserva");
+			$entradareserva -> fecha = $fecha;
+			$entradareserva -> asientos_id = $asiento;
+			$entradareserva -> sala_id = $sala;
+			$entradareserva -> sesion_id = $sesion;
+			R::store($entradareserva);
+			array_push($id, $entradareserva-> id);
+		}
+		return $id;
+	
+	}
+	
 	
 	
 	
