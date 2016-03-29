@@ -60,10 +60,11 @@ session_start();
                 </ul>
                  <ul class="nav navbar-nav nav pull-left-xs pull-right-md pull-right-lg" id="dropDownLogin">
                  
-                 <li id="btnRegistrar"><a href="#">Registrar</a></li>
+                
+          <?php if(!isset($_SESSION['idUser'])):?>
+           <li id="btnRegistrar"><a href="#">Registrar</a></li>
                   	<li class="divider-vertical"></li>
           <li class="dropdown" id="menuLogin">
-          <?php if(!isset($_SESSION['idUser'])):?>
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
             <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
               <form class="form" id="formlogin"> 
@@ -75,6 +76,8 @@ session_start();
               </form>
             </div>
             <?php else :?>
+            
+          <li class="dropdown" id="menuLogin">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><?= $_SESSION['correoUser']; ?></a>
             <div class="dropdown-menu" style="padding:17px;">
             
