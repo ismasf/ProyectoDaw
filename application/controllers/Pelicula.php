@@ -16,7 +16,6 @@ class Pelicula extends CI_Controller{
 	
 	
 	
-	
 }
 
 
