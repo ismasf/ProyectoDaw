@@ -50,6 +50,8 @@ $(document).ready(function(){
                 		 
                 		 $('li#menuLogin').removeClass('open');
                 		 usuario=$('input[name="username"]').val();
+                		 
+                		 $('#btnRegistrar').hide();
                 		 $('a#navLogin').text(usuario);
                 		 $('div.dropdown-menu').html('<a href="#">'+"Mi cuenta"+'</a> <button class="btn" id="idBtnDesconectar">Desconectar</button>');
                 		 
