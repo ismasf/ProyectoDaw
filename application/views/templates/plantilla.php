@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php 
+session_name("cineProyecto");
+ini_set("session.cookie_lifetime","7200");
+ini_set("session.gc_maxlifetime","7200");
+
+
+session_start();
+
+
+ ?>
+
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1">
 <style>
@@ -14,7 +25,11 @@
 </style>
 <title>Tu Cine</title>
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
+<link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-pull.css"); ?>" />
+<link rel="stylesheet" href="<?php echo base_url("assets/css/login.css"); ?>" />
+
 <?php $this->load->view('registro/scripts');?>
+<?= script_tag('assets/js/login/login.js') ?>
 </head>
 
 <body>
@@ -43,6 +58,32 @@
                         <a href="#">Estamos aquÃ­</a>
                     </li>
                 </ul>
+                 <ul class="nav navbar-nav nav pull-left-xs pull-right-md pull-right-lg" id="dropDownLogin">
+                 
+                 <li id="btnRegistrar"><a href="#">Registrar</a></li>
+                  	<li class="divider-vertical"></li>
+          <li class="dropdown" id="menuLogin">
+          <?php if(!isset($_SESSION['idUser'])):?>
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+            <div class="dropdown-menu" style="padding:17px;">
+              <form class="form" id="formlogin"> 
+              	<label class="change-color-sm">Correo: </label>
+                <input name="username" id="username" type="text" placeholder="Correo"> <br>
+                <br><label class="change-color-sm">Contraseña: </label>
+                <input name="loginpassword" id="loginpassword" type="password" placeholder="Contraseña"><br><br>
+                <input type="submit" id="btnLogin" class="btn" value="login">
+              </form>
+            </div>
+            <?php else :?>
+            <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"><?= $_SESSION['correoUser']; ?></a>
+            <div class="dropdown-menu" style="padding:17px;">
+            
+            	<a href="#">Mi cuenta</a>
+            	<button class="btn" id="idBtnDesconectar">Desconectar</button>
+            </div>
+            <?php endif;?>
+            </li>
+            </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>

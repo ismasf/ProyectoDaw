@@ -7,10 +7,9 @@
 <br>_________<br>
 CARTELERA:<br>
 <?php //$this->load->view('registro/dialogRegistrar');?>
- <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
+<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false"></div>
  
-  </div>
-<a id="registrar">Registrar</a><br>
+<!-- <a id="registrar">Registrar</a><br> -->
 
 <div class="container">
 <br/>

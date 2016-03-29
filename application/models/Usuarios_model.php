@@ -1,5 +1,6 @@
 <?php
-
+session_name("cineProyecto");
+session_start();
 
 require_once ('application/libraries/rb.php');
 
@@ -11,7 +12,7 @@ class Usuarios_model extends CI_Model{
 	
 	public function emailExiste($correo){
 		
-		$result = R::getAll("SELECT * FROM usuario WHERE user = '$correo'");
+		$result = R::getAll("SELECT * FROM usuario WHERE user = :correo", array(':correo'=>$correo));
 		
 		$cantidad=count($result);
 	
@@ -30,7 +31,7 @@ class Usuarios_model extends CI_Model{
 	public function guardarUsuario($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha){
 		
 		
-		$result = R::getAll("SELECT * FROM usuario WHERE user = '$correo'");
+		$result = R::getAll("SELECT * FROM usuario WHERE user = :correo", array(':correo'=>$correo));
 		
 		$cantidad=count($result);
 		
@@ -135,6 +136,49 @@ class Usuarios_model extends CI_Model{
 		
 		$estado=R::exec( $query );
 		return $estado;
+		
+	}
+	
+	public function hacerLogin($correo, $contraseña) {
+		
+		$fila = R::getAll("SELECT * FROM usuario WHERE verificado='SI' and user = :correo", array(':correo'=>$correo));
+		
+		
+		if(count($fila)!="0"){
+			
+			$hash=$fila['0']['hash'];
+			
+			if(password_verify($contraseña, $hash)){
+				
+				$_SESSION['idUser']=$fila['0']['id'];
+				$_SESSION['correoUser']=$correo;
+				
+				echo "ok";
+					
+			}else{
+					
+				echo "mal";
+					
+			}
+			
+			
+		}else{
+					
+				echo "mal";
+		}
+		
+		
+		
+		
+	}
+	
+	function desconectarUser(){
+		
+		unset($_SESSION['idUser']);
+		unset($_SESSION['correoUser']);
+		
+		echo "ok";
+		
 		
 	}
 
