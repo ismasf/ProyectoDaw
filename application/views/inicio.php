@@ -9,7 +9,7 @@ CARTELERA:<br>
 <?php //$this->load->view('registro/dialogRegistrar');?>
 <div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false"></div>
 
-<a href="<?php  echo base_url("Usuarios/compraEntada"); ?>">Prueba compra pdf</a>
+<!-- <a href="<?php  echo base_url("Usuarios/compraEntada"); ?>">Prueba compra pdf</a> -->
  
 <!-- <a id="registrar">Registrar</a><br> -->
 

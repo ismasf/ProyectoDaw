@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	$('div.remodal').load("/Proyecto/assets/html/registro.html");
-    
+	inst = $('[data-remodal-id=modal]').remodal();
     
     
     
@@ -76,7 +76,7 @@ $.validator.addMethod("dateFormat",
     $('#btnRegistrar').on('click',function(){
         
     	
-        var inst = $('[data-remodal-id=modal]').remodal();
+        
          
          inst.open();
          
@@ -243,10 +243,31 @@ $.validator.addMethod("dateFormat",
                  success: function (response) {
                      
                 	 if(response.trim()=="ok"){
-                		 alert("bien")
+                		 //alert("bien")
+                		 $('div.remodal').html('<h1>Registro correcto, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+                		 
+                		 segundos=5;
+                		idInterval = setInterval(function() {
+                			 
+                	         
+                	 			
+                	         
+                			segundos--;
+                			if(segundos<1){
+                				clearInterval(idInterval);
+                				$('div.remodal').load("/Proyecto/assets/html/registro.html");
+                				window.location.replace("/Proyecto");
+                				inst.close();
+                				
+                			}
+                			
+                			
+                		},500);
+                		
+                		
                 		 
                 	 }else{
-                		 alert("mal")
+                		 alert("No hemos podido darle de alta en nuestra base de datos, por favor intentelo mas tarde")
                 	 }
                 	 
                  }
@@ -264,6 +285,19 @@ $.validator.addMethod("dateFormat",
           
       }); 
     });
+    
+    $("div.remodal").on('click', 'a', function(){
+    	
+ 
+         
+ 			clearInterval(idInterval);
+ 			$('div.remodal').load("/Proyecto/assets/html/registro.html");
+         inst.close();
+    	
+    	
+    	
+    	
+    })
 
           /*$('#miForm').on('submit',function(e){
     

@@ -65,12 +65,12 @@ session_start();
           <li class="dropdown" id="menuLogin">
           <?php if(!isset($_SESSION['idUser'])):?>
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-            <div class="dropdown-menu" style="padding:17px;">
+            <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
               <form class="form" id="formlogin"> 
               	<label class="change-color-sm">Correo: </label>
                 <input name="username" id="username" type="text" placeholder="Correo"> <br>
-                <br><label class="change-color-sm">Contraseña: </label>
-                <input name="loginpassword" id="loginpassword" type="password" placeholder="Contraseña"><br><br>
+                <br><label class="change-color-sm">Contrase&ntilde;a: </label>
+                <input name="loginpassword" id="loginpassword" type="password" placeholder="Contrase&ntilde;a"><br><br>
                 <input type="submit" id="btnLogin" class="btn" value="login">
               </form>
             </div>
