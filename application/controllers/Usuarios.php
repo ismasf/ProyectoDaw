@@ -68,7 +68,15 @@ function desconectar(){
 	
 }
 
-
+function crearPdf(){
+	//$this->load->library('m_pdf');
+	$this->load->helper('entradas');
+	entradaPdf("Carlos","Garbajosa Barroso","charly.9349@gmail.com","Batman v Superman","30/03/2016","1aac06","20:00");
+	echo "ok";
+	
+	
+	
+}
 
 
 
