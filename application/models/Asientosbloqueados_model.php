@@ -28,7 +28,20 @@ class Asientosbloqueados_model extends CI_Model{
 		R::trash($asientoBloqueado);
 	}
 	
+	public function getActuales($idSesion,$idAle){
+		$asiento = R::getAll("SELECT * FROM asientosbloqueados WHERE id_sesion = :id AND id_usuario = :idAle", array(':id'=>$idSesion,':idAle'=>$idAle));
 	
+		return $asiento;
+	
+	}
+	
+	public function borrarAsientosInactivos(){
+		// Tiempo máximo de espera
+		//$fecha = date('Y-m-d H:i:s',strtotime("-5 minutes"));
+		$fecha = date('Y-m-d H:i:s',strtotime("-1 minutes"));
+		echo $fecha;
+		R::exec("delete from asientosbloqueados where hora < :fecha",array(':fecha'=>$fecha)) ;
+	}
 	
 }
 

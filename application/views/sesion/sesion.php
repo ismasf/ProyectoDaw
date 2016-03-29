@@ -6,7 +6,7 @@
 
 $(document).ready(function(){
 
-	$.get('<?= base_url()?>sesion/getMapaAsientos', { sesion: "<?=$_GET["idSesion"]?>" }, function(datos) {
+	$.get('<?= base_url()?>sesion/getMapaAsientos/<?=$idAle ?>', { sesion: "<?=$_GET["idSesion"]?>" }, function(datos) {
 	    //alert('Respuesta = '+datos);
 	    $("#divAsientos").html(datos);
 	  });
@@ -19,7 +19,7 @@ $(document).ready(function(){
 	});*/
 
 	setInterval(function() {
-		$.get('<?= base_url()?>sesion/getMapaAsientos', { sesion: "<?=$_GET["idSesion"]?>" }, function(datos) {
+		$.get('<?= base_url()?>sesion/getMapaAsientos/<?=$idAle ?>', { sesion: "<?=$_GET["idSesion"]?>" }, function(datos) {
 		    //alert('Respuesta = '+datos);
 		    $("#divAsientos").html(datos);
 		  });
@@ -29,12 +29,12 @@ $(document).ready(function(){
 });
 
 function asiento(id){
-	$.get('<?= base_url()?>sesion/asientoBloqueado', { sesion: "<?=$_GET["idSesion"]?>", asiento : id }, function(datos) {
+	$.get('<?= base_url()?>sesion/asientoBloqueado/<?=$idAle ?>', { sesion: "<?=$_GET["idSesion"]?>", asiento : id }, function(datos) {
 	    alert("bloquear");
 	  });
 }
 function asientoDesbloquear(id){
-	$.get('<?= base_url()?>sesion/asientoDesbloquear', { sesion: "<?=$_GET["idSesion"]?>", asiento : id }, function(datos) {
+	$.get('<?= base_url()?>sesion/asientoDesbloquear/<?=$idAle ?>', { sesion: "<?=$_GET["idSesion"]?>", asiento : id }, function(datos) {
 	    alert("desbloquear"+datos);
 	  });
 }
@@ -50,11 +50,12 @@ function asientoDesbloquear(id){
 		<div id="divAsientos"></div>
 		
 		
-		<!-- NAAAAAAAAAAAA
+		
 <?php
-print_r ( $reservas );
 
+print_r ( $sesion );
 ?>
+<!-- NAAAAAAAAAAAA
 <table border=1>
 
 
