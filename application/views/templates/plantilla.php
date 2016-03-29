@@ -24,12 +24,14 @@ session_start();
 	}
 </style>
 <title>Tu Cine</title>
+<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: false"></div>
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
 <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-pull.css"); ?>" />
 <link rel="stylesheet" href="<?php echo base_url("assets/css/login.css"); ?>" />
 
 <?php $this->load->view('registro/scripts');?>
 <?= script_tag('assets/js/login/login.js') ?>
+
 </head>
 
 <body>
@@ -117,6 +119,7 @@ session_start();
 </footer><!--/footer-->
 
 <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
+
 </body>
 
 </html>

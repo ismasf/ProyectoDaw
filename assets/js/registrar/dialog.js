@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	
+	
 	$('div.remodal').load("/Proyecto/assets/html/registro.html");
 	inst = $('[data-remodal-id=modal]').remodal();
     
@@ -248,7 +249,7 @@ $.validator.addMethod("dateFormat",
                 		 
                 		 segundos=5;
                 		idInterval = setInterval(function() {
-                			 
+                			 inst = $('[data-remodal-id=modal]').remodal();
                 	         
                 	 			
                 	         
