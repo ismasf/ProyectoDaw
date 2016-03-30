@@ -10,7 +10,8 @@ class Entrada extends CI_Controller{
 		session_start ();
 		
 		R::close();
-		$this->load->view("entrada/aConfirmar");
+		$this->template->load("plantilla","entrada/aConfirmar");
+		//$this->load->view("entrada/aConfirmar");
 	}
 	
 	public function confirmar(){
@@ -37,7 +38,8 @@ class Entrada extends CI_Controller{
 		$this->entradareservafactura_model->crearEntradareservafactura($idFactura,$idEntradas);
 		
 		R::close();
-		$this->load->view("entrada/Confirmar");
+		//$this->load->view("entrada/Confirmar");
+		$this->template->load("plantilla","entrada/Confirmar");
 	}
 	
 	

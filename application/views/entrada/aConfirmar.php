@@ -1,6 +1,6 @@
 <?php 
-session_name("cineProyecto");
-session_start();
+//session_name("cineProyecto");
+//session_start();
 
 $asientos=$_GET["asientos"];
 $sesion=$_GET["sesion"];

@@ -14,7 +14,7 @@ Pagina de Pelicula
 	<div class="col-md-10">
 		<div class="media-left">
 			<img width="150" height="200"
-				src="<?= base_url()?>assets/img/<?=$pelicula->id?>.png">
+				src="<?= base_url()?>assets/img/pelicula/<?=$pelicula->id?>.png">
 		</div>
 		<div class="media-body">
 			

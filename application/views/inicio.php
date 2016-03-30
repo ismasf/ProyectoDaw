@@ -30,7 +30,7 @@ CARTELERA:<br>
 					
 						<div class="item <?php if ($b==0):?>active<?php endif;?>">
 							<div class="contenedor">
-							<img src="<?= base_url()?>assets/img/<?=$pelicula["id"]?>.png" class="img-responsive"/>
+							<img src="<?= base_url()?>assets/img/pelicula/<?=$pelicula["id"]?>.png" class="img-responsive"/>
 							</div>
 							<div class="carousel-caption">
 								<h3><?=$pelicula["titulo"]?></h3>
