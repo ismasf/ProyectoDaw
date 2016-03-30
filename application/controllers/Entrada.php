@@ -4,6 +4,10 @@ class Entrada extends CI_Controller{
 	
 	public function index(){
 		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
 		
 		R::close();
 		$this->load->view("entrada/aConfirmar");
@@ -11,6 +15,10 @@ class Entrada extends CI_Controller{
 	
 	public function confirmar(){
 		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
 		$hoy = date("Y-m-d H:i:s");
 		$asientos = preg_split("/[,]/",$_GET["asientos"]);
 		//print_r($asientos);

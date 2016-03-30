@@ -87,7 +87,10 @@ class Usuarios_model extends CI_Model{
 </html>';
             // Also, for getting full html you may use the following internal method:
             //$body = $this->email->full_html($subject, $message);
-
+            
+            $this->load->library('email');
+            
+            
             $result = $this->email
                 ->from('cinemaproyecto2016@gmail.com')
                 ->reply_to('cinemaproyecto2016@gmail.com')    // Optional, an account where a human being reads.

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	
-	$('div.remodal').load("/Proyecto/assets/html/registro.html");
+	$('div.remodal').load(baseUrl+"assets/html/registro.html");
 	inst = $('[data-remodal-id=modal]').remodal();
     
     
@@ -151,7 +151,7 @@ $.validator.addMethod("dateFormat",
                 email:true,
                 required:true,
                 remote: {
-                                url: "/Proyecto/Usuarios/comprobarEmail",  //<?=base_url()?>assets/css/estilo.css">
+                                url: baseUrl+"Usuarios/comprobarEmail",  //<?=base_url()?>assets/css/estilo.css">
                                 type: "post",
                                 data: {
                                 username: function() {
@@ -256,8 +256,8 @@ $.validator.addMethod("dateFormat",
                 			segundos--;
                 			if(segundos<1){
                 				clearInterval(idInterval);
-                				$('div.remodal').load("/Proyecto/assets/html/registro.html");
-                				window.location.replace("/Proyecto");
+                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+                				window.location.replace(baseUrl);
                 				inst.close();
                 				
                 			}
@@ -292,7 +292,7 @@ $.validator.addMethod("dateFormat",
  
          
  			clearInterval(idInterval);
- 			$('div.remodal').load("/Proyecto/assets/html/registro.html");
+ 			$('div.remodal').load(baseUrl+"assets/html/registro.html");
          inst.close();
     	
     	

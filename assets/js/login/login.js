@@ -42,7 +42,7 @@ $(document).ready(function(){
 
         	 $.ajax({
                  type: "POST",
-                 url: "Usuarios/login",
+                 url: baseUrl+"Usuarios/login",
                  data: $(form).serialize(),
                  success: function (response) {
                      
@@ -80,7 +80,7 @@ $(document).ready(function(){
 		
 		$.ajax({
             type: "POST",
-            url: "Usuarios/desconectar",
+            url: baseUrl+"Usuarios/desconectar",
             
             success: function (response) {
                 

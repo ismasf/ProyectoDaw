@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+baseUrl = "<?=base_url()?>";
+</script>
 <?php
-session_name ( "cineProyecto" );
+/*session_name ( "cineProyecto" );
 ini_set ( "session.cookie_lifetime", "7200" );
 ini_set ( "session.gc_maxlifetime", "7200" );
 
-session_start ();
+session_start ();*/
 
 ?>
 

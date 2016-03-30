@@ -14,12 +14,20 @@ class Sesion extends CI_Controller{
 		$this->load->model("entradareserva_model");
 		$datos["reservas"]=$this->entradareserva_model->getAsientosReservadosSesion($datos["sesion"]->id);
 		*/
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		
+		//$datos["sesion"]=$_SESSION;
 		$datos["idAle"]=$idAleatoria = rand(1, 20000);
 		R::close();
-		$this->load->view("sesion/sesion",$datos);
+		//$this->load->view("sesion/sesion",$datos);
+		$this->template->load("plantilla","sesion/sesion",$datos);
 	}
 
 	public function getMapaAsientos($idAle){
+		
 		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 		$idSesion = $_GET["sesion"];
 		

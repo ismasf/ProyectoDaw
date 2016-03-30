@@ -50,8 +50,8 @@ function asientoDesbloquear(id){
 <body>
 <?php
 
-session_name("cineProyecto");
-session_start();
+//session_name("cineProyecto");
+//session_start();
 print_r($_SESSION);
 ?>
 	<br>Estas con el usuario, <?=isset($_SESSION["idUser"])?$_SESSION["idUser"]:"No has iniciado sesion"?>.<br>
