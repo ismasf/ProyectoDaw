@@ -27,6 +27,48 @@ class Usuarios_model extends CI_Model{
 		
 	}
 	
+	public function emailOlvidado($correo){
+		
+		$result = R::getAll("SELECT * FROM usuario WHERE user = :correo", array(':correo'=>$correo));
+		
+		$cantidad=count($result);
+		
+		if($cantidad=="0"){
+			echo "false";
+		
+		}else{
+			echo "true";
+		}
+		
+		
+		
+		
+	}
+	
+	
+	public function restablecerClaveEmail($correo){
+		
+		$ci =& get_instance();
+		$ci->load->helper('correo');
+		$result=restablecerClave2($correo);
+		
+		if(strlen($result)=="8"){
+		
+			$password = password_hash($result, PASSWORD_BCRYPT);
+		
+			$query="UPDATE usuario SET hash='$password' WHERE user='$correo'";
+		
+			$estado=R::exec( $query );
+		
+			if($estado){
+				echo "ok";
+			}else{
+				echo "false";
+			}
+			
+	}
+	}
+	
 	
 	public function guardarUsuario($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha){
 		
@@ -45,7 +87,9 @@ class Usuarios_model extends CI_Model{
 			$date = str_replace('/', '-', $fecha);
 			$dateFormat= date('Y-m-d', strtotime($date));
 			
+			$uniqid=uniqid ();
 			$usuario = R::dispense('usuario');
+			$usuario->uniqid =$uniqid;
 			$usuario->nombre=$nombre;
 			$usuario->apellidos=$apellidos;
 			$usuario->user=$correo;
@@ -61,7 +105,7 @@ class Usuarios_model extends CI_Model{
 			
 			//https://github.com/ivantcholakov/codeigniter-phpmailer
 			
-			$this->load->library('email');
+			/*$this->load->library('email');
 
             $subject = 'Verificacion Cine DAW2';
             $message = '<p>Por favor verifique su correo electronico atraves de este enlace: </p><br>';
@@ -106,7 +150,12 @@ class Usuarios_model extends CI_Model{
 		///..:::FIN ENVIAR CORREO::....	
 			
 		
-        ///...:::Respuesta AJAX:::......
+        ///...:::Respuesta AJAX:::......*/
+        
+			$ci =& get_instance();
+			$ci->load->helper('correo');
+        
+			$result=enviarCorreoConfirmacionUsuario($nombre, $apellidos, $correo, $uniqid);
         
             
             if($result){
@@ -133,9 +182,9 @@ class Usuarios_model extends CI_Model{
 	}
 
 
-	public function verificarCorreo($correo){
+	public function verificarCorreo($uniqid){
 		
-		$query="UPDATE usuario SET verificado='SI' WHERE user='$correo'";
+		$query="UPDATE usuario SET verificado='SI' WHERE uniqid='$uniqid'";
 		
 		$estado=R::exec( $query );
 		return $estado;

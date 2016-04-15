@@ -45,6 +45,7 @@ footer {
 <title>Tu Cine</title>
 <div class="remodal" data-remodal-id="modal"
 	data-remodal-options="hashTracking: false, closeOnOutsideClick: false"></div>
+
 <link rel="stylesheet"
 	href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
 <link rel="stylesheet"
@@ -97,6 +98,7 @@ footer {
 								<label class="change-color-sm">Contrase&ntilde;a: </label> <input
 									name="loginpassword" id="loginpassword" type="password"
 									placeholder="Contrase&ntilde;a"><br>
+									<br><a href="#" id="idOlvidado">&iquestHas olvidado la Contrase&ntilde;a?</a><br>
 								<br> <input type="submit" id="btnLogin" class="btn"
 									value="login">
 							</form>

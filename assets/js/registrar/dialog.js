@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	
 	
+	
 	$('div.remodal').load(baseUrl+"assets/html/registro.html");
 	inst = $('[data-remodal-id=modal]').remodal();
     
@@ -76,7 +77,7 @@ $.validator.addMethod("dateFormat",
  
     $('#btnRegistrar').on('click',function(){
         
-    	
+    	$('div.remodal').load(baseUrl+"assets/html/registro.html", validacionRegistrar);
         
          
          inst.open();
@@ -84,6 +85,13 @@ $.validator.addMethod("dateFormat",
          
          
          
+         
+    });
+    
+    
+    function validacionRegistrar(){
+        
+        
          //....:::::DatePicker:::::....
          
          var fechaHoy=new Date();
@@ -284,8 +292,13 @@ $.validator.addMethod("dateFormat",
           
           
           
-      }); 
-    });
+      });
+        
+        
+        
+        
+        
+    }
     
     $("div.remodal").on('click', 'a', function(){
     	
@@ -396,7 +409,6 @@ $.validator.addMethod("dateFormat",
         </label>
        
     </div>
-
         </div>
     
         
@@ -408,8 +420,3 @@ $.validator.addMethod("dateFormat",
     
     
 });
-
-
-
-    
-    

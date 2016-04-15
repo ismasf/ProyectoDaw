@@ -15,6 +15,29 @@ function comprobarEmail(){
 	
 }
 
+function comprobarEmailOlvidado(){
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	$correo=$this->input->post('idCorreoOlvidado');
+	$this->load->model ( 'Usuarios_model', '', true );
+	$this->Usuarios_model->emailOlvidado ($correo);
+	//$this->load->view ('welcome_message');
+
+
+
+
+}
+
+
+function restablecerClave(){
+	
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	$correo=$this->input->post('idCorreoOlvidado');
+	$this->load->model ( 'Usuarios_model', '', true );
+	$this->Usuarios_model->restablecerClaveEmail($correo);
+	
+	
+}
+
 function guardar(){
 	
 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
@@ -24,9 +47,10 @@ function guardar(){
 	$correo=$this->input->post('idCorreo');
 	$contraseña=$this->input->post('idPassword');
 	$fecha=$this->input->post('idFechaN');
+	$id=uniqid();
 	
 	$this->load->model ( 'Usuarios_model', '', true );
-	$datos ['status'] = $this->Usuarios_model->guardarUsuario ($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha);
+	$datos ['status'] = $this->Usuarios_model->guardarUsuario ($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha, $id);
 	
 	
 }
@@ -35,10 +59,10 @@ function verificarCorreo(){
 	
 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	
-	$correo=$this->input->get('correo');
+	$uniqid=$this->input->get('id');
 	
 	$this->load->model ( 'Usuarios_model', '', true );
-	$datos ['status'] = $this->Usuarios_model->verificarCorreo ($correo);
+	$datos ['status'] = $this->Usuarios_model->verificarCorreo ($uniqid);
 	$this->load->view('registro/verificado',$datos);
 	
 	
