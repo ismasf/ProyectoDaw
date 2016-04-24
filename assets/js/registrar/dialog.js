@@ -247,7 +247,7 @@ $.validator.addMethod("dateFormat",
 
         	 $.ajax({
                  type: "POST",
-                 url: "Usuarios/guardar",
+                 url: baseUrl+"Usuarios/guardar",
                  data: $(form).serialize(),
                  success: function (response) {
                      
@@ -312,6 +312,171 @@ $.validator.addMethod("dateFormat",
     	
     	
     })
+    
+    
+    
+    $('#miFormUpdate').validate({
+        
+    	errorElement: 'span',
+        errorClass: 'help-inline',
+        
+        errorPlacement: function(error, element) {error.appendTo (element.siblings(".errordiv")); },
+    	
+    	
+        rules: 
+        {
+          idNombre: {
+            required: true,
+            lettersonly: true,
+              maxlength: 10,
+              minlength: 3
+          },
+            idApellidos: {
+                required: true,
+            lettersonly: true,
+              maxlength: 25,
+              minlength: 4
+                
+                
+            },
+            
+            idCiudad: {
+                required: true,
+            lettersonly: true,
+              maxlength: 10,
+              minlength: 3
+                
+                
+            },
+            
+            
+            idFechaN: {
+                
+                dateFormat: true,
+                required: true
+            },
+            
+            
+            
+            idPassword: {
+                required: true,
+            letterDigitsOnly: true,
+              maxlength: 25,
+              minlength: 4
+                
+                
+            }, 
+            
+             idPasswordConfirm: {
+                required: true,
+            equalTo: '#idPassword',
+              maxlength: 25,
+              minlength: 4
+                
+                
+            }, 
+            
+            
+        },
+          
+        messages: 
+        {
+          idNombre:{
+            required: "Por favor, introduzca su nombre",
+              maxlength: "Nombre demasiado largo",
+              minlength: "Nombre demasiado corto"
+          },
+            
+            idApellidos:{
+            required: "Por favor, introduzca sus apellidos",
+              maxlength: "Apellidos demasiados largos",
+              minlength: "Apellidos demasiados cortos"
+          },
+            
+            idFechaN:{
+                
+                required: "Por favor, introduzca su fecha de nacimiento"
+                
+                
+            },
+            
+            
+            idCiudad: {
+                required: "Introduzca su ciudad",
+                maxlength: "Ciudad demasiado larga",
+              minlength: "Ciudad demasiado corta"
+            },
+            
+            idPassword: {
+                required: "Introduzca su contraseña",
+                maxlength: "Contraseña demasiado larga",
+              minlength: "Contraseña demasiado corta",
+                
+            },
+            idPasswordConfirm: {
+                required: "Repita su contraseña",
+                maxlength: "Contraseña demasiado larga",
+              minlength: "Contraseña demasiado corta",
+            equalTo: "Las contraseñas no coinciden"
+                
+            }
+            
+            
+        },
+          
+         submitHandler: function(form) {
+            
+        /*$(form).ajaxSubmit();*/
+        	 
+
+        	 $.ajax({
+                 type: "POST",
+                 url: baseUrl+"Usuarios/actualizar",
+                 data: $(form).serialize(),
+                 success: function (response) {
+                     
+                	 if(response.trim()=="ok"){
+                		 //alert("bien")
+                		 $('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+                		 inst.open();
+                		 segundos=5;
+                		idInterval = setInterval(function() {
+                			 inst = $('[data-remodal-id=modal]').remodal();
+                	         
+                	 			
+                	         
+                			segundos--;
+                			if(segundos<1){
+                				clearInterval(idInterval);
+                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+                				window.location.replace(baseUrl);
+                				inst.close();
+                				
+                			}
+                			
+                			
+                		},500);
+                		
+                		
+                		 
+                	 }else{
+                		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+                	 }
+                	 
+                 }
+                     });
+        	 
+        	 
+        	 
+        	 
+  } 
+        	 
+        	 
+          
+          
+          
+          
+      });
 
           /*$('#miForm').on('submit',function(e){
     

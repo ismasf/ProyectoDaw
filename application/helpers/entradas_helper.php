@@ -13,43 +13,57 @@ $html=<<<HTML
     <head>
         
         <style>
+		
+			p{
+		color:#ffffff;
+		
+		}
+		
+		label{
+		
+		color: grey;
+		}
             
-            #imagen{
+            img{
                 
-                float:left;
-                margin-left: 3%;
-                margin-top:3%;
-                width: 49%;
-                height: 90%;
+                
+                width: 100%;
+                height: 150px;
                 
                 
             }
             
+         
             
-            #cartel{
-                
-                
-                border-radius: 10%;
-                box-shadow: 10px 10px 5px #6E1015;
-                -webkit-box-shadow: 10px 10px 5px #6E1015;
-                -moz-box-shadow: 10px 10px 5px #6E1015;
-            }
-            #entrada{
+            table{
                 position: relative;
                 border:2px solid black;
                 border-radius: 10%;
                 
                 background-color: darkred;
-                width: 100%;
-                height: 80%;
+                
+                width: 700px;
+                height: 150px;
+                
             }
+		
+		
+            td{
+                width: 40%;
+                height: 300px;
+            }
+            
+            
+            
             #datosPelicula{
                 position: relative;
                 float: left;
                 margin-top: 5%;
-                width: 47%;
-                height: 60%;
+                width: 50%;
+                height: 40%;
+                
             }
+            
             
             
             div#usuario{
@@ -57,64 +71,61 @@ $html=<<<HTML
                 float: left;
                 
             }
-            div#usuario p{
-                position: relative;
-                float: right;
-                
-                
-            }
+            
             img{
-                width: 80%;
-                height: 70%;
+                width: 50%;
+                height: 40%;
             }
             
+            p{
+                margin: 0;
+                padding: 0;
+                margin-top: 5px;
+                
+            }
+            
+            table p{
+                color: #ffffff;
+                font-size: 100%;
+                
+            }
+            
+            label{
+                color: gray;
+                
+            }
             
             #contenedor{
-                position: absolute;
+                /*position: absolute;
                 border:2px solid black;
                 
-                width: 700px;
-                height: 400px;
+                width: 300px;
+                height: 150px;*/
                 
                 
             }
         
         </style>
-		
-		
-		
-		<style>
-		
-		#datosPelicula label{
-				
-                color:white;
-                font-size: 175%;
-            }
-            p{
-                display: inline;
-                color: white;
-                font-size: 170%;
-            }
-            
-		
-		
-		</style>
-        
         
     </head>
     
     <body>
        
         <div id="contenedor">
-        <p>Aqui tiene su entrada, puede presentarla a la entrada del cine. Que disfrute</p>
+        <h1>Aqui tiene su entrada, puede presentarla a la entrada del cine. Que disfrute</h1><br><br>
         
-        <div id="entrada">
-            <div id="imagen">
-                <img id="cartel"  src="http://localhost/Proyecto/assets/img/1.png">
-            </div>
+        
             
-            <div id="datosPelicula">
+            <table >
             
+                <tr>
+                
+                    <td ><img id="cartel"  src="http://localhost/Proyecto/assets/img/pelicula/1.png"></td>
+                    <td>
+                    
+                     <div id="datosPelicula" style="width:400px">
+                
+                <label>Usuario:</label><br><p>Carlos Garbajosa Barroso</p><br>        
                 <label>Pelicula:</label><br><p>Batman v Superman</p><br>
                 <label>Fecha:</label><br><p>30/03/2016</p><br>
                 <label>Hora:</label><br><p>20:00</p><br>
@@ -122,20 +133,24 @@ $html=<<<HTML
                 <label>Asientos:</label><br><p>10f20a</p><br>
                 
             </div>
-            
-            <div id="usuario">
-             
+                    
+                    </td>
+                    
+                </tr>
                 
-                    <p id="comprador">Carlos Garbajosa Barroso</p>
+                
             
+            
+            </table>
+        
+            
+        
+        
+        
             </div>
         
-            
         
         
-        </div>
-            </div>
-    
     </body>
 
 </html>

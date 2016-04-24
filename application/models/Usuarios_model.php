@@ -1,6 +1,6 @@
 <?php
-session_name("cineProyecto");
-session_start();
+//session_name("cineProyecto");
+//session_start();
 
 require_once ('application/libraries/rb.php');
 
@@ -234,8 +234,71 @@ class Usuarios_model extends CI_Model{
 		
 	}
 
+	public function datosUser($usuarioId) {
+		
+		$result = R::getAll("SELECT * FROM usuario WHERE id = :usuarioId", array(':usuarioId'=>$usuarioId));
+		
+		return $result;
+		
+		
+	}
 
-
+	
+	public function actualizarUsuario($nombre, $apellidos, $ciudad, $contraseña, $fecha){
+	
+	
+		
+	
+		
+				
+			$password = password_hash($contraseña, PASSWORD_BCRYPT);
+				
+			//recuperar con $iguales = password_verify($original, $codificado);
+				
+				
+			$date = str_replace('/', '-', $fecha);
+			$dateFormat= date('Y-m-d', strtotime($date));
+				
+			$usuario= R::load( 'usuario', $_SESSION['idUser'] );
+			
+			
+			$usuario->nombre=$nombre;
+			$usuario->apellidos=$apellidos;
+			
+			$usuario->ciudad=$ciudad;
+			$usuario->hash=$password;
+			$usuario->fechanacimiento=$dateFormat;
+			
+				
+			$id=R::store($usuario);
+				
+				
+	
+			///...:::Respuesta AJAX:::......*/
+	
+			
+	
+	
+			if($id){
+				echo "ok";
+			}else{
+				echo "false";
+			}
+				
+				
+				
+				
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	}
 }
 
 

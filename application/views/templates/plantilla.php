@@ -111,7 +111,7 @@ footer {
 						href="#" data-toggle="dropdown" id="navLogin"><?= $_SESSION['correoUser']; ?></a>
 						<div class="dropdown-menu" style="padding: 17px;">
 
-							<a href="#">Mi cuenta</a>
+							<a href="<?=base_url()?>Usuarios/zonaUser">Mi cuenta</a>
 							<button class="btn" id="idBtnDesconectar">Desconectar</button>
 						</div>
             <?php endif;?>
