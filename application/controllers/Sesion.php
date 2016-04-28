@@ -39,6 +39,9 @@ class Sesion extends CI_Controller{
 		
 		$this->load->model("entradareserva_model");
 		$datos["reservas"]=$this->entradareserva_model->getAsientosReservadosSesion($datos["sesion"]->id);
+
+		$this->load->model("sala_model");
+		$datos["sala"]=$this->sala_model->getSalaId($datos["sesion"]->sala_id);
 		
 		$this->load->model("asientosbloqueados_model");
 		$this->asientosbloqueados_model->borrarAsientosInactivos();
