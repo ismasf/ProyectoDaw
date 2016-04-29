@@ -1,8 +1,9 @@
 <br>
 <br>
+<form action="<?= base_url()?>administrador/crearSesionesPost">
 <?php 
 print_r($peliculas);
-echo "<br><select>";
+echo "<br><select name='pelicula'>";
 foreach ($peliculas as $pelicula) {
 	echo "<option value='".$pelicula['id']."'>".$pelicula['titulo']."</option>";
 }
@@ -10,7 +11,7 @@ echo "</select>";
 
 
 ?>
-<form action="<?= base_url()?>administrador/crearSesionesPost">
+
 <br>
 DE: 
 <select name="dia1">
@@ -76,6 +77,15 @@ A:
 	<option value="21:00">21:00</option>
 	<option value="22:00">22:00</option>
 </select>
+<?php 
+echo "<br><select name = 'sala'>";
+foreach ($salas as $sala) {
+	echo "<option value='".$sala['id']."'>".$sala['id']."</option>";
+}
+echo "</select>";
+
+
+?>
 <br>
 <input type="submit"></input>
 </form>

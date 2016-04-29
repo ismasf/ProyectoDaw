@@ -45,7 +45,8 @@ ______________________
 Tiene estas sesiones:
 <br>
 <?php foreach ($sesiones as $sesion):?>
-<a href="<?=base_url()?>sesion?idSesion=<?=$sesion["id"]?>"><?= substr($sesion["hora"], 11)?></a>
+
+Dia:<?=substr($sesion["hora"],8,2)?> <a href="<?=base_url()?>sesion?idSesion=<?=$sesion["id"]?>"><?= substr($sesion["hora"], 11)?></a>
 <br>
 <?php endforeach;?>
 
