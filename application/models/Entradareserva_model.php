@@ -9,7 +9,7 @@ class Entradareserva_model extends CI_Model{
 	
 	}
 	
-	public function crearEntradaReserva($fecha,$sala,$sesion,$asientos){
+	public function crearEntradaReserva($fecha,$sala,$sesion,$asientos,$precio){
 		$id=array();
 		foreach ($asientos as $asiento){
 			$entradareserva = R::dispense("entradareserva");
@@ -17,6 +17,7 @@ class Entradareserva_model extends CI_Model{
 			$entradareserva -> asientos_id = $asiento;
 			$entradareserva -> sala_id = $sala;
 			$entradareserva -> sesion_id = $sesion;
+			$entradareserva -> precio = $precio;
 			R::store($entradareserva);
 			array_push($id, $entradareserva-> id);
 		}
