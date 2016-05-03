@@ -31,5 +31,14 @@ class Pelicula_model extends CI_Model{
 		move_uploaded_file( $_FILES [ 'userfile' ][ 'tmp_name' ],"assets/img/pelicula/$i");
 	}
 
+	public function getTodasPeliculas(){
+		
+		$peli = R::getAll("Select * from pelicula");
+		
+		return $peli;
+		
+		
+	}
+
 
 }
