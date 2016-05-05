@@ -30,6 +30,12 @@ class Factura_model extends CI_Model{
 		
 		return $result;
 	}
+
+	public function ingresosTotales(){
+		$result = R::getAll("SELECT SUM(precio) precio FROM entradareserva");
+		
+		return $result;
+	}
 	
 	
 }

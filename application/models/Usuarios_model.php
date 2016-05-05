@@ -299,6 +299,12 @@ class Usuarios_model extends CI_Model{
 	
 	
 	}
+
+	public function getCantidadUsuarios(){
+		$result = R::getAll("SELECT Count(Id) AS cantidad FROM usuario");
+		
+		return $result;
+	}
 }
 
 

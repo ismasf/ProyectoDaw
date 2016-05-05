@@ -12,6 +12,7 @@ class Administrador extends CI_Controller{
 		R::close();
 		$this->template->load("plantilla","administrador/index");
 		//$this->load->view("entrada/aConfirmar");
+		
 	}
 	public function principal(){
 		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
@@ -19,9 +20,16 @@ class Administrador extends CI_Controller{
 		ini_set ( "session.cookie_lifetime", "7200" );
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
+		$this->load->model('usuarios_model');
+		$datos['cUsuarios']= $this->usuarios_model->getCantidadUsuarios();
+		$this->load->model('factura_model');
+		$datos['ingresosTotales']= $this->factura_model->ingresosTotales();
+		$this->load->model('entradareserva_model');
+		$datos['datoCant']=$this->entradareserva_model->datosCantidadSemana();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/principal");
+		//$this->template->load("plantilla","administrador/principal");
+		$this->load->view("prueba/Prue",$datos);
 		//$this->load->view("entrada/aConfirmar");
 	}
 
@@ -67,7 +75,8 @@ class Administrador extends CI_Controller{
 		
 		
 		R::close();
-		$this->template->load("plantilla","administrador/crearPelicula");
+		$this->load->view("administrador/crearPelicula");
+		//$this->template->load("plantilla","administrador/crearPelicula");
 
 	}
 
