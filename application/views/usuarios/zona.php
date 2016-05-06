@@ -1,95 +1,56 @@
-<?php
-?>
 
-
-
-<?php if(isset($_SESSION['idUser'])):
-
-?>
-<br><br>
-<h1>Hola bienvenido, <?=$datos[0]['nombre']." ".$datos[0]['apellidos']?>.</h1>
-
-<h3>En esta pagina podras modificar tus datos personales, descargar tus entradas y mucho mas.</h3>
-
-<form id="miFormUpdate" action="Usuarios/guardar" method="post">    
-            
-            <div class="form-registrar">
-                
-                <div class="form-fondo-blanco">
-                
-                    <div class="form-row">
-                        <label>
-                            <span class="lab">Nombre: </span>
-                            <input type="text" id="idNombre" name="idNombre" value="<?=$datos[0]['nombre']?>" >
-                            <div class="errordiv"></div>
-                        </label>
-                        
-                    </div>
-                
-                 <div class="form-row">
-                    <label> 
-                         <span class="lab">Apellidos: </span>
-                        <input type="text" id="idApellidos" name="idApellidos" value="<?=$datos[0]['apellidos']?>" >
-                         <div class="errordiv"></div>
-                    </label>
-                    
-                </div>
-                    
-                     <div class="form-row">
-                         <label>
-                             <span class="lab">Ciudad: </span>
-                             <input type="text" id="idCiudad" name="idCiudad" value="<?=$datos[0]['ciudad']?>" >
-                              <div class="errordiv"></div>
-                        </label>
-                       
-                    </div>
-                
-            <div class="form-row">
-                
-                <label>
-                    <span class="lab">Fecha de Nacimiento: </span>
-                    <input type="text" id="idFechaN" name="idFechaN" value="<?=$datos[0]['fechanacimiento']?>">
-                     <div class="errordiv"></div>
-                </label>
-               
-            </div>
-            
-            
-            
-          <div class="form-row">
-              <label>
-                    <span class="lab">Nueva-Contrase&ntilde;a: </span>
-                    <input type="password" id="idPassword" name="idPassword" >
-                     <div class="errordiv"></div>
-              </label>
-              
-          </div>
-            
-           
-        <div class="form-row">
-            <label>
-                <span class="lab">Re-Contrase&ntilde;a: </span>
-                <input type="password" id="idPasswordConfirm" name="idPasswordConfirm" >
-                 <div class="errordiv"></div>
-            </label>
-           
+ 
+ 
+ 
+ <div class="container-fluid">
+          
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">Username</a>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
-  
-            </div>
-        
-            
-            <button type="submit"  class="remodal-confirm"  id="idBtnRegistrar">Actualizar</button>
-           
-        
-          </div>
-         </form>   
+      </div>
+    </div>
 
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-sm-2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+             <li class="nav-header">Entradas</li>
+              <li><a href="#">Facturas y Descargas</a></li>
+              <li><a id="" href="#">Promociones</a></li>
+              <li><a id="" href="#">Ultimos Estrenos</a></li>
+ 
+              <li class="nav-header">  Ajustes</li>
+              <li class="active"><a href="#" id="datosPersonales">Datos Personales</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Preguntas Frecuentes</a></li>
+         
+             
+              <!--  <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>-->
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="col-sm-10" id="containerUser">
+          <h1>Zona De Usuario</h1>
+         
+         En esta zona podras hacer muchas cosas, modificar tu perfil, descargar entradas, solicitar atencion personalizada, enterarte de los ultimos estrenos...
+      </div><!--/row-->
 
+      <hr>
 
+      <footer>
+        <p>&copy; Company 2013</p>
+      </footer>
 
-    <?php else :?>
-    
-    <h1>NO</h1>
-   
-    
-     <?php endif;?>
+    </div><!--/.fluid-container-->

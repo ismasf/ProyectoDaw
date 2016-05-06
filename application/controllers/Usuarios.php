@@ -190,13 +190,42 @@ function zonaUser(){
 	
 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	
-	$this->load->model ( 'Usuarios_model', '', true );
+	/*$this->load->model ( 'Usuarios_model', '', true );
 	$datos['datos']=$this->Usuarios_model->datosUser ($usuarioId);
 	
-	R::close();
-	$this->template->load("plantilla","usuarios/zona", $datos);
+	R::close();*/
+	
+	if(isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){
+		
+	$this->template->load("plantilla","usuarios/zona");
+	
+	}else{
+		$this->template->load("plantilla","usuarios/noLogin");
+		
+	}
 	
 }
+
+function obtenerDatos(){
+	
+	session_name ( "cineProyecto" );
+	ini_set ( "session.cookie_lifetime", "7200" );
+	ini_set ( "session.gc_maxlifetime", "7200" );
+	session_start ();
+	
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	$nombre=$this->input->post('username');
+	$this->load->model ( 'Usuarios_model', '', true );
+	$datos=$this->Usuarios_model->informacionZonaUser ($_SESSION['idUser']);
+	
+	
+	$this->output->set_output(json_encode($datos));
+	
+	
+	
+	
+}
+
 
 function actualizar(){
 	
