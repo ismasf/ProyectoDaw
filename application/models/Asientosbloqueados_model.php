@@ -39,7 +39,7 @@ class Asientosbloqueados_model extends CI_Model{
 		// Tiempo máximo de espera
 		//$fecha = date('Y-m-d H:i:s',strtotime("-5 minutes"));
 		$fecha = date('Y-m-d H:i:s',strtotime("-1 minutes"));
-		echo $fecha;
+		//echo $fecha;
 		R::exec("delete from asientosbloqueados where hora < :fecha",array(':fecha'=>$fecha)) ;
 	}
 	

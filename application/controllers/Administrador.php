@@ -26,10 +26,13 @@ class Administrador extends CI_Controller{
 		$datos['ingresosTotales']= $this->factura_model->ingresosTotales();
 		$this->load->model('entradareserva_model');
 		$datos['datoCant']=$this->entradareserva_model->datosCantidadSemana();
+		$this->load->model('pelicula_model');
+		$datos['topPelis']=$this->pelicula_model->getPeliculasTop();
 		
 		R::close();
+		$this->template->load("plantillaAdmin","administrador/principal", $datos);
 		//$this->template->load("plantilla","administrador/principal");
-		$this->load->view("prueba/Prue",$datos);
+		// $this->load->view("prueba/Prue",$datos);
 		//$this->load->view("entrada/aConfirmar");
 	}
 
@@ -47,7 +50,7 @@ class Administrador extends CI_Controller{
 		$datos['salas'] = $this->sala_model->getSalas();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/crearSesiones",$datos);
+		$this->template->load("plantillaAdmin","administrador/crearSesiones",$datos);
 		//$this->load->view("entrada/aConfirmar");
 	}
 	public function crearSesionesPost(){
@@ -61,7 +64,8 @@ class Administrador extends CI_Controller{
 		$this->sesion_model->crearSesiones();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/crearSesionesPost");
+
+		$this->template->load("plantillaAdmin","administrador/crearSesionesPost");
 		//$this->load->view("entrada/aConfirmar");
 	}
 
@@ -75,7 +79,9 @@ class Administrador extends CI_Controller{
 		
 		
 		R::close();
-		$this->load->view("administrador/crearPelicula");
+		
+		$this->template->load("plantillaAdmin","administrador/crearPelicula");
+		
 		//$this->template->load("plantilla","administrador/crearPelicula");
 
 	}
@@ -91,7 +97,7 @@ class Administrador extends CI_Controller{
 		$this->pelicula_model->crearPelicula();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/crearPeliculaPost");
+		$this->template->load("plantillaAdmin","administrador/crearPeliculaPost");
 	}
 
 	public function cartelera(){
@@ -109,7 +115,7 @@ class Administrador extends CI_Controller{
 		$data['cartelera']=$this->cartelera_model->getCarteleraId();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/cartelera",$data);
+		$this->template->load("plantillaAdmin","administrador/cartelera",$data);
 	}
 
 	public function carteleraEliminar($id){
@@ -123,7 +129,7 @@ class Administrador extends CI_Controller{
 		$this->cartelera_model->eliminarId($id);
 		
 		R::close();
-		$this->template->load("plantilla","administrador/carteleraEliminar");
+		$this->template->load("plantillaAdmin","administrador/carteleraEliminar");
 	}
 
 	public function carteleraAnadir($id){
@@ -137,7 +143,7 @@ class Administrador extends CI_Controller{
 		$this->cartelera_model->anadirId($id);
 		
 		R::close();
-		$this->template->load("plantilla","administrador/carteleraAnadir");
+		$this->template->load("plantillaAdmin","administrador/carteleraAnadir");
 	}
 
 	//SELECT SUM(er.precio) Precio, f.id, u.nombre, COUNT(er.asientos_id) Asientos FROM entradareserva er, entradareserva_factura erf, factura f, usuario u where erf.entradareserva_id = er.id AND f.id = erf.factura_id AND u.id = f.usuario_id GROUP BY erf.factura_id
@@ -155,8 +161,25 @@ class Administrador extends CI_Controller{
 		$data['informe'] = $this->factura_model->informeFactura();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/informeFactura",$data);
+		$this->template->load("plantillaAdmin","administrador/informeFactura",$data);
 	}
+
+	// public function crearAsientos(){
+	// 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	// 	session_name ( "cineProyecto" );
+	// 	ini_set ( "session.cookie_lifetime", "7200" );
+	// 	ini_set ( "session.gc_maxlifetime", "7200" );
+	// 	session_start ();
+	// 	$this->load->model('asientos_model');
+	// 	$this->asientos_model->crearAsientos();
+		
+		
+	// 	R::close();
+	// 	$this->template->load("plantillaAdmin","administrador/principal", $datos);
+	// 	//$this->template->load("plantilla","administrador/principal");
+	// 	// $this->load->view("prueba/Prue",$datos);
+	// 	//$this->load->view("entrada/aConfirmar");
+	// }
 	
 	
 }
