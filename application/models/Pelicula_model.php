@@ -31,5 +31,20 @@ class Pelicula_model extends CI_Model{
 		move_uploaded_file( $_FILES [ 'userfile' ][ 'tmp_name' ],"assets/img/pelicula/$i");
 	}
 
+	public function getTodasPeliculas(){
+		
+		$peli = R::getAll("Select * from pelicula");
+		
+		return $peli;
+		
+		
+	}
+
+	public function getPeliculasTop(){
+		$peli = R::getAll("SELECT COUNT(erf.Id) cant, er.sesion_id, p.titulo FROM entradareserva_factura erf, entradareserva er, sesion s, pelicula p WHERE erf.entradareserva_id = er.id AND er.sesion_id = s.id AND s.pelicula_id = p.id GROUP BY p.titulo ORDER BY cant DESC LIMIT 3");
+
+		return $peli;
+	}
+
 
 }

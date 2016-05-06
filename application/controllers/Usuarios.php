@@ -135,7 +135,8 @@ function desconectar(){
 }
 
 function pdfEntrada(){
-	//$this->load->library('m_pdf');
+	$this->load->library('m_pdf');
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	session_name ( "cineProyecto" );
 	ini_set ( "session.cookie_lifetime", "7200" );
 	ini_set ( "session.gc_maxlifetime", "7200" );
@@ -149,13 +150,13 @@ function pdfEntrada(){
 		$this->load->model("factura_model");
 		$datos['datosFac'] = $this->factura_model->datosFactura ($idFactura);
 		
-		//$this->load->model ( 'Usuarios_model', '', true );
-		//$datos ['status'] = $this->Usuarios_model->emailExiste ("charly.9349@gmail.com");
+		$this->load->model ( 'Usuarios_model', '', true );
+		$datos ['status'] = $this->Usuarios_model->emailExiste ("charly.9349@gmail.com");
 		
 		
-		R::close();
 		
-		var_dump($datos);
+		print_r($datos);
+		//var_dump($datos);
 		
 		
 	}else{
@@ -171,7 +172,7 @@ function pdfEntrada(){
 	$this->load->helper('entradas');
 	entradaPdf("Carlos","Garbajosa Barroso","charly.9349@gmail.com","Batman v Superman","30/03/2016","1aac06","20:00");
 	echo "ok";
-	
+	R::close();
 	
 	
 }

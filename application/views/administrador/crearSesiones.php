@@ -24,7 +24,7 @@ DE:
 </select>
 <select name="mes1">
 	<?php
-		for($i=1;$i<12;$i++){
+		for($i=1;$i<=12;$i++){
 			echo "<option value='$i'>$i</option>";
 		}
 	?>
@@ -78,7 +78,7 @@ A:
 	<option value="22:00">22:00</option>
 </select>
 <?php 
-echo "<br><select name = 'sala'>";
+echo "<br>Sala: <select name = 'sala'>";
 foreach ($salas as $sala) {
 	echo "<option value='".$sala['id']."'>".$sala['id']."</option>";
 }

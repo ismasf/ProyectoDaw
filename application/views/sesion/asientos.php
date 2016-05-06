@@ -1,3 +1,10 @@
+<style type="text/css">
+	div{
+		margin-right: 30px; 
+	}
+
+</style>
+
 <?php
 
 if($sala['tipo']=='A'){
@@ -33,7 +40,7 @@ if($sala['tipo']=='A'){
 		$cont ++;
 	}
 }else if($sala['tipo']=='B'){
-	print_r($actuales);
+	//print_r($actuales);
 	$cont = 0;
 	foreach ( $asientos as $asiento ) {
 		$color = "verde";
@@ -52,17 +59,36 @@ if($sala['tipo']=='A'){
 				$color = "rojo";
 			}
 		}
-		if ($cont % 21 == 0) {		
-		//echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
-		//echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
-			echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
-		} else {
-		//echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+
+
+
+		if($cont==4){
+				echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+
+		}else if($cont == 13){
+			echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		}else{
 			echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
-		//echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
 		}
+
+
+		// if ($cont % 21 == 0) {		
+		// //echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+		// //echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+		// 	echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		// } else {
+		// //echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+		// 	echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		// //echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+		// }
 	
 		$cont ++;
+		if($cont==19){
+			$cont=0;
+		}
+		if($cont==0){
+			echo "<br>";
+		}
 	}
 }
 ?>

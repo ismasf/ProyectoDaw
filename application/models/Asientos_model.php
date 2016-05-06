@@ -8,6 +8,19 @@ class Asientos_model extends CI_Model{
 		return $asiento;
 	
 	}
+
+	public function crearAsientos(){
+		for($i=0; $i<15; $i++){
+			for($j=0; $j<19; $j++){
+				$asiento = R::dispense("asientos");
+				$asiento->nom = "f".$i."a".$j;
+				$asiento->sala_id = 2;
+				R::store($asiento);
+			}
+			
+		}
+		
+	}
 	
 	
 	

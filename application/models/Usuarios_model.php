@@ -308,15 +308,17 @@ public function  informacionZonaUser($usuarioId){
 	
 	
 	}
+
+	public function getCantidadUsuarios(){
+		$result = R::getAll("SELECT Count(Id) AS cantidad FROM usuario");
 	
+		return $result;
+	}
 	
-	
-	
+
+
+
 }
-
-
-
-
 
 
 

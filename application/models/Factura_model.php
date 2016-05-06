@@ -27,6 +27,18 @@ class Factura_model extends CI_Model{
 		return $result;
 		
 	}
+
+	public function informeFactura(){
+		$result = R::getAll("SELECT SUM(er.precio) Precio, f.id, u.nombre, COUNT(er.asientos_id) Asientos FROM entradareserva er, entradareserva_factura erf, factura f, usuario u where erf.entradareserva_id = er.id AND f.id = erf.factura_id AND u.id = f.usuario_id GROUP BY erf.factura_id");
+		
+		return $result;
+	}
+
+	public function ingresosTotales(){
+		$result = R::getAll("SELECT SUM(precio) precio FROM entradareserva");
+		
+		return $result;
+	}
 	
 	
 }

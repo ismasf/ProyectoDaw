@@ -17,6 +17,8 @@ class Pelicula extends CI_Controller{
 		R::close();
 		$this->template->load("plantilla","pelicula/pelicula",$data);
 	}
+
+	
 	
 	
 	

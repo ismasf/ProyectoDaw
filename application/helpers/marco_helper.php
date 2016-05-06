@@ -11,4 +11,5 @@ function enmarcar($controlador,$vista,$datos=[]) {
 	$controlador->load->view('templates/footer');
 	$controlador->load->view('templates/end');
 }
+
 ?>
