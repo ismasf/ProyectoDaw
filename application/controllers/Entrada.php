@@ -32,7 +32,7 @@ class Entrada extends CI_Controller{
 		$idFactura = $this->factura_model->crearFactura($idUsuario);
 		
 		$this->load->model("entradareserva_model");
-		$idEntradas = $this->entradareserva_model->crearEntradaReserva($hoy,$idSala,$idSesion,$asientos);
+		$idEntradas = $this->entradareserva_model->crearEntradaReserva($hoy,$idSala,$idSesion,$asientos,$_GET['precio']);
 		
 		$this->load->model("entradareservafactura_model");
 		$this->entradareservafactura_model->crearEntradareservafactura($idFactura,$idEntradas);

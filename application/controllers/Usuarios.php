@@ -53,7 +53,7 @@ function restablecerClave(){
 	$correo=$this->input->post('idCorreoOlvidado');
 	$this->load->model ( 'Usuarios_model', '', true );
 	$this->Usuarios_model->restablecerClaveEmail($correo);
-	
+	R::close();
 	
 }
 
@@ -75,7 +75,7 @@ function guardar(){
 	
 	$this->load->model ( 'Usuarios_model', '', true );
 	$datos ['status'] = $this->Usuarios_model->guardarUsuario ($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha);
-	
+	R::close();
 	
 }
 
@@ -92,6 +92,7 @@ function verificarCorreo(){
 	
 	$this->load->model ( 'Usuarios_model', '', true );
 	$datos ['status'] = $this->Usuarios_model->verificarCorreo ($uniqid);
+	R::close();
 	$this->load->view('registro/verificado',$datos);
 	
 	
@@ -113,7 +114,7 @@ function login(){
 		
 		$this->load->model ( 'Usuarios_model', '', true );
 		$datos ['status'] = $this->Usuarios_model->hacerLogin ($correo, $contraseña);
-		
+		R::close();
 	}
 	
 }
@@ -128,22 +129,50 @@ function desconectar(){
 	
 	$this->load->model ( 'Usuarios_model', '', true );
 	$datos ['status'] = $this->Usuarios_model->desconectarUser ();
+	R::close();
 	
 	
 }
 
-function crearPdf(){
-	//$this->load->library('m_pdf');
+function pdfEntrada(){
+	$this->load->library('m_pdf');
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	session_name ( "cineProyecto" );
 	ini_set ( "session.cookie_lifetime", "7200" );
 	ini_set ( "session.gc_maxlifetime", "7200" );
 	session_start ();
 	
+	$idFactura=$this->input->get('f')!=null?$this->input->get('f'):null;
+	$usuario=isset($_SESSION['correoUser'])?$_SESSION['correoUser']:null;
+	
+	if($idFactura!=null){
+		
+		$this->load->model("factura_model");
+		$datos['datosFac'] = $this->factura_model->datosFactura ($idFactura);
+		
+		$this->load->model ( 'Usuarios_model', '', true );
+		$datos ['status'] = $this->Usuarios_model->emailExiste ("charly.9349@gmail.com");
+		
+		
+		
+		print_r($datos);
+		//var_dump($datos);
+		
+		
+	}else{
+		
+		
+		echo "error page";
+		
+	}
+	
+	
+	
 	
 	$this->load->helper('entradas');
 	entradaPdf("Carlos","Garbajosa Barroso","charly.9349@gmail.com","Batman v Superman","30/03/2016","1aac06","20:00");
 	echo "ok";
-	
+	R::close();
 	
 	
 }
@@ -162,13 +191,42 @@ function zonaUser(){
 	
 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	
-	$this->load->model ( 'Usuarios_model', '', true );
+	/*$this->load->model ( 'Usuarios_model', '', true );
 	$datos['datos']=$this->Usuarios_model->datosUser ($usuarioId);
 	
-	R::close();
-	$this->template->load("plantilla","usuarios/zona", $datos);
+	R::close();*/
+	
+	if(isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){
+		
+	$this->template->load("plantilla","usuarios/zona");
+	
+	}else{
+		$this->template->load("plantilla","usuarios/noLogin");
+		
+	}
 	
 }
+
+function obtenerDatos(){
+	
+	session_name ( "cineProyecto" );
+	ini_set ( "session.cookie_lifetime", "7200" );
+	ini_set ( "session.gc_maxlifetime", "7200" );
+	session_start ();
+	
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	$nombre=$this->input->post('username');
+	$this->load->model ( 'Usuarios_model', '', true );
+	$datos=$this->Usuarios_model->informacionZonaUser ($_SESSION['idUser']);
+	
+	
+	$this->output->set_output(json_encode($datos));
+	
+	
+	
+	
+}
+
 
 function actualizar(){
 	
@@ -188,7 +246,7 @@ function actualizar(){
 	
 	$this->load->model ( 'Usuarios_model', '', true );
 	$datos ['status'] = $this->Usuarios_model->actualizarUsuario ($nombre, $apellidos, $ciudad, $contraseña, $fecha);
-	
+	R::close();
 	
 }
 

@@ -26,7 +26,8 @@
     <?= script_tag('assets/js/registrar/datepicker.es.js') ?>
     
     
-    
+       <?= link_tag('assets/css/zonaUser.css') ?>
+    <?= script_tag('assets/js/zonaUser/zonaUser.js') ?>
     
     <!-- ...:::Popup Cookies::... -->
     

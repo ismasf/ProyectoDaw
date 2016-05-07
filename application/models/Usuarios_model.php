@@ -242,6 +242,15 @@ class Usuarios_model extends CI_Model{
 		
 		
 	}
+	
+	
+public function  informacionZonaUser($usuarioId){
+	
+	$result = R::getAll("SELECT nombre, apellidos, fechanacimiento, ciudad FROM usuario WHERE id = :usuarioId", array(':usuarioId'=>$usuarioId));
+	return $result;
+	
+	
+}
 
 	
 	public function actualizarUsuario($nombre, $apellidos, $ciudad, $contraseña, $fecha){
@@ -299,11 +308,17 @@ class Usuarios_model extends CI_Model{
 	
 	
 	}
+
+	public function getCantidadUsuarios(){
+		$result = R::getAll("SELECT Count(Id) AS cantidad FROM usuario");
+	
+		return $result;
+	}
+	
+
+
+
 }
-
-
-
-
 
 
 
