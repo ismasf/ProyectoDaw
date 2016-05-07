@@ -18,7 +18,7 @@ session_start ();*/
 	content="width=device-width, user-scalable=no initial-scale=1">
 <style>
 body {
-	padding-top: 30px
+	padding-top: 30px;
 }
 
 footer {
