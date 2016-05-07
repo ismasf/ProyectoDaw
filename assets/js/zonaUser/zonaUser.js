@@ -7,7 +7,19 @@
 
 $(document).ready(function(){
 	
+$('body').on('click', 'button.descargar', function(e){
 	
+	
+	//alert($(e.target).attr('id'));
+	
+	alert(e.target.id)
+	
+	
+	
+	
+})
+
+
 	
 	
 	$('#datosPersonales').on('click',  function(){
@@ -34,6 +46,137 @@ $(document).ready(function(){
 	});
 	
 	
+	
+	$('a#facturasCliente').on('click',  function(){
+		
+		
+		$('div#containerUser').load(baseUrl+"assets/html/zonaUser/facturas.html",cargarDatosFacturas);
+		
+	});
+	
+	
+	
+	
+	function cargarDatosFacturas(){
+	
+		
+		
+		$.ajax({
+            type: "POST",
+            url: baseUrl+"Usuarios/obtenerFacturas",
+            data: {username:""},
+            success: function (response) {
+           	 
+           	 
+                
+           	 if(response.trim()!=""){
+           		
+           		 
+           		 var obj = JSON.parse(response);
+           		
+           		 
+           	  var tableI= document.createElement("table");
+           	  
+              var filaP= document.createElement("tr");
+              var columnaP= document.createElement("td");
+               var columnaP2= document.createElement("td");
+               var columnaP3= document.createElement("td");
+               var columnaP4= document.createElement("td");
+              var textNodeP = document.createTextNode("Id Factura");
+              var textNodeP2 = document.createTextNode("Nombre de Pelicula");
+              var textNodeP3= document.createTextNode("Fecha de la compra");
+              var textNodeP4= document.createTextNode("Descargar");
+              
+              tableI.appendChild(filaP);
+              filaP.appendChild(columnaP);
+              filaP.appendChild(columnaP2);
+              filaP.appendChild(columnaP3);
+              filaP.appendChild(columnaP4);
+              columnaP.appendChild(textNodeP);
+              columnaP2.appendChild(textNodeP2);
+              columnaP3.appendChild(textNodeP3);
+              columnaP4.appendChild(textNodeP4);
+              tableI.setAttribute("border","2");
+              
+              
+           		 
+           		$.each(obj['datosFac'], function (index, obj) {
+           			
+           			console.log(obj)
+           		   var filaI= document.createElement("tr");
+           		   var columna1= document.createElement("td");
+           		   var columna2= document.createElement("td");
+           		   var columna3= document.createElement("td");
+           		   var columna4= document.createElement("td");
+           		   var textNode1 = document.createTextNode(obj.factura_id);
+           		   var textNode2 = document.createTextNode(obj.titulo);
+           		   var textNode3= document.createTextNode(obj.fecha);
+           		   //var textNode4= document.createTextNode('<button class="remodal-confirm" type="submit" onclick="descargarFactura('+obj.factura_id+')">Descargar</button>');
+           		   
+           		   
+           		
+           		   
+           		   
+           		tableI.appendChild(filaI);
+                filaI.appendChild(columna1);
+                filaI.appendChild(columna2);
+                filaI.appendChild(columna3);
+                filaI.appendChild(columna4);
+                columna1.appendChild(textNode1);
+                columna2.appendChild(textNode2);
+                columna3.appendChild(textNode3);
+                columna4.innerHTML='<button class="remodal-confirm descargar" type="submit" id="'+obj.factura_id+'">Descargar</button>';
+               
+           			
+           		});
+           		
+           		console.log(tableI)
+           		
+           		document.getElementById("containerUser").appendChild(tableI);
+           		 
+           		
+           		 
+           		 
+           		 
+           		
+           		
+           		 
+           	 }else{
+           		 
+           		 
+           		 $('div.remodal').html('<h1>No hemos podido obtener la informacion de este usuario, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la pagina de usuarios, presione <a href="# id="zonaSocios">Aqui</a></p>');
+           		 inst.open();
+           		 segundos=5;
+           		idInterval = setInterval(function() {
+           			 inst = $('[data-remodal-id=modal]').remodal();
+           	         
+           	 			
+           	         
+           			segundos--;
+           			if(segundos<1){
+           				clearInterval(idInterval);
+           				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+           				window.location.replace(baseUrl);
+           				inst.close();
+           				
+           			}
+           			
+           			
+           		},500);
+           		 
+           		 
+           		 
+           	 }
+           	 
+            }
+                });
+		
+		
+		
+		
+		
+		
+	}
 	
 	
 		
@@ -69,6 +212,7 @@ $(document).ready(function(){
 	                		 
 	                		 
 	                		 var obj = JSON.parse(response);
+	                	
 	                		 
 	                		document.getElementById("idNombre").value=obj[0].nombre;
 	                		document.getElementById("idApellidos").value=obj[0].apellidos;

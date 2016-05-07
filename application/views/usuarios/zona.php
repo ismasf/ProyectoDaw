@@ -24,7 +24,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
              <li class="nav-header">Entradas</li>
-              <li><a href="#">Facturas y Descargas</a></li>
+              <li><a href="#" id="facturasCliente">Facturas y Descargas</a></li>
               <li><a id="" href="#">Promociones</a></li>
               <li><a id="" href="#">Ultimos Estrenos</a></li>
  

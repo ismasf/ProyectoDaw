@@ -23,7 +23,7 @@ class Entrada extends CI_Controller{
 		$hoy = date("Y-m-d H:i:s");
 		$asientos = preg_split("/[,]/",$_GET["asientos"]);
 		//print_r($asientos);
-		$idUsuario = 1;
+		$idUsuario = $_SESSION['idUser'];
 		$idSesion = $_GET["sesion"];
 		$this->load->model("sesion_model");
 		$idSala = $this->sesion_model->getSalaSesion($idSesion);
