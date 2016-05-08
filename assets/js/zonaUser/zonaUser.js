@@ -12,7 +12,55 @@ $('body').on('click', 'button.descargar', function(e){
 	
 	//alert($(e.target).attr('id'));
 	
-	alert(e.target.id)
+	var facturaID=e.target.id;
+	
+	window.location.replace(baseUrl+"Usuarios/descargarEntrada?idFact="+facturaID);
+	
+	
+	/*$.ajax({
+        type: "POST",
+        url: baseUrl+"Usuarios/descargarEntrada",
+        data: {idFact:facturaID},
+        success: function (response) {
+       	 
+       	 $(document).html(response);
+            
+       	 if(response!="si"){
+       		
+ 
+       		 /*$('div.remodal').html('<h1>No hemos podido obtener la de sus entradas<h1><br><br><p>Si quieres permanecer en la pagina de usuarios, presione <a href="# id="zonaSocios">Aqui</a></p>');
+       		 inst.open();
+       		 segundos=5;
+       		idInterval = setInterval(function() {
+       			 inst = $('[data-remodal-id=modal]').remodal();
+       	         
+       	 			
+       	         
+       			segundos--;
+       			if(segundos<1){
+       				clearInterval(idInterval);
+       				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+       				window.location.replace(baseUrl);
+       				inst.close();
+       				
+       			}
+       			
+       			
+       		},500);
+       		
+       		
+       		 
+       	 }
+       	 
+        }
+            });*/
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -76,7 +124,8 @@ $('body').on('click', 'button.descargar', function(e){
            		
            		 
            	  var tableI= document.createElement("table");
-           	  
+           	 
+           	  var cabecera=document.createElement("thead");
               var filaP= document.createElement("tr");
               var columnaP= document.createElement("td");
                var columnaP2= document.createElement("td");
@@ -86,8 +135,10 @@ $('body').on('click', 'button.descargar', function(e){
               var textNodeP2 = document.createTextNode("Nombre de Pelicula");
               var textNodeP3= document.createTextNode("Fecha de la compra");
               var textNodeP4= document.createTextNode("Descargar");
+              var cuerpo=document.createElement("tbody");
               
-              tableI.appendChild(filaP);
+              tableI.appendChild(cabecera);
+              cabecera.appendChild(filaP);
               filaP.appendChild(columnaP);
               filaP.appendChild(columnaP2);
               filaP.appendChild(columnaP3);
@@ -97,6 +148,9 @@ $('body').on('click', 'button.descargar', function(e){
               columnaP3.appendChild(textNodeP3);
               columnaP4.appendChild(textNodeP4);
               tableI.setAttribute("border","2");
+              
+              tableI.setAttribute("class"," table table-hover");
+             
               
               
            		 
@@ -117,7 +171,7 @@ $('body').on('click', 'button.descargar', function(e){
            		
            		   
            		   
-           		tableI.appendChild(filaI);
+           		cuerpo.appendChild(filaI);
                 filaI.appendChild(columna1);
                 filaI.appendChild(columna2);
                 filaI.appendChild(columna3);
@@ -129,6 +183,8 @@ $('body').on('click', 'button.descargar', function(e){
                
            			
            		});
+           		
+           	 tableI.appendChild(cuerpo);
            		
            		console.log(tableI)
            		
