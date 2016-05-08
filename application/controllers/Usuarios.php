@@ -135,6 +135,8 @@ function desconectar(){
 }
 
 function pdfEntrada(){
+	
+	
 	$this->load->library('m_pdf');
 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	session_name ( "cineProyecto" );
@@ -176,6 +178,93 @@ function pdfEntrada(){
 	
 	
 }
+
+
+
+
+/*function descargarEntrada(){
+	
+	$this->load->library('m_pdf');
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	session_name ( "cineProyecto" );
+	ini_set ( "session.cookie_lifetime", "7200" );
+	ini_set ( "session.gc_maxlifetime", "7200" );
+	session_start ();
+	
+	
+	
+	
+	
+}*/
+
+
+ function descargarEntrada(){
+
+	
+	
+	
+	session_name ( "cineProyecto" );
+	ini_set ( "session.cookie_lifetime", "7200" );
+	ini_set ( "session.gc_maxlifetime", "7200" );
+	session_start ();
+	
+	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	$idFact=$this->input->get('idFact');
+	$this->load->model ( 'factura_model', '', true );
+	$datos=$this->factura_model->obteneDatosEntradaFac ($idFact);
+	
+	
+	$this->load->model ( 'pelicula_model', '', true );
+	
+	
+	if(isset($datos) && $datos!=null ){
+		
+		$datosID=$this->pelicula_model->getIdPelicula ($datos[0]['titulo']);
+		$idPelicula=$datosID[0]['id'];
+		
+		
+		if(isset($idPelicula) || $idPelicula!=""){
+			
+			$this->load->helper('entradas');
+			descargarEntradaPdf($datos,$idPelicula);
+			
+			$this->output->set_output(json_encode("si"));
+			
+		}else{
+			
+			
+			$this->output->set_output(json_encode("no"));
+			
+			
+		}
+		
+		
+		
+		
+		
+		/*if($datos[0]['id']==$_SESSION['idUser']){
+			
+			
+			$this->load->helper('entradas');
+			entradaPdf("Carlos","Garbajosa Barroso","charly.9349@gmail.com","Batman v Superman","30/03/2016","1aac06","20:00");
+			
+			
+		}else{
+			
+			$this->template->load("plantilla","usuarios/noLogin");
+			
+			
+		}*/
+		
+		
+	}
+	
+	
+
+
+}
+
+
 
 
 function zonaUser(){

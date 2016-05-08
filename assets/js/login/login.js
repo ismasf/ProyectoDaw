@@ -183,7 +183,7 @@ $(document).ready(function(){
 
 	        	 $.ajax({
 	                 type: "POST",
-	                 url: "Usuarios/restablecerClave",
+	                 url: baseUrl+"Usuarios/restablecerClave",
 	                 data: $(form).serialize(),
 	                 success: function (response) {
 	                     

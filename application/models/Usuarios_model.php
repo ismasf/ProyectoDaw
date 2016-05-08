@@ -252,6 +252,8 @@ public function  informacionZonaUser($usuarioId){
 	
 }
 
+
+
 	
 	public function actualizarUsuario($nombre, $apellidos, $ciudad, $contraseña, $fecha){
 	

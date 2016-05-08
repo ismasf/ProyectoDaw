@@ -46,5 +46,15 @@ class Pelicula_model extends CI_Model{
 		return $peli;
 	}
 
+	
+	public function getIdPelicula($titulo){
+		
+		
+		$result=R::getAll("SELECT id FROM pelicula WHERE titulo=:titulo", array(':titulo'=>$titulo));
+		
+		return $result;
+		
+		
+	}
 
 }
