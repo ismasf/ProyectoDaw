@@ -52,11 +52,11 @@
 		<?php foreach ($cartelera as $pelicula):?>
 			<div class="col-xs-6 col-md-4 col-xl-4">
 				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><?=$pelicula["titulo"]?></a><br>
-				<img src="<?= base_url()?>assets/img/pelicula/<?=$pelicula["id"]?>.png" class="img-responsive"/>
+				<img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" class="img-responsive"/>
 			</div>
 			<div class="col-xs-6 col-md-4 col-xl-4">
 				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><?=$pelicula["titulo"]?></a><br>
-				<img src="<?= base_url()?>assets/img/pelicula/<?=$pelicula["id"]?>.png" class="img-responsive"/>
+				<img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" class="img-responsive"/>
 			</div>
 		<?php endforeach;?>
 		</div>

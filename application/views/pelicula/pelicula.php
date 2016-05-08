@@ -3,18 +3,13 @@ print_r ( $pelicula );
 print_r ( $sesiones );
 ?>*/
 --> 
-<br>
-__________________________
-<br>
 
-
-Pagina de Pelicula
-<div class="container-fluid">
+<div class="container">
 	<h1><?=$pelicula->titulo?></h1>
-	<div class="col-md-10">
+	<div class="row">
 		<div class="media-left">
-			<img width="150" height="200"
-				src="<?= base_url()?>assets/img/pelicula/<?=$pelicula->id?>.png">
+			<img 
+				src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula->id?>.jpg">
 		</div>
 		<div class="media-body">
 			
