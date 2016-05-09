@@ -21,6 +21,12 @@
     <!-- bootstrap-progressbar -->
     <link href="<?=base_url()?>assets/css/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- jVectorMap -->
+    <link href="<?=base_url()?>assets/css/vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    <link href="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+
+
    
 
     <!-- Custom Theme Style -->
@@ -98,7 +104,7 @@
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/crearSesiones">Crear sesión</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Eliminar sesión</a>
+                      <li><a href="<?= base_url()?>administrador/pruebaSesiones">Eliminar sesión</a>
                       </li>
                      
                     </ul>
@@ -186,6 +192,13 @@
     <script src="<?=base_url()?>assets/css/jquery.flot.spline.js"></script>
     <script src="<?=base_url()?>assets/css/curvedLines.js"></script>
     <script src="<?=base_url()?>assets/css/custom.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/moment/min/moment.min.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
+    
 
     <script>
       $(document).ready(function() {
@@ -305,5 +318,9 @@
         }
       });
     </script>
+
+
+    
+        
   </body>
 </html>

@@ -94,8 +94,13 @@ class Administrador extends CI_Controller{
 		session_start ();
 
 		$this->load->model("pelicula_model");
-		$this->pelicula_model->crearPelicula();
-		
+		$this->load->model("cartelera_model");
+		$data['idPeli']=$this->pelicula_model->crearPelicula();
+		print_r($data["idPeli"]);
+		if(isset($_POST["cartelera"])){
+			
+			$this->cartelera_model->anadirId($data['idPeli']);
+		}
 		R::close();
 		$this->template->load("plantillaAdmin","administrador/crearPeliculaPost");
 	}
@@ -163,6 +168,23 @@ class Administrador extends CI_Controller{
 		R::close();
 		$this->template->load("plantillaAdmin","administrador/informeFactura",$data);
 	}
+
+	public function pruebaSesiones(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		$this->load->model("sesion_model");
+		$data['sesi']=$this->sesion_model->pruebaSesionSelect();
+		
+		R::close();
+		$this->template->load("plantillaAdmin","administrador/prueba",$data);
+	}
+
+
+
+
 
 //	 public function crearAsientos(){
 //	 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');

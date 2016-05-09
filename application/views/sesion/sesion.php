@@ -1,5 +1,4 @@
-<html>
-<head>
+
 <?= script_tag('assets/js/jquery.js') ?>
 
 <script>
@@ -46,8 +45,6 @@ function asientoDesbloquear(id){
 
 
 
-</head>
-<body>
 <?php
 
 //session_name("cineProyecto");
@@ -60,15 +57,13 @@ print_r($_SESSION);
 		
 		
 		
-<form action="<?=base_url()?>entrada" method="get">
-<br><input type="text" id="asientos" name="asientos">
-<br><input type="text" id="sesion" name="sesion" value="<?=$_GET["idSesion"]?>">
+<form action="<?=base_url()?>entrada" method="POST">
+<br><input type="hidden" id="asientos" name="asientos">
+<br><input type="hidden" id="sesion" name="sesion" value="<?=$_GET["idSesion"]?>">
 <br><input type="submit">
 </form>
 
 
-</body>
-</html>
 
 
 
