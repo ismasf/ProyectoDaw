@@ -26,6 +26,12 @@
     <link href="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
     <link href="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
 
+    <link href="<?=base_url()?>assets/css/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
 
    
 
@@ -77,7 +83,7 @@
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/crearPelicula">Crear pelicula</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Modificar pelicula</a>
+                      <li><a href="<?= base_url()?>administrador/modificarPelicula">Modificar pelicula</a>
                       </li>
                       <li><a href="<?= base_url()?>">Eliminar pelicula</a>
                       </li>
@@ -181,7 +187,7 @@
     
 
     <!-- Custom Theme Scripts -->
-    <script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
+    <!--  <script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/Flot/jquery.flot.js"></script>
@@ -197,7 +203,7 @@
     <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
-    <script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>-->
     
 
     <script>

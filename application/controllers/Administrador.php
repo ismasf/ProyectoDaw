@@ -182,6 +182,20 @@ class Administrador extends CI_Controller{
 		$this->template->load("plantillaAdmin","administrador/prueba",$data);
 	}
 
+	public function modificarPelicula(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		$this->load->model("sesion_model");
+		$data['sesi']=$this->sesion_model->pruebaSesionSelect();
+		
+		R::close();
+		$this->template->load("plantillaAdmin","administrador/a",$data);
+		//$this->load->view("administrador/modificarPelicula");
+	}
+
 
 
 

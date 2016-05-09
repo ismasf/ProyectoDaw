@@ -66,7 +66,7 @@ class Sesion_model extends CI_Model{
 	}
 	
 	public function pruebaSesionSelect(){
-		$sesion = R::getAll('SELECT s.id, p.titulo, s.hora, p.duracion FROM sesion s, pelicula p WHERE s.pelicula_id = p.id AND p.id = 4');
+		$sesion = R::getAll('SELECT s.id, p.titulo, s.hora, p.duracion FROM sesion s, pelicula p WHERE s.pelicula_id = p.id AND p.id = 3');
 		return $sesion;
 	}
 	
