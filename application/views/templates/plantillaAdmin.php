@@ -46,7 +46,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<?= base_url()?>administrador/principal" class="site_title"><i class="fa fa-paw"></i> <span>CINEMADAW</span></a>
+              <a href="<?= base_url()?>administrador/principal" class="site_title"><i class="fa fa-video-camera"></i> <span>CINEMADAW</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -197,133 +197,17 @@
     <script src="<?=base_url()?>assets/css/vendors/Flot/jquery.flot.resize.js"></script>
     <script src="<?=base_url()?>assets/css/jquery.flot.spline.js"></script>
     <script src="<?=base_url()?>assets/css/curvedLines.js"></script>
-    <script src="<?=base_url()?>assets/css/custom.js"></script>
+    
     <script src="<?=base_url()?>assets/css/vendors/moment/min/moment.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/fullcalendar/dist/fullcalendar.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>-->
+    <script src="<?=base_url()?>assets/css/custom.js"></script>
     
 
-    <script>
-      $(document).ready(function() {
-        var data1 = [
-          [gd(<?=date("Y",mktime(0, 0, 0, date("m")  , date("d")-5, date("Y")))?>, <?=date("m",mktime(0, 0, 0, date("m")  , date("d")-5, date("Y")))?>, <?=date("d",mktime(0, 0, 0, date("m")  , date("d")-5, date("Y")))?>), <?=$datoCant[5]['con']?>],
-          [gd(<?=date("Y",mktime(0, 0, 0, date("m")  , date("d")-4, date("Y")))?>, <?=date("m",mktime(0, 0, 0, date("m")  , date("d")-4, date("Y")))?>, <?=date("d",mktime(0, 0, 0, date("m")  , date("d")-4, date("Y")))?>), <?=$datoCant[4]['con']?>],
-          [gd(<?=date("Y",mktime(0, 0, 0, date("m")  , date("d")-3, date("Y")))?>, <?=date("m",mktime(0, 0, 0, date("m")  , date("d")-3, date("Y")))?>, <?=date("d",mktime(0, 0, 0, date("m")  , date("d")-3, date("Y")))?>), <?=$datoCant[3]['con']?>],
-          [gd(<?=date("Y",mktime(0, 0, 0, date("m")  , date("d")-2, date("Y")))?>, <?=date("m",mktime(0, 0, 0, date("m")  , date("d")-2, date("Y")))?>, <?=date("d",mktime(0, 0, 0, date("m")  , date("d")-2, date("Y")))?>), <?=$datoCant[2]['con']?>],
-          [gd(<?=date("Y",mktime(0, 0, 0, date("m")  , date("d")-1, date("Y")))?>, <?=date("m",mktime(0, 0, 0, date("m")  , date("d")-1, date("Y")))?>, <?=date("d",mktime(0, 0, 0, date("m")  , date("d")-1, date("Y")))?>), <?=$datoCant[1]['con']?>],
-          [gd(<?=date("Y",mktime(0, 0, 0, date("m")  , date("d"), date("Y")))?>, <?=date("m",mktime(0, 0, 0, date("m")  , date("d"), date("Y")))?>, <?=date("d",mktime(0, 0, 0, date("m")  , date("d"), date("Y")))?>), <?=$datoCant[0]['con']?>]
-        ];
-
-        var data2 = [
-          [gd(2012, 1, 1), 82],
-          [gd(2012, 1, 2), 23],
-          [gd(2012, 1, 3), 66],
-          [gd(2012, 1, 4), 9],
-          [gd(2012, 1, 5), 119],
-          [gd(2012, 1, 6), 6],
-          [gd(2012, 1, 7), 9]
-        ];
-        $("#canvas_Mio").length && $.plot($("#canvas_Mio"), [
-          data1
-        ], {
-          series: {
-            lines: {
-              show: false,
-              fill: true
-            },
-            splines: {
-              show: true,
-              tension: 0.4,
-              lineWidth: 1,
-              fill: 0.4
-            },
-            points: {
-              radius: 0,
-              show: true
-            },
-            shadowSize: 2
-          },
-          grid: {
-            verticalLines: true,
-            hoverable: true,
-            clickable: true,
-            tickColor: "#d5d5d5",
-            borderWidth: 1,
-            color: '#fff'
-          },
-          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-          xaxis: {
-            tickColor: "rgba(51, 51, 51, 0.06)",
-            mode: "time",
-            tickSize: [1, "day"],
-            //tickLength: 10,
-            axisLabel: "Date",
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial',
-            axisLabelPadding: 10
-          },
-          yaxis: {
-            ticks: 8,
-            tickColor: "rgba(51, 51, 51, 0.06)",
-          },
-          tooltip: false
-        });
-        $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-          data1, data2
-        ], {
-          series: {
-            lines: {
-              show: false,
-              fill: true
-            },
-            splines: {
-              show: true,
-              tension: 0.4,
-              lineWidth: 1,
-              fill: 0.4
-            },
-            points: {
-              radius: 0,
-              show: true
-            },
-            shadowSize: 2
-          },
-          grid: {
-            verticalLines: true,
-            hoverable: true,
-            clickable: true,
-            tickColor: "#d5d5d5",
-            borderWidth: 1,
-            color: '#fff'
-          },
-          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-          xaxis: {
-            tickColor: "rgba(51, 51, 51, 0.06)",
-            mode: "time",
-            tickSize: [1, "day"],
-            //tickLength: 10,
-            axisLabel: "Date",
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial',
-            axisLabelPadding: 10
-          },
-          yaxis: {
-            ticks: 8,
-            tickColor: "rgba(51, 51, 51, 0.06)",
-          },
-          tooltip: false
-        });
-
-        function gd(year, month, day) {
-          return new Date(year, month - 1, day).getTime();
-        }
-      });
-    </script>
+    
 
 
     

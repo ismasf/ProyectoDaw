@@ -39,7 +39,7 @@ class Entrada extends CI_Controller{
 		
 		R::close();
 		//$this->load->view("entrada/Confirmar");
-		$this->template->load("plantilla","entrada/Confirmar");
+		$this->template->load("plantilla","entrada/confirmar");
 	}
 	
 	

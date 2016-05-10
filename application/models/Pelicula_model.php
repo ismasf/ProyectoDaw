@@ -61,4 +61,6 @@ class Pelicula_model extends CI_Model{
 		
 	}
 
+	
+
 }

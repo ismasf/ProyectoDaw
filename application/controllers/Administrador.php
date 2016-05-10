@@ -10,8 +10,8 @@ class Administrador extends CI_Controller{
 		session_start ();
 		
 		R::close();
-		$this->template->load("plantilla","administrador/index");
-		//$this->load->view("entrada/aConfirmar");
+		//$this->template->load("plantilla","administrador/index");
+		$this->load->view("administrador/index");
 		
 	}
 	public function principal(){
@@ -188,12 +188,25 @@ class Administrador extends CI_Controller{
 		ini_set ( "session.cookie_lifetime", "7200" );
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
-		$this->load->model("sesion_model");
-		$data['sesi']=$this->sesion_model->pruebaSesionSelect();
+		$this->load->model("pelicula_model");
+		$data['peliculas']=$this->pelicula_model->getTodasPeliculas();
 		
 		R::close();
-		$this->template->load("plantillaAdmin","administrador/a",$data);
+		$this->template->load("plantillaAdmin","administrador/modificarPelicula",$data);
 		//$this->load->view("administrador/modificarPelicula");
+	}
+
+	public function modificarPeliculaGet($id){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		$this->load->model("pelicula_model");
+		$data['pelicula']=$this->pelicula_model->getPeliculaPorId($id);
+		
+		R::close();
+		$this->template->load("plantillaAdmin","administrador/modificarPeliculaGet",$data);
 	}
 
 

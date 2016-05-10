@@ -13,7 +13,7 @@ class Sala_model extends CI_Model{
 	}
 
 	public function getSalas(){
-		$sala = R::getAll("Select id From Sala");
+		$sala = R::getAll("Select id From sala");
 		return $sala;
 	}
 
