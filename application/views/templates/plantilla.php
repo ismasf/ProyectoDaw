@@ -52,9 +52,13 @@ footer {
 	href="<?php echo base_url("assets/css/bootstrap-pull.css"); ?>" />
 <link rel="stylesheet"
 	href="<?php echo base_url("assets/css/login.css"); ?>" />
+	<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/table/dataTables.min.css"); ?>" />
 
 <?php $this->load->view('registro/scripts');?>
 <?= script_tag('assets/js/login/login.js')?>
+
+<?= script_tag('assets/js/table/dataTables.min.js')?>
 
 </head>
 

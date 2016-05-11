@@ -15,10 +15,12 @@ class Pelicula_model extends CI_Model{
 	public function crearPelicula(){
 		$titulo= $_POST['titulo'];
 		$director= $_POST['director'];
+		$dura = $_POST['duracion'];
 		//echo $_GET['sino'].'<br>';
 		$pelicula = R::dispense("pelicula");
 		$pelicula -> titulo = $titulo;
 		$pelicula -> director = $director;
+		$pelicula -> duracion = $dura;
 		R::store($pelicula);
 		$a = 'id'.$pelicula->id;
 		$str_datos = file_get_contents("assets/json/peliculas.json");
@@ -29,6 +31,8 @@ class Pelicula_model extends CI_Model{
 		fclose($fh);
 		$i = $pelicula->id.'.png';
 		move_uploaded_file( $_FILES [ 'userfile' ][ 'tmp_name' ],"assets/img/pelicula/$i");
+		move_uploaded_file( $_FILES [ 'userfile2' ][ 'tmp_name' ],"assets/img/pelicula/c$pelicula->id.jpg");
+		return $pelicula-> id;
 	}
 
 	public function getTodasPeliculas(){
@@ -56,5 +60,7 @@ class Pelicula_model extends CI_Model{
 		
 		
 	}
+
+	
 
 }

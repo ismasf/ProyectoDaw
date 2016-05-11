@@ -219,6 +219,10 @@ function pdfEntrada(){
 	
 	if(isset($datos) && $datos!=null ){
 		
+		
+		
+		if($datos[0]['id']==$_SESSION['idUser']){
+		
 		$datosID=$this->pelicula_model->getIdPelicula ($datos[0]['titulo']);
 		$idPelicula=$datosID[0]['id'];
 		
@@ -238,7 +242,11 @@ function pdfEntrada(){
 			
 		}
 		
-		
+		}else{
+			
+			$this->template->load("plantilla","usuarios/noLogin");
+			
+		}
 		
 		
 		

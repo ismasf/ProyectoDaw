@@ -21,10 +21,10 @@ class Entrada extends CI_Controller{
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
 		$hoy = date("Y-m-d H:i:s");
-		$asientos = preg_split("/[,]/",$_GET["asientos"]);
+		$asientos = preg_split("/[,]/",$_POST["asientos"]);
 		//print_r($asientos);
 		$idUsuario = $_SESSION['idUser'];
-		$idSesion = $_GET["sesion"];
+		$idSesion = $_POST["sesion"];
 		$this->load->model("sesion_model");
 		$idSala = $this->sesion_model->getSalaSesion($idSesion);
 		
@@ -32,14 +32,14 @@ class Entrada extends CI_Controller{
 		$idFactura = $this->factura_model->crearFactura($idUsuario);
 		
 		$this->load->model("entradareserva_model");
-		$idEntradas = $this->entradareserva_model->crearEntradaReserva($hoy,$idSala,$idSesion,$asientos,$_GET['precio']);
+		$idEntradas = $this->entradareserva_model->crearEntradaReserva($hoy,$idSala,$idSesion,$asientos,$_POST['precio']);
 		
 		$this->load->model("entradareservafactura_model");
 		$this->entradareservafactura_model->crearEntradareservafactura($idFactura,$idEntradas);
 		
 		R::close();
 		//$this->load->view("entrada/Confirmar");
-		$this->template->load("plantilla","entrada/Confirmar");
+		$this->template->load("plantilla","entrada/confirmar");
 	}
 	
 	

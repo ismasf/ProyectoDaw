@@ -1,20 +1,8 @@
-<!-- 
-<form action="<?=base_url()?>administrador/crearPeliculaPost" method='POST' ENCTYPE="multipart/form-data">
-	<label>Titulo:</label><input type="text" name="titulo"></input><br>
-	<label>Director:</label><input type="text" name="director"></input><br>
-	<label>Sinopsis:</label><textarea name="sino"></textarea><br>
-	<label>Imagen:</label><input type="file" name="userfile"></input><br>
-	<label>Duracion en min:</label><input type="text" name="duracion"></input>
-	<input type="submit"></input>
-
-
-
-</form> -->
 
 <div class="row tile_count">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Inserción de pelicula </h2>
+                    <h2>Modificación de pelicula </h2>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -25,13 +13,13 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Título de la pelicula: <span class="required">*</span></label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Título" name="titulo" id="titulo">
+                          <input type="text" class="form-control" placeholder="Título" name="titulo" id="titulo" value="<?=$pelicula->titulo?>">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Director de la pelicula: <span class="required">*</span></label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Director" name="director">
+                          <input type="text" class="form-control" placeholder="Director" name="director" value="<?=$pelicula->director?>">
                         </div>
                       </div>
 
@@ -39,11 +27,26 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Sinopsis: <span class="required">*</span>
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="6" placeholder='Resumen de la pelicula' name="sino"></textarea>
+                          <textarea class="form-control" rows="6" placeholder='Resumen de la pelicula' name="sino"><?php
+			
+			$data = file_get_contents ( base_url () . "assets/json/peliculas.json" );
+			$json = json_decode ( $data, true );
+			// print_r($products);
+			echo $json ["peliculas"] ["id" . $pelicula->id] ["Sinopsis"];
+			
+			/*
+			 * $json["peliculas"]["id3"]["Sinopsis"]="Pruebaaaaa";
+			 *
+			 * $fh = fopen("assets/json/peliculas.json", 'w');
+			 * fwrite($fh, json_encode($json,JSON_UNESCAPED_UNICODE));
+			 * fclose($fh);
+			 */
+			
+			?></textarea>
                         </div>
                       </div>
 
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Insertar en cartelera: </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <div class="">
@@ -53,10 +56,10 @@
                           </div>
                           
                         </div>
-                      </div>
+                      </div> -->
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Minutos de duración: <span class="required">*</span></label>
-                        <input class="knob" data-width="100" data-height="120" data-angleOffset=90 data-linecap=round data-fgColor="#26B99A" value="135" name="duracion">
+                        <input class="knob" data-width="100" data-height="120" data-angleOffset=90 data-linecap=round data-fgColor="#26B99A" value="<?=$pelicula->duracion?>" name="duracion">
                       </div>
 
 
@@ -66,10 +69,10 @@
 
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Imagen de cartel: <span class="required">*</span></label><input type="file" name="userfile"></input><br>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cambiar imagen de cartel: </label><input type="file" name="userfile"></input><br>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Imagen de pelicula: <span class="required">*</span></label><input type="file" name="userfile2"></input><br>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cambiar imagen de pelicula: </label><input type="file" name="userfile2"></input><br>
                       </div>
                      
 
@@ -264,3 +267,5 @@ $( "#myForm" ).validate({
 
 
     </script>
+<script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

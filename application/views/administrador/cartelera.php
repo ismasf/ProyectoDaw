@@ -8,3 +8,6 @@
 <?php foreach ($cartelera as $k):?>
 	<a href="<?= base_url()?>administrador/carteleraEliminar/<?=$k['id']?>"><?=$k['titulo']?></a><br>
 <?php endforeach;?>
+
+<script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
