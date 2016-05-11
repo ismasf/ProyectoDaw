@@ -48,7 +48,7 @@
 <di class="container" >
 	
 		<div class="row">
-		<div >
+		<div>
 		<?php foreach ($cartelera as $pelicula):?>
 			<div class="col-xs-6 col-md-3 col-xl-4">
 				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><?=$pelicula["titulo"]?></a><br>

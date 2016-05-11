@@ -26,6 +26,8 @@ body {
 background-size: cover;
 }
 
+
+
 footer {
 	bottom: 0;
 	width: 100%;
@@ -50,11 +52,15 @@ footer {
 a{
 	color:white !important;
 }
+
+nav{
+	background-color:#333 !important;
+}
 </style>
+
 <title>Tu Cine</title>
 <div class="remodal" data-remodal-id="modal"
 	data-remodal-options="hashTracking: false, closeOnOutsideClick: false"></div>
-
 <link rel="stylesheet"
 	href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
 <link rel="stylesheet"
@@ -63,6 +69,10 @@ a{
 	href="<?php echo base_url("assets/css/login.css"); ?>" />
 	<link rel="stylesheet"
 	href="<?php echo base_url("assets/css/table/dataTables.min.css"); ?>" />
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/font-awesome.css"); ?>" />
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/mistilo.css"); ?>" />
 
 <?php $this->load->view('registro/scripts');?>
 <?= script_tag('assets/js/login/login.js')?>
@@ -151,12 +161,20 @@ a{
 					<li class="col-sm-4 col-xs-5"><a href="#">Politicas de Privacidad</a>
 					</li>
 					<li class="col-sm-4 col-xs-2"><a href="#">Ayuda</a></li>
-
 				</ul>
+				<div class="col-md-12">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>				
+				</div>
+		</div>
 			</div>
 			<!--/row-->
 
-		</div>
 		<!--/container-->
 	</footer>
 	<!--/footer-->
