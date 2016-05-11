@@ -20,3 +20,22 @@
     padding-left: 10px;
     
 }
+
+
+
+.nav > li > a {
+padding: 10px 5px !important;
+    font-size: 95% !important;
+    
+}
+
+#tableFac_length{
+	
+	visibility:hidden;
+}
+
+
+table.dataTable tbody th, table.dataTable tbody td {
+ 
+    padding-left: 4% !important;
+}

@@ -54,6 +54,7 @@ $(document).ready(function(){
                 		 $('#btnRegistrar').hide();
                 		 $('a#navLogin').text(usuario);
                 		 $('div.dropdown-menu').html('<a href="#">'+"Mi cuenta"+'</a> <button class="btn" id="idBtnDesconectar">Desconectar</button>');
+                		 location.reload();
                 		 
                 		 
                 		 

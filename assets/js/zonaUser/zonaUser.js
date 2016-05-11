@@ -150,6 +150,7 @@ $('body').on('click', 'button.descargar', function(e){
               tableI.setAttribute("border","2");
               
               tableI.setAttribute("class"," table table-hover");
+              tableI.setAttribute("id","tableFac");
              
               
               
@@ -190,8 +191,24 @@ $('body').on('click', 'button.descargar', function(e){
            		
            		document.getElementById("containerUser").appendChild(tableI);
            		 
+           		$.extend( true, $.fn.dataTable.defaults, {
+           		    "searching": false,
+           		 "language": {
+                     "lengthMenu": "Display _MENU_ records per page",
+                     "zeroRecords": "Nothing found - sorry",
+                     "info": "Ver paginas _PAGE_ de _PAGES_",
+                     "infoEmpty": "No records available",
+                     "infoFiltered": "(filtered from _MAX_ total records)",
+                     "oPaginate": {
+                 		"sFirst":    	"Primera",
+                 		"sPrevious": 	"Anterior",
+                 		"sNext":     	"Siguiente",
+                 		"sLast":     	"Ultima"
+                 	},
+                 }
+           		} );
            		
-           		 
+           		 $('#tableFac').DataTable();
            		 
            		 
            		
