@@ -31,6 +31,7 @@ footer {
 	width: 100%;
 	background-color: #353535;
 	position: fixed;
+	text-align:center !important;
 }
 
 .google-maps {
@@ -45,6 +46,9 @@ footer {
 	left: 0;
 	width: 100% !important;
 	height: 100% !important;
+}
+a{
+	color:white !important;
 }
 </style>
 <title>Tu Cine</title>

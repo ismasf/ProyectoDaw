@@ -45,7 +45,7 @@
 	</div>	
 
 </div>
-<di class="container">
+<di class="container" >
 	
 		<div class="row">
 		<div >
