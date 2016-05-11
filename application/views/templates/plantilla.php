@@ -19,12 +19,17 @@ session_start ();*/
 <style>
 body {
 	padding-top: 30px;
+	background: url(<?= base_url()?>assets/img/fondos/footer_lodyas.png) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
 }
 
 footer {
 	bottom: 0;
 	width: 100%;
-	background-color: black;
+	background-color: #353535;
 	position: fixed;
 }
 
