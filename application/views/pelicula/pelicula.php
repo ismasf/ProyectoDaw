@@ -7,6 +7,9 @@ $jueves = ($hoy==4?'class="active"':"");
 $viernes = ($hoy==5?'class="active"':"");
 $sabado = ($hoy==6?'class="active"':"");
 $domingo = ($hoy==7?'class="active"':"");
+
+
+
 $a = date("d");
 $l = "";$ma = ""; $mi = ""; $j = ""; $v = ""; $s = ""; $d = "";
 switch ($hoy) {
@@ -18,6 +21,7 @@ switch ($hoy) {
        $v = $a+4;
        $s = $a+5;
        $d = $a+6;
+       $diaLetter="Lunes";
         break;
 
     case 2:
@@ -28,7 +32,7 @@ switch ($hoy) {
         $v = $a+3;
         $s = $a+4;
         $d = $a+5;
-
+        $diaLetter="Martes";
         break;
 
     case 3:
@@ -39,6 +43,7 @@ switch ($hoy) {
         $v = $a+2;
         $s = $a+3;
         $d = $a+4;
+        $diaLetter="Miercoles";
         break;
 
     case 4:
@@ -49,6 +54,7 @@ switch ($hoy) {
         $v = $a+1;
         $s = $a+2;
         $d = $a+3;
+        $diaLetter="Jueves";
         break;
 
     case 5:
@@ -59,6 +65,7 @@ switch ($hoy) {
         $v = $a;
         $s = $a+1;
         $d = $a+2;
+        $diaLetter="Viernes";
         break;
 
     case 6:
@@ -69,6 +76,7 @@ switch ($hoy) {
         $v = $a+6;
         $s = $a;
         $d = $a+1;
+        $diaLetter="Sabado";
         break;
 
     case 0:
@@ -79,7 +87,9 @@ switch ($hoy) {
         $v = $a+5;
         $s = $a+6;
         $d = $a;
+        $diaLetter="Domingo";
         break;
+        
     
     default:
         # code...
@@ -162,7 +172,7 @@ Tiene estas sesiones:
                                     
                                     
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
+                                        <li role="presentation" id="idlunes" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
                                         <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
                                         <li role="presentation" <?=$miercoles?>><a href="#miercoles" aria-controls="miercoles" role="tab" data-toggle="tab"><?=$mi?> Miercoles</a></li>
                                         <li role="presentation" <?=$jueves?>><a href="#jueves" aria-controls="jueves" role="tab" data-toggle="tab"><?=$j?> Jueves</a></li>
@@ -187,8 +197,8 @@ Tiene estas sesiones:
                                 
                                  <div class="col-md-8 nav-disappear" style="height:300px;">
                                  	<div class="dropdown" >
-   						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown">Fechas
-    			<span class="caret"></span></button>
+   						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown"><?= $diaLetter?></button>
+    			</button>
     							<ul class="dropdown-menu listaDias">
      									 <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
                                         <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
@@ -200,7 +210,18 @@ Tiene estas sesiones:
     </ul>
   </div>
                                  
-                                 
+                                  <div class="horas">
+                                  
+                                  	<div role="tabpanel" <?=$lunes?> id="lunes"><?=$lun ?></div>
+                                        <div role="tabpanel"  <?=$martes?> id="martes"><?=$mar ?></div>
+                                        <div role="tabpanel" <?=$miercoles?> id="miercoles"><?=$mie ?></div>
+                                        <div role="tabpanel" <?=$jueves?> id="jueves"><?=$jue ?></div>
+                                        <div role="tabpanel" <?=$viernes?> id="viernes"><?=$vie ?></div>
+                                        <div role="tabpanel" <?=$sabado?> id="sabado"><?=$sab ?></div>
+                                        <div role="tabpanel" <?=$domingo?> id="domingo"><?=$dom ?></div>
+                                    	
+                                       
+                                    </div>
                                   
                                  
                                  </div>

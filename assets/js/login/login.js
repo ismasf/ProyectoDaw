@@ -236,6 +236,28 @@ $(document).ready(function(){
     }
 	
 	
+	$('ul.listaDias li').on('click',function(){
+		
+		
+		 $(this).siblings().removeClass("active");
+		 $(this).addClass("active");
+		 
+		 
+		 
+		 dia= $(this).children().attr('aria-controls');
+		 
+		 $('button.btn-dias').html(dia.charAt(0).toUpperCase() + dia.slice(1));
+		 
+		 $('div.horas div').removeClass('active');
+		 
+		 $('div.horas div#'+dia).addClass("active");
+		 
+		
+	})
+	
+	
+	
+	
 	
 	
 	
