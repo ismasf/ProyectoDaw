@@ -10,7 +10,33 @@
 
 
 </form> -->
+<script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
 
+    <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+    <script src="<?=base_url()?>assets/js/registrar/jquery.validate.min.js"></script>
+<script src="<?=base_url()?>assets/js/bootbox.min.js"></script>
+<script>
+  
+  function a() {
+      bootbox.confirm("Are you sure?", function(result) {
+  if(result==true){
+    console.log("true");
+    return true;
+  }else{
+    console.log("false");
+    //return false;
+  }
+}); 
+  }
+
+
+</script>
 <div class="row tile_count">
                 <div class="x_panel">
                   <div class="x_title">
@@ -77,7 +103,7 @@
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                           <button type="submit" class="btn btn-primary">Cancelar</button>
-                          <button type="submit" class="btn btn-success">Enviar</button>
+                          <button type="submit" class="btn btn-success" onclick="a()">Enviar</button>
                         </div>
                       </div>
 
@@ -101,16 +127,7 @@
 
 
 
-<script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
-<script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
-<script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
 
-    <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
-    <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
-    <script src="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.js"></script>
-
-    <script src="<?=base_url()?>assets/js/registrar/jquery.validate.min.js"></script>
     
 
               <script>
