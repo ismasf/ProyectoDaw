@@ -91,11 +91,11 @@ switch ($hoy) {
 <div class="container">
 	<h1><?=$pelicula->titulo?></h1>
 	<div class="row">
-		<div class="media-left">
+		<div class="col-sm-3">
 			<img 
 				src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula->id?>.jpg">
 		</div>
-		<div class="media-body">
+		<div class="col-sm-9">
 			
 			Director: <?= $pelicula->director?>
 			<br>
@@ -157,8 +157,10 @@ Tiene estas sesiones:
                                             ?>
                                         
                                         <?php endforeach;?>
-		                                <div class="col-md-8">
+		                                <div class="col-md-8 tab-disappear">
                                     <!-- Nav tabs --><div class="card">
+                                    
+                                    
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
                                         <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
@@ -182,6 +184,33 @@ Tiene estas sesiones:
                                     </div>
 </div>
                                 </div>
+                                
+                                 <div class="col-md-8 nav-disappear" style="height:300px;">
+                                 	<div class="dropdown" >
+   						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown">Fechas
+    			<span class="caret"></span></button>
+    							<ul class="dropdown-menu listaDias">
+     									 <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
+                                        <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
+                                        <li role="presentation" <?=$miercoles?>><a href="#miercoles" aria-controls="miercoles" role="tab" data-toggle="tab"><?=$mi?> Miercoles</a></li>
+                                        <li role="presentation" <?=$jueves?>><a href="#jueves" aria-controls="jueves" role="tab" data-toggle="tab"><?=$j?> Jueves</a></li>
+                                        <li role="presentation" <?=$viernes?>><a href="#viernes" aria-controls="viernes" role="tab" data-toggle="tab"><?=$v?> Viernes</a></li>
+                                        <li role="presentation" <?=$sabado?>><a href="#sabado" aria-controls="sabado" role="tab" data-toggle="tab"><?=$s?> Sabado</a></li>
+                                        <li role="presentation" <?=$domingo?>><a href="#domingo" aria-controls="domingo" role="tab" data-toggle="tab"><?=$d?> Domingo</a></li>
+    </ul>
+  </div>
+                                 
+                                 
+                                  
+                                 
+                                 </div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 	</div>
 </div>
 
