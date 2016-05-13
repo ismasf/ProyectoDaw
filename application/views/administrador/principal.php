@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-euro"></i> Total Ingresos</span>
-              <div class="count"><?=$ingresosTotales[0]["precio"]?></div>
+              <div class="count"><?=number_format($ingresosTotales[0]["precio"],2,",",".")?></div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
             </div>
             

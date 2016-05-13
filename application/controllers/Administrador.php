@@ -209,6 +209,18 @@ class Administrador extends CI_Controller{
 		$this->template->load("plantillaAdmin","administrador/modificarPeliculaGet",$data);
 	}
 
+	public function modificar(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		
+		
+		R::close();
+		$this->template->load("plantillaAdmin","administrador/a");
+	}
+
 
 
 
