@@ -285,7 +285,7 @@ $('body').on('click', 'button.descargar', function(e){
 	                		 
 	                		 
 	                		 var obj = JSON.parse(response);
-	                	
+	                		 console.log(obj.imagen);
 	                		 
 	                		document.getElementById("idNombre").value=obj[0].nombre;
 	                		document.getElementById("idApellidos").value=obj[0].apellidos;
@@ -294,9 +294,11 @@ $('body').on('click', 'button.descargar', function(e){
 	                		f=fechaN.split("-");
 	                		
 	                		document.getElementById("idFechaN").value=f[2]+"/"+f[1]+"/"+f[0];
+	                		
+	                		//console.log(baseUrl);
+	                		// $('img#imageUser').attr('src',baseUrl+'assets/img/photoUser/'+obj.imagen);
 	                		 
-	                		 
-	                		 
+	                		$('.circularUser').css("background-image", "url('"+baseUrl+"assets/img/photoUser/"+obj.imagen+"')");  
 	                		
 	                		
 	                		 
@@ -518,7 +520,17 @@ $('body').on('click', 'button.descargar', function(e){
 		
 		
 		
+	$('body').on('click','div.circularUser', function(){
 		
+		
+		$('input#fileImage').click();
+		
+		
+		
+		
+	});
+	
+	
 		
 		
 		

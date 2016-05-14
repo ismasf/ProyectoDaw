@@ -39,3 +39,55 @@ table.dataTable tbody th, table.dataTable tbody td {
  
     padding-left: 4% !important;
 }
+
+
+.circularUser {
+	width: 200px;
+	height: 200px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(http://link-to-your/image.jpg) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	    background-color: #EAE8E8;
+	    
+	     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	
+	}
+	
+	.photoUser{
+	    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    
+    
+    }
+    
+    
+    #miFormUpdate{
+        border: 2px solid #CACACA;
+    border-radius: 10%;
+    padding: 0 10% 10% 10%;
+    }
+    
+    #parrafoImage{
+    	color: gray;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+    
+    }
+    
+    
+    .circularUser #imageUser{
+    
+        width: 70%;
+    margin: 0px !important;
+    margin-top: 16%;
+    
+    }

@@ -247,6 +247,33 @@ class Usuarios_model extends CI_Model{
 public function  informacionZonaUser($usuarioId){
 	
 	$result = R::getAll("SELECT nombre, apellidos, fechanacimiento, ciudad FROM usuario WHERE id = :usuarioId", array(':usuarioId'=>$usuarioId));
+	
+	
+	if(isset($_SESSION['idUser']) && $_SESSION['idUser']!=null){
+		
+		
+		$imagenUser = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+		
+		if (file_exists($imagenUser)) {
+			
+			$imagen='imageUser'.$_SESSION['idUser'].'.jpeg';
+			
+		}else{
+			
+			$imagen='anonimo.png';
+			//$imagen='/assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+		}
+		
+		
+		$result['imagen']=$imagen;
+		
+		
+		
+		
+	}
+	
+	
+	
 	return $result;
 	
 	
