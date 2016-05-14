@@ -453,6 +453,8 @@ $('body').on('click', 'button.descargar', function(e){
 	        },
 	          
 	         submitHandler: function(form) {
+	        	 
+	        	 
 	            
 	        /*$(form).ajaxSubmit();*/
 	        	 
@@ -460,7 +462,7 @@ $('body').on('click', 'button.descargar', function(e){
 	        	 $.ajax({
 	                 type: "POST",
 	                 url: baseUrl+"Usuarios/actualizar",
-	                 data: $(form).serialize(),
+	                 data: $(form).serialize(), 
 	                 success: function (response) {
 	                     
 	                	 if(response.trim()=="ok"){
@@ -493,7 +495,12 @@ $('body').on('click', 'button.descargar', function(e){
 	                	 
 	                 }
 	                     });
+	        	        	 
+	                    	 
+	                    	 
+	                    
 	        	 
+	        	
 	        	 
 	        	 
 	        	 
@@ -532,7 +539,135 @@ $('body').on('click', 'button.descargar', function(e){
 	
 	
 		
+	
 		
+		$(document).on('change', 'input[type="file"]' , function(e){
+			var _URL = window.URL || window.webkitURL;
+		
+			 var file, img;
+
+
+			    if ((file = this.files[0])) {
+			    	
+			        img = new Image();
+			        img.onload = function() {
+			            //alert(this.width + " " + this.height);
+			        	
+			        	if(file.type=="image/jpeg" || file.type=="image/png" || file.type=="image/jpg"){
+			        		
+			        		
+			        		
+			        		if(file.size<=1500000){
+			        			
+			        			
+			        			if(this.width<=900 && this.height<=900){
+			        				
+			        				
+			        				
+			        				 
+			       	        	 var file_data = $('#fileImage').prop('files')[0];   
+			       	             var form_data = new FormData();                  
+			       	             form_data.append('file', file_data);
+			       	        	 
+			       	          $.ajax({
+			 	                 type: "POST",
+			 	                dataType: 'text',  // what to expect back from the PHP script, if anything
+			 	                cache: false,
+			 	                contentType: false,
+			 	                processData: false,
+			 	                 url: baseUrl+"Usuarios/guardarImage",
+			 	                 data: form_data, 
+			 	                 success: function (response) {
+			 	                     
+			 	                	 if(response.trim()!="no"){
+			 	                		 
+			 	                		 
+			 	                		$('.circularUser').css("background-image", "url('"+baseUrl+"assets/img/photoUser/"+response.trim()+"')");
+			 	                		$('#errorImage').html("La imagen se ha guardado correctamente");
+			 	                		$('#errorImage').addClass("successImg");
+			 	                		 
+			 	                		 //alert("bien")
+			 	                		 /*$('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+			 	                		 inst.open();
+			 	                		 segundos=5;
+			 	                		idInterval = setInterval(function() {
+			 	                			 inst = $('[data-remodal-id=modal]').remodal();
+			 	                	         
+			 	                	 			
+			 	                	         
+			 	                			segundos--;
+			 	                			if(segundos<1){
+			 	                				clearInterval(idInterval);
+			 	                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+			 	                				window.location.replace(baseUrl);
+			 	                				inst.close();
+			 	                				
+			 	                			}
+			 	                			
+			 	                			
+			 	                		},500);*/
+			 	                		
+			 	                		
+			 	                		 
+			 	                	 }else{
+			 	                		 
+			 	                		$('#errorImage').html("La imagen no se ha podido guardar");
+			 	                		$('#errorImage').removeClass("successImg"); 
+			 	                		 
+			 	                	 }
+			 	                	 
+			 	                 }
+			 	                     });
+			       	        	 
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        			}else{
+			        				$('#errorImage').html("La imagen seleccionada excede las medidas maximas permitidas, 900px X 900px");
+			        				$('#errorImage').removeClass("successImg"); 
+			        				imageData="ninguna";
+			        				this.files[0]=null;
+			        				
+			        			}
+			        			
+			        			
+			        			
+			        		}else{
+			        			$('#errorImage').html("La imagen seleccionada excede del tamaño maximo, que son 1,5Mb.");
+			        			$('#errorImage').removeClass("successImg"); 
+			        			imageData="ninguna";
+			        			this.files[0]=null;
+			        			
+			        			
+			        		}
+			        		
+			        	}else{
+			        		
+			        		$('#errorImage').html("Solo son permitidos los formatos de imagen: JPEG, PNG");
+			        		$('#errorImage').removeClass("successImg"); 
+			        		imageData="ninguna";
+			        		this.files[0]=null;
+			        	}
+			        	
+			        	
+			        	
+			        };
+			        img.onerror = function() {
+			            alert( "Imagen no valida: " + file.type);
+			        };
+			        img.src = _URL.createObjectURL(file);
+
+
+			    }
+	});
 		
 		
 		

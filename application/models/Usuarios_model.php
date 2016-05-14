@@ -252,11 +252,26 @@ public function  informacionZonaUser($usuarioId){
 	if(isset($_SESSION['idUser']) && $_SESSION['idUser']!=null){
 		
 		
-		$imagenUser = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+		$imagenUserJpeg = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+		$imagenUserJpg = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpg';
+		$imagenUserPng = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.png';
 		
-		if (file_exists($imagenUser)) {
+		if (file_exists($imagenUserJpeg)) {
 			
 			$imagen='imageUser'.$_SESSION['idUser'].'.jpeg';
+			
+			
+			
+			
+		}else if(file_exists($imagenUserJpg)){
+			
+			$imagen='imageUser'.$_SESSION['idUser'].'.jpg';
+			
+		}else if(file_exists($imagenUserPng)){	
+			
+			
+			$imagen='imageUser'.$_SESSION['idUser'].'.png';
+			
 			
 		}else{
 			

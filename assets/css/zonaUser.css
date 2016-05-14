@@ -47,7 +47,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
-	background: url(http://link-to-your/image.jpg) no-repeat;
+	
 	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
@@ -90,4 +90,13 @@ table.dataTable tbody th, table.dataTable tbody td {
     margin: 0px !important;
     margin-top: 16%;
     
+    }
+    
+    
+    #errorImage{
+    color: darkred;
+    }
+    
+    .successImg{
+    color:green !important;
     }
