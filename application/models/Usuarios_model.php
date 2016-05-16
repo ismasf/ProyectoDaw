@@ -29,7 +29,7 @@ class Usuarios_model extends CI_Model{
 	
 	public function emailOlvidado($correo){
 		
-		$result = R::getAll("SELECT * FROM usuario WHERE user = :correo", array(':correo'=>$correo));
+		$result = R::getAll("SELECT * FROM usuario WHERE verificado='SI' AND user = :correo", array(':correo'=>$correo));
 		
 		$cantidad=count($result);
 		
@@ -204,6 +204,50 @@ class Usuarios_model extends CI_Model{
 				
 				$_SESSION['idUser']=$fila['0']['id'];
 				$_SESSION['correoUser']=$correo;
+				
+				if(isset($_SESSION['idUser']) && $_SESSION['idUser']!=null){
+				
+				
+					$imagenUserJpeg = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+					$imagenUserJpg = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpg';
+					$imagenUserPng = 'assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.png';
+				
+					if (file_exists($imagenUserJpeg)) {
+							
+						$imagen='imageUser'.$_SESSION['idUser'].'.jpeg';
+							
+							
+							
+							
+					}else if(file_exists($imagenUserJpg)){
+							
+						$imagen='imageUser'.$_SESSION['idUser'].'.jpg';
+							
+					}else if(file_exists($imagenUserPng)){
+							
+							
+						$imagen='imageUser'.$_SESSION['idUser'].'.png';
+							
+							
+					}else{
+							
+						$imagen='anonimo.png';
+						//$imagen='/assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+					}
+				
+				
+					
+				
+				$_SESSION['imagenUser']=$imagen;
+				
+				
+				}
+				
+				
+				
+				
+				
+				
 				
 				echo "ok";
 					

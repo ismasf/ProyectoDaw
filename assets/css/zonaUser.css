@@ -100,3 +100,33 @@ table.dataTable tbody th, table.dataTable tbody td {
     .successImg{
     color:green !important;
     }
+    
+    #navImagenUser{
+    width:35px !important;
+    border-radius: 50%;
+    }
+    
+    a#navLogin{
+    	font-size: 0.8em !important;
+    }
+    
+    
+    @media (min-width: 768px){
+    
+    #dropDownLogin{
+    	float:right;
+    }
+    
+    }
+
+    
+    @media (max-width: 770px){
+     	#navImagenUser{
+       margin: 0px 0px 0px 0px !important;
+    }
+    
+    div.dropdown-menu a{
+    color:white;
+    }
+    
+    }

@@ -268,7 +268,7 @@ $('body').on('click', 'button.descargar', function(e){
         maxDate: fechaAyer// Now can select only dates, which goes after today
     })
     
-    
+    $('#idFechaN').attr('readOnly', 'true');
     $user=document.getElementById("navLogin").innerHTML;
         
     
@@ -454,7 +454,7 @@ $('body').on('click', 'button.descargar', function(e){
 	          
 	         submitHandler: function(form) {
 	        	 
-	        	 
+	        	 $('#idBtnRegistrar').prop("disabled", true);
 	            
 	        /*$(form).ajaxSubmit();*/
 	        	 
@@ -466,6 +466,7 @@ $('body').on('click', 'button.descargar', function(e){
 	                 success: function (response) {
 	                     
 	                	 if(response.trim()=="ok"){
+	                		 $('#idBtnRegistrar').prop("disabled", false);
 	                		 //alert("bien")
 	                		 $('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
 	                		 inst.open();
