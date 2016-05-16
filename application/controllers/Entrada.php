@@ -38,8 +38,27 @@ class Entrada extends CI_Controller{
 		$this->entradareservafactura_model->crearEntradareservafactura($idFactura,$idEntradas);
 		
 		R::close();
-		//$this->load->view("entrada/Confirmar");
+		
+		
+		$ci =& get_instance();
+		$ci->load->helper('correo');
+		$result=confirmacionEntradas($_SESSION['correoUser'], $idFactura);
+		
+		if($result){
+		
+			//$this->load->view("entrada/Confirmar");
 		$this->template->load("plantilla","entrada/confirmar");
+				
+		}else{
+			$this->template->load("plantilla","errors/html/error_general");
+			
+		}
+		
+		
+		
+		
+		
+		
 	}
 	
 	
