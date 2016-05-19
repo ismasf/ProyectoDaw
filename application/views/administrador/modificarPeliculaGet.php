@@ -1,3 +1,17 @@
+<script>
+  
+  function cancelar(){
+    window.location="<?=base_url()?>/administrador/modificarPelicula";
+  }
+
+  
+
+
+
+
+</script>
+
+
 
 <div class="row tile_count">
                 <div class="x_panel">
@@ -8,7 +22,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="myForm" action="<?=base_url()?>administrador/crearPeliculaPost" class="form-horizontal form-label-left" method='POST' ENCTYPE="multipart/form-data">
+                    <form id="myForm" action="<?=base_url()?>administrador/modificarPeliculaPost/<?=$id?>" class="form-horizontal form-label-left" method='POST' ENCTYPE="multipart/form-data">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Título de la pelicula: <span class="required">*</span></label>
@@ -79,7 +93,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                          <button type="button" class="btn btn-primary" onclick="cancelar()">Cancelar</button>
                           <button type="submit" class="btn btn-success">Enviar</button>
                         </div>
                       </div>
@@ -233,12 +247,6 @@ $( "#myForm" ).validate({
     sino:{
       required: true,
       minlength: 15
-    },
-    userfile:{
-      required:true
-    },
-    userfile2:{
-      required:true
     }
   },
   messages:{
@@ -253,12 +261,12 @@ $( "#myForm" ).validate({
     sino:{
       required: "Introduzca una sinopsis.",
       minlength: "Introduzca una sinopsis."
-    },
-    userfile:{
-      required: "Se requiere una imagen."
-    },
-    userfile2:{
-      required: "Se requiere una imagen."
+    }
+  },
+  success: "valid",
+  submitHandler: function(){ 
+    if(confirm("¿Quieres actualizar la pelicula?")){
+      myForm.submit();
     }
   }
 });

@@ -20,20 +20,13 @@
     <script src="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.js"></script>
 
     <script src="<?=base_url()?>assets/js/registrar/jquery.validate.min.js"></script>
-<script src="<?=base_url()?>assets/js/bootbox.min.js"></script>
+
 <script>
+  function enviar(){
+    return false;
+   
+  }
   
-  function a() {
-      bootbox.confirm("Are you sure?", function(result) {
-  if(result==true){
-    console.log("true");
-    return true;
-  }else{
-    console.log("false");
-    //return false;
-  }
-}); 
-  }
 
 
 </script>
@@ -102,8 +95,8 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
-                          <button type="submit" class="btn btn-success" onclick="a()">Enviar</button>
+                          <!-- <button type="submit" class="btn btn-primary">Cancelar</button> -->
+                          <button type="submit" class="btn btn-success">Enviar</button>
                         </div>
                       </div>
 
@@ -273,6 +266,12 @@ $( "#myForm" ).validate({
     },
     userfile2:{
       required: "Se requiere una imagen."
+    }
+  },
+  success: "valid",
+  submitHandler: function(){
+    if(confirm("¿Quieres insertar la pelicula?")){
+      myForm.submit();
     }
   }
 });

@@ -55,12 +55,12 @@
             <div class="profile">
               <div class="profile_pic">
               <!-- *Imagen de perfil -->
-                <img src="" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url()?>assets/img/photoUser/imageUser<?=$_SESSION["idUserAdmin"]["id"]?>.jpeg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
                 <!-- *Nombre de perfil -->
-                <h2>Tu nombre</h2>
+                <h2><?=$_SESSION['idUserAdmin']['nombre']?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -85,7 +85,7 @@
                       </li>
                       <li><a href="<?= base_url()?>administrador/modificarPelicula">Modificar pelicula</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Eliminar pelicula</a>
+                      <li><a href="<?= base_url()?>administrador/eliminarPelicula">Eliminar pelicula</a>
                       </li>
                     </ul>
                   </li>
@@ -123,7 +123,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?=base_url()?>administrador/desconectar">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -144,11 +144,11 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <!-- *Nombre e imagen de perfil -->
-                    <img src="" alt="">Tu nombre
+                    <img src="<?=base_url()?>assets/img/photoUser/imageUser<?=$_SESSION["idUserAdmin"]["id"]?>.jpeg" alt=""><?=$_SESSION['idUserAdmin']['nombre']?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <li><a href="<?=base_url()?>administrador/desconectar"><i class="fa fa-sign-out pull-right"></i> Desconectar</a>
                     </li>
                   </ul>
                 </li>
