@@ -59,6 +59,18 @@ footer {
 <?= script_tag('assets/js/login/login.js')?>
 
 <?= script_tag('assets/js/table/dataTables.min.js')?>
+<?= script_tag('assets/js/video.js')?>
+<?= script_tag('assets/js/videojs-resolution-switcher.js')?>
+
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/video/video-js.min.css"); ?>" />
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/video/videojs-resolution-switcher.css"); ?>" />
+	
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/video/video.css"); ?>" />
+
+
 
 </head>
 

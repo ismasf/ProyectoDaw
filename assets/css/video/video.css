@@ -1,0 +1,51 @@
+div#player{
+
+height: 300px;
+
+
+}
+
+@media (min-width: 992px){
+	
+	
+div#player{
+	
+	    height: 350px;
+	
+	
+	
+}
+	
+	
+}
+
+
+@media (max-width: 450px){
+	
+	
+div#player{
+	
+	    height: 250px;
+	
+	
+	
+}
+	
+	
+}
+
+
+
+@media (max-width: 390px){
+	
+	
+div#player{
+	
+	    height: 200px;
+	
+	
+	
+}
+	
+	
+}

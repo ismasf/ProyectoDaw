@@ -8,7 +8,7 @@ $viernes = ($hoy==5?'class="active"':"");
 $sabado = ($hoy==6?'class="active"':"");
 $domingo = ($hoy==7?'class="active"':"");
 
-
+//var_dump($trailers);
 
 $a = date("d");
 $l = "";$ma = ""; $mi = ""; $j = ""; $v = ""; $s = ""; $d = "";
@@ -225,13 +225,56 @@ Tiene estas sesiones:
                                   
                                  
                                  </div>
-                                
-                                
-                                
-                                
-                                
-                                
+                   
                                 
 	</div>
+	
+	
 </div>
 
+<div class="row">
+<div id="player" class="col-sm-12 col-md-offset-2" style="max-width:690px;">
+	
+		<div class="video-js" style="width: 100%; height: 100%;">
+			<video id="video_1" class="video-js vjs-default-skin" style="width: 100%; height: 100%;" controls data-setup='{}' >
+			
+				<?= $trailers?>
+			
+			</video>
+		
+		</div>
+		
+		<br><br><br>
+			
+	
+	</div>
+	
+</div>
+
+<script>
+
+
+//videojs('video_1').videoJsResolutionSwitcher();
+
+
+videojs('video_1', {
+	autoHeight: '16:9', 
+    controls: true,
+    plugins: {
+      videoJsResolutionSwitcher: {
+        default: 'low', // Default resolution [{Number}, 'low', 'high'],
+        dynamicLabel: true
+      }
+    }
+
+  
+  }, function(){
+    var player = this;
+    window.player = player
+   
+    player.on('resolutionchange', function(){
+      console.info('Source changed to %s', player.src())
+    })
+  })
+
+</script>

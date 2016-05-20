@@ -15,6 +15,46 @@ class Pelicula extends CI_Controller{
 		$data["sesiones"]=$this->sesion_model->getSesionPelicula($idPelicula,"a");
 		
 		R::close();
+		
+		
+		$trailer720p="assets/mp4/".$idPelicula."/".$idPelicula."-720p.mp4";
+		$trailer360p="assets/mp4/".$idPelicula."/".$idPelicula."-360p.mp4";
+		
+		
+		$contMps4=0;
+		$optionsMp4="";
+		
+		if(file_exists($trailer360p)){
+			
+			
+			$optionsMp4.='<source src="'.base_url().'assets/mp4/'.$idPelicula.'/'.$idPelicula.'-360p.mp4" type="video/mp4" label="SD" res="360">';
+			
+			$contMps4++;
+			
+		}
+		
+		
+		if(file_exists($trailer720p)){
+				
+				
+				
+				
+			$optionsMp4.='<source src="'.base_url().'assets/mp4/'.$idPelicula.'/'.$idPelicula.'-720p.mp4" type="video/mp4" label="HD" res="720">';
+				
+			$contMps4++;
+				
+		}
+		
+		if($contMps4==0){
+			$optionsMp4.='<source src="'.base_url().'assets/mp4/proximamente.mp4" type="video/mp4" label="SD" res="360">';
+			
+		}
+		
+		$data['trailers']=$optionsMp4;
+		
+		
+		
+		
 		$this->template->load("plantilla","pelicula/pelicula",$data);
 	}
 
