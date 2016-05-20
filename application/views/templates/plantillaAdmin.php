@@ -72,7 +72,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Cartelera <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-image"></i> Cartelera <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/cartelera">Modificar cartelera</a>
                       </li>
@@ -91,26 +91,26 @@
                   </li>
                   <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?= base_url()?>">Activar usuario</a>
+                      <li><a href="<?= base_url()?>administrador/activarUsuario">Activar usuario</a>
                       </li>
                       <li><a href="<?= base_url()?>">Modificar usuario</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Eliminar usuario</a>
+                      <li><a href="<?= base_url()?>administrador/eliminarUsuario">Eliminar usuario</a>
                       </li>
                      
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-film"></i> Sala <span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-film"></i> Sala <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>">Ver salas</a>
                       </li>
                     </ul>
-                  </li>
+                  </li> -->
                   <li><a><i class="fa fa-calendar"></i> Sesión <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/crearSesiones">Crear sesión</a>
                       </li>
-                      <li><a href="<?= base_url()?>administrador/pruebaSesiones">Eliminar sesión</a>
+                      <li><a href="<?= base_url()?>administrador/eliminarSesiones">Eliminar sesión</a>
                       </li>
                      
                     </ul>
@@ -123,7 +123,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?=base_url()?>administrador/desconectar">
+              <a data-toggle="tooltip" data-placement="top" title="Desconectar" href="<?=base_url()?>administrador/desconectar">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>

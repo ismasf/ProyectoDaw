@@ -1,3 +1,8 @@
+
+
+
+<!-- 
+
 <br>
 <br>
 <form action="<?= base_url()?>administrador/crearSesionesPost">
@@ -88,13 +93,14 @@ echo "</select>";
 ?>
 <br>
 <input type="submit"></input>
-</form>
+</form> -->
 <script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
 <script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="<?=base_url()?>assets/css/vendors/select2/dist/js/select2.full.min.js"></script>
 <script src="<?=base_url()?>assets/css/vendors/moment.min.js"></script>
 <script src="<?=base_url()?>assets/css/vendors/daterangepicker.js"></script>
 <link href="<?=base_url()?>assets/css/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+<script src="<?=base_url()?>assets/css/vendors/iCheck/icheck.min.js"></script>
 <script>
       $(document).ready(function() {
         $(".select2_single").select2({
@@ -134,7 +140,16 @@ echo "</select>";
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="myForm" action="<?=base_url()?>administrador/crearSesionesPost/" class="form-horizontal form-label-left" method='POST' ENCTYPE="multipart/form-data">
+
+
+
+
+
+
+
+
+
+                    <form id="myForm" action="<?=base_url()?>administrador/crearSesionesPost" class="form-horizontal form-label-left" method='POST' ENCTYPE="multipart/form-data">
                     	<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Selecione pelicula:</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -158,7 +173,7 @@ echo "</select>";
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">De:</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control has-feedback-left" id="single_cal1" placeholder="Primer dia" aria-describedby="inputSuccess2Status">
+                          <input type="text" class="form-control has-feedback-left" id="single_cal1" placeholder="Primer dia" aria-describedby="inputSuccess2Status" name="fecha1">
                           <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                 <span id="inputSuccess2Status" class="sr-only">(success)</span>
 
@@ -169,13 +184,58 @@ echo "</select>";
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Hasta:</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="Primer dia" aria-describedby="inputSuccess2Status">
+                          <input type="text" class="form-control has-feedback-left" id="single_cal2" placeholder="Primer dia" aria-describedby="inputSuccess2Status" name="fecha2">
                           <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                                 <span id="inputSuccess2Status" class="sr-only">(success)</span>
 
                         </div>
                         
                       </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Sesiones:</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="checkbox" name="horaSesion[]" value="16:00" class="flat" /> 16:00
+                        
+                        <input type="checkbox" name="horaSesion[]" value="17:00" class="flat" /> 17:00
+                        <input type="checkbox" name="horaSesion[]" value="18:00" class="flat" /> 18:00
+                        <input type="checkbox" name="horaSesion[]" value="19:00" class="flat" /> 19:00
+                        <br />
+                        <input type="checkbox" name="horaSesion[]" value="20:00" class="flat" /> 20:00
+                        <input type="checkbox" name="horaSesion[]" value="21:00" class="flat" /> 21:00
+                        <input type="checkbox" name="horaSesion[]" value="22:00" class="flat" /> 22:00
+                        <input type="checkbox" name="horaSesion[]" value="23:00" class="flat" /> 23:00
+
+                        </div>
+                        
+                      </div>
+                      <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Sala: </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" name="sala">
+                          <?php 
+
+                            foreach ($salas as $sala) {
+                              echo "<option value='".$sala['id']."'>".$sala['id']."</option>";
+                            }
+
+
+
+                          ?>
+                            
+                          </select>
+                        </div>
+                        </div>
+
+                        <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <!-- <button type="submit" class="btn btn-primary">Cancelar</button> -->
+                          <button type="submit" class="btn btn-success">Enviar</button>
+                        </div>
+                      </div>
+
+                      
 
                       
 
@@ -194,6 +254,7 @@ echo "</select>";
 
                   </div>
                 </div>
+                <br><br><br><br><br><br><br><br><br>
               
 
 
@@ -220,36 +281,39 @@ echo "</select>";
 
 $( "#myForm" ).validate({
   rules: {
-    titulo: {
+    pelicula: {
       required: true,
-      minlength: 5
     },
-    director:{
-      required: true,
-      minlength: 3
+    fecha1:{
+      required: true
+      
     },
-    sino:{
-      required: true,
-      minlength: 15
+    fecha2:{
+      required: true
+      
+    },
+    sala:{
+      required: true
     }
   },
   messages:{
-    titulo:{
-      required: "Introduzca un titulo.",
-      minlength: "Introduzca un titulo."
+    pelicula:{
+      required: "Introduzca una pelicula."
     },
-    director:{
-      required: "Introduzca un director.",
-      minlength: "Introduzca un director."
+    fecha1:{
+      required: "Introduzca un dia."
     },
-    sino:{
-      required: "Introduzca una sinopsis.",
-      minlength: "Introduzca una sinopsis."
+    fecha2:{
+      required: "Introduzca un dia."
+      
+    },
+    sala:{
+      required: "Introduzca una sala."
     }
   },
   success: "valid",
   submitHandler: function(){ 
-    if(confirm("¿Quieres actualizar la pelicula?")){
+    if(confirm("¿Quieres ingresas sesiones?")){
       myForm.submit();
     }
   }

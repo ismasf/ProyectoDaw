@@ -11,7 +11,13 @@ class Administrador extends CI_Controller{
 		
 		R::close();
 		//$this->template->load("plantilla","administrador/index");
-		$this->load->view("administrador/index");
+		if(isset($_SESSION["idUserAdmin"])){
+			header("Location: ".base_url()."administrador/principal" );
+			
+		}else{
+			$this->load->view("administrador/index");
+		}
+		
 		
 	}
 	public function getAdmin(){
@@ -116,9 +122,14 @@ class Administrador extends CI_Controller{
 		ini_set ( "session.cookie_lifetime", "7200" );
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
+		
+		
 		if(isset($_SESSION["idUserAdmin"])){
-			$this->load->model("sesion_model");
-			$this->sesion_model->crearSesiones();
+			if(isset($_POST["horaSesion"])){
+				$this->load->model("sesion_model");
+				$this->sesion_model->crearSesiones();
+			}
+			
 			$this->template->load("plantillaAdmin","administrador/crearSesionesPost");
 		}else{
 			$this->load->view("administrador/error");
@@ -256,7 +267,7 @@ class Administrador extends CI_Controller{
 		
 	}
 
-	public function pruebaSesiones(){
+	public function eliminarSesiones(){
 		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 		session_name ( "cineProyecto" );
 		ini_set ( "session.cookie_lifetime", "7200" );
@@ -265,7 +276,8 @@ class Administrador extends CI_Controller{
 		if(isset($_SESSION["idUserAdmin"])){
 			$this->load->model("sesion_model");
 			$data['sesi']=$this->sesion_model->pruebaSesionSelect();
-			$this->template->load("plantillaAdmin","administrador/prueba",$data);
+			//print_r($data['sesi']);
+			$this->template->load("plantillaAdmin","administrador/eliminarSesion",$data);
 		}else{
 			$this->load->view("administrador/error");
 		}
@@ -373,6 +385,102 @@ class Administrador extends CI_Controller{
 		
 		
 		
+	}
+
+	public function eliminarSesionGet($id){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("sesion_model");
+			$this->sesion_model->eliminarSesionId($id);
+			$this->template->load("plantillaAdmin","administrador/eliminarSesionGet");
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+	}
+
+	public function activarUsuario(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			$data['usuario']=$this->usuarios_model->getListaUsuarios();
+			//print_r($data['usuario']);
+			$this->template->load("plantillaAdmin","administrador/activarUsuario",$data);
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+		
+		
+		
+	}
+
+	public function activarUsuarioGet($id){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			$this->usuarios_model->activarUsuario($id);
+			$this->template->load("plantillaAdmin","administrador/activarUsuarioGet");
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+	}
+
+	public function eliminarUsuario(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			$data['usuario']=$this->usuarios_model->getListaUsuariosTodos();
+			//print_r($data['usuario']);
+			$this->template->load("plantillaAdmin","administrador/eliminarUsuario",$data);
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+		
+		
+		
+	}
+
+	public function eliminarUsuarioGet($id){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			$this->usuarios_model->eliminarUsuario($id);
+			$this->template->load("plantillaAdmin","administrador/eliminarUsuarioGet");
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
 	}
 
 

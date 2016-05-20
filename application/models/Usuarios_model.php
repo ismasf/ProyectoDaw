@@ -402,7 +402,27 @@ public function  informacionZonaUser($usuarioId){
 	
 		return $result;
 	}
+
+	public function getListaUsuarios(){
+		$result = R::getAll("SELECT * FROM usuario WHERE verificado='NO'");
+		return $result;
+	}
+
+	public function activarUsuario($id){
+		$usuario = R::load("usuario",$id);
+		$usuario->verificado = "SI";
+		R::store($usuario);
+	}
 	
+	public function getListaUsuariosTodos(){
+		$result = R::getAll("SELECT * FROM usuario");
+		return $result;	
+	}
+
+	public function eliminarUsuario($id){
+		$usuario = R::load("usuario",$id);
+		R::trash($usuario);
+	}
 
 
 

@@ -32,21 +32,25 @@ class Sesion_model extends CI_Model{
 	}
 
 	public function crearSesiones(){
-		$dia1 = date("Y-m-d H:i:s",mktime(0,0,0,$_GET['mes1'],$_GET['dia1'],$_GET['ano1']));
- 		$dia2 = date("Y-m-d H:i:s",mktime(0,0,0,$_GET['mes2'],$_GET['dia2'],$_GET['ano2']));
+		$f1=explode("/", $_POST["fecha1"]);
+		$f2=explode("/", $_POST["fecha2"]);
+		
 
-		$fecha1=mktime(0,0,0,$_GET['mes1'],$_GET['dia1'],$_GET['ano1']);
-		$fecha2=mktime(0,0,0,$_GET['mes2'],$_GET['dia2'],$_GET['ano2']);
+		$dia1 = date("Y-m-d H:i:s",mktime(0,0,0,$f1[0],$f1[1],$f1[2]));
+ 		$dia2 = date("Y-m-d H:i:s",mktime(0,0,0,$f2[0],$f2[1],$f2[2]));
+
+		$fecha1=mktime(0,0,0,$f1[0],$f1[1],$f1[2]);
+		$fecha2=mktime(0,0,0,$f2[0],$f2[1],$f2[2]);
 
 		$diferencia=$fecha2-$fecha1;
 		$dias=$diferencia/(60*60*24);
 
-		$peli = $_GET['pelicula'];
-		$sala = $_GET['sala'];
+		$peli = $_POST['pelicula'];
+		$sala = $_POST['sala'];
 
 		for($i=0;$i<$dias;$i++){
 
-			foreach ($_GET['hora'] as $k) {
+			foreach ($_POST['horaSesion'] as $k) {
 				$hor = explode(':', $k);
 				$ses = R::dispense("sesion");
 		
@@ -66,8 +70,14 @@ class Sesion_model extends CI_Model{
 	}
 	
 	public function pruebaSesionSelect(){
-		$sesion = R::getAll('SELECT s.id, p.titulo, s.hora, p.duracion FROM sesion s, pelicula p WHERE s.pelicula_id = p.id AND p.id = 3');
+		$sesion = R::getAll('SELECT s.id, p.titulo, s.hora, p.duracion FROM sesion s, pelicula p WHERE s.pelicula_id = p.id');
 		return $sesion;
+	}
+
+	public function eliminarSesionId($id){
+		$sesion = R::load("sesion",$id);
+		
+		R::trash($sesion);
 	}
 	
 	
