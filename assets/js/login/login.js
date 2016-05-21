@@ -249,13 +249,16 @@ $(document).ready(function(){
 		 
 		 
 		 
-		 dia= $(this).children().attr('aria-controls');
+		 dia= $(this).children().html();
 		 
-		 $('button.btn-dias').html(dia.charAt(0).toUpperCase() + dia.slice(1));
+		 $('button.btn-dias').html(dia);
 		 
 		 $('div.horas div').removeClass('active');
 		 
-		 $('div.horas div#'+dia).addClass("active");
+		 partesDia=dia.split(" ");
+		 
+		 
+		 $('div.horas div#'+partesDia[1].toLowerCase()).addClass("active");
 		 
 		
 	})

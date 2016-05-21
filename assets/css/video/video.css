@@ -2,7 +2,7 @@ div#player{
 
 height: 300px;
 
-
+ 
 }
 
 @media (min-width: 992px){
@@ -11,7 +11,21 @@ height: 300px;
 div#player{
 	
 	    height: 350px;
+	    margin-top: 150px !important;
 	
+	
+}
+	
+	
+}
+
+@media (min-width: 770px){
+	
+	
+div#player{
+	
+	    
+	    margin-top: 150px !important;
 	
 	
 }
@@ -26,7 +40,7 @@ div#player{
 div#player{
 	
 	    height: 250px;
-	
+	    margin-top: 0px !important;
 	
 	
 }
@@ -43,7 +57,7 @@ div#player{
 	
 	    height: 200px;
 	
-	
+	    margin-top: 0px !important;
 	
 }
 	

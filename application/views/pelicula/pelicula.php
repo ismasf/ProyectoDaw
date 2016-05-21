@@ -197,7 +197,7 @@ Tiene estas sesiones:
                                 
                                  <div class="col-md-8 nav-disappear" style="height:300px;">
                                  	<div class="dropdown" >
-   						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown"><?= $diaLetter?></button>
+   						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown"><?=$a." ".$diaLetter?></button>
     			</button>
     							<ul class="dropdown-menu listaDias">
      									 <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
@@ -236,7 +236,7 @@ Tiene estas sesiones:
 <div id="player" class="col-sm-12 col-md-offset-2" style="max-width:690px;">
 	
 		<div class="video-js" style="width: 100%; height: 100%;">
-			<video id="video_1" class="video-js vjs-default-skin" style="width: 100%; height: 100%;" controls data-setup='{}' >
+			<video id="video_1" class="video-js vjs-default-skin" style="width: 99%; height: 100%;" controls data-setup='{}' >
 			
 				<?= $trailers?>
 			
