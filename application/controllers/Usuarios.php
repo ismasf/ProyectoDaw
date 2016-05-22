@@ -487,6 +487,14 @@ function obtenerFacturas() {
 	
 }
 
+
+
+
+
+
+
+
+
 }
 
 

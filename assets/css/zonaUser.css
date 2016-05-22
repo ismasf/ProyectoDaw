@@ -130,3 +130,77 @@ table.dataTable tbody th, table.dataTable tbody td {
     }
     
     }
+    
+    
+    div.errordiv span {
+    color: darkred;
+}
+
+td{
+	    min-width: 70px;
+	word-break: break-all;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+
+#containerChat{
+            
+            
+            height: 400px;
+            width: 98%;
+            
+            border: 2px solid blue;
+            
+            overflow: scroll;
+            padding: 15px;
+                padding-left: 79px;
+            
+        }
+        
+        
+  .bubble{
+            
+     width: 45%;
+    padding: 2%;
+    border-radius: 22px;
+    max-height: 185px;
+    background-color: dimgray;
+    float: left;
+    word-break: break-all;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow: hidden;
+            
+        }
+        
+        .row{
+           width: 98%;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: auto;
+        }
+    
+        
+        
+        
+        .bubble2{
+            
+                width: 45%;
+    padding: 2%;
+    border-radius: 22px;
+    max-height: 185px;
+    background-color: dodgerblue;
+    float: right;
+    word-break: break-all;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow: hidden;
+            
+        }
