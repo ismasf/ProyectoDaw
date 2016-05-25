@@ -204,3 +204,39 @@ td{
     overflow: hidden;
             
         }
+        
+        
+        
+   @media (max-width: 770px){
+   
+   div#containerChat .row{
+   
+   font-size: 0.7em !important;
+    width: 98% !important;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: auto;
+    margin-left: -27px !important;
+   
+   
+   }
+   
+   .bubble2{
+       width: 75% !important;
+    padding: 3% !important;
+   
+   
+   
+   }
+   
+   
+   .bubble{
+       width: 75% !important;
+    padding: 3% !important;
+   
+   
+   
+   }
+   
+   
+   }

@@ -332,7 +332,7 @@ public function  informacionZonaUser($usuarioId){
 	}
 	
 	
-	
+	$_SESSION['imagenUser']=$imagen;
 	return $result;
 	
 	

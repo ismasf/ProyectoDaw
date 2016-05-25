@@ -364,7 +364,9 @@ function guardarImage(){
 			$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
 			
 			if($estado){
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
 				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
+				
 
 			}else{
 				$this->output->set_output("no");
@@ -380,7 +382,10 @@ function guardarImage(){
 			$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
 			
 			if($estado){
+				
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
 				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
+				
 			
 			}else{
 				$this->output->set_output("no");
@@ -393,6 +398,8 @@ function guardarImage(){
 			$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
 			
 			if($estado){
+				
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
 				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
 			
 			}else{
@@ -407,6 +414,7 @@ function guardarImage(){
 		$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
 			
 			if($estado){
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
 				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
 			
 			}else{
