@@ -24,14 +24,17 @@ body {
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+color:white !important;
 }
 
-
+.quitarC{
+	cursor:default;
+}
 
 footer {
 	bottom: 0;
 	width: 100%;
-	background-color: #353535;
+	background-color: #22464A;
 	position: fixed;
 	text-align:center !important;
 }
@@ -54,7 +57,7 @@ a{
 }
 
 nav{
-	background-color:#333 !important;
+	background-color:#22464A !important;
 }
 </style>
 
@@ -101,6 +104,7 @@ nav{
 					<li><a href="#">Peliculas</a></li>
 					<li><a href="#">Promociones</a></li>
 					<li><a href="<?=base_url()?>Aqui">Estamos aquí</a></li>
+					<li><a href="<?=base_url()?>Equipo">Quienes somos</a></li>
 				</ul>
 				<ul
 					class="nav navbar-nav nav pull-left-xs pull-right-md pull-right-lg"
@@ -156,7 +160,7 @@ nav{
 		<div class="container">
 			<div class="row">
 				<ul class="list-unstyled">
-					<li class="col-sm-4 col-xs-5"><a href="#">Trabaja con nosotros</a>
+					<li class="col-sm-4 col-xs-5"><a href="<?=base_url()?>Equipo">Trabaja con nosotros</a>
 					</li>
 					<li class="col-sm-4 col-xs-5"><a href="#">Politicas de Privacidad</a>
 					</li>
