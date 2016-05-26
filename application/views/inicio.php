@@ -50,14 +50,13 @@
 		<div class="row">
 		<div>
 		<?php foreach ($cartelera as $pelicula):?>
-			<div class="col-xs-6 col-md-3 col-xl-4">
-			<div class="col-xs-6 col-md-4 col-xl-4">
+			<div class="col-xs-6 col-md-3 col-xl-4" class="quitarC">
 				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><?=$pelicula["titulo"]?></a><br>
-				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" /></a>
+				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" class="img-responsive"/></a>
 			</div>
-			<div class="col-xs-6 col-md-4 col-xl-4">
+			<div class="col-xs-6 col-md-3 col-xl-4">
 				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><?=$pelicula["titulo"]?></a><br>
-				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" /></a>
+				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" class="img-responsive"/></a>
 			</div>
 		<?php endforeach;?>
 		</div>
