@@ -325,6 +325,122 @@ function obtenerDatos(){
 }
 
 
+function guardarImage(){
+	
+	session_name ( "cineProyecto" );
+	ini_set ( "session.cookie_lifetime", "7200" );
+	ini_set ( "session.gc_maxlifetime", "7200" );
+	session_start ();
+	
+	
+	if(isset($_FILES['file'])){
+		
+		
+		
+		$name=$_FILES['file']['name'];
+		
+		$comprobarJPG="assets/img/photoUser/imageUser".$_SESSION['idUser'].".jpg";
+		$comprobarJPEG="assets/img/photoUser/imageUser".$_SESSION['idUser'].".jpeg";
+		$comprobarPNG="assets/img/photoUser/imageUser".$_SESSION['idUser'].".png";
+		
+		/*$ruta="assets/img/photoUser/imageUser".$_FILES['file']['name'];
+		
+		
+		$ruta="assets/img/photoUser/".$_FILES['file']['name'];*/
+		
+		$name=explode(".",$_FILES['file']['name'] );
+			
+		$numero=count($name);
+			
+		$ruta="assets/img/photoUser/imageUser".$_SESSION['idUser'].".".$name[$numero-1];
+		
+		
+		
+		if(file_exists($comprobarJPEG) ){
+			
+			
+			unlink($comprobarJPEG);
+			
+			$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
+			
+			if($estado){
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
+				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
+				
+
+			}else{
+				$this->output->set_output("no");
+			}
+						
+			
+			
+		}else if(file_exists($comprobarJPG)){
+			
+			
+			
+			unlink($comprobarJPG);
+			$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
+			
+			if($estado){
+				
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
+				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
+				
+			
+			}else{
+				$this->output->set_output("no");
+			}
+			
+			
+		}else if(file_exists($comprobarPNG)){
+			
+			unlink($comprobarPNG);
+			$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
+			
+			if($estado){
+				
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
+				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
+			
+			}else{
+				$this->output->set_output("no");
+			}
+		
+		
+		}else{
+			
+			
+			
+		$estado=move_uploaded_file($_FILES["file"]["tmp_name"],  $ruta);
+			
+			if($estado){
+				$_SESSION['imagenUser']="imageUser".$_SESSION['idUser'].".".$name[$numero-1];
+				$this->output->set_output("imageUser".$_SESSION['idUser'].".".$name[$numero-1]);
+			
+			}else{
+				$this->output->set_output("no");
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+	}else{
+		
+		$this->output->set_output("no");
+		
+	}
+	
+	
+}
+
+
 function actualizar(){
 	
 	session_name ( "cineProyecto" );
@@ -378,6 +494,14 @@ function obtenerFacturas() {
 	
 	
 }
+
+
+
+
+
+
+
+
 
 }
 

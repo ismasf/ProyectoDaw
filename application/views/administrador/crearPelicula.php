@@ -10,7 +10,26 @@
 
 
 </form> -->
+<script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
+<script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
 
+    <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.js"></script>
+
+    <script src="<?=base_url()?>assets/js/registrar/jquery.validate.min.js"></script>
+
+<script>
+  function enviar(){
+    return false;
+   
+  }
+  
+
+
+</script>
 <div class="row tile_count">
                 <div class="x_panel">
                   <div class="x_title">
@@ -76,7 +95,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancelar</button>
+                          <!-- <button type="submit" class="btn btn-primary">Cancelar</button> -->
                           <button type="submit" class="btn btn-success">Enviar</button>
                         </div>
                       </div>
@@ -101,16 +120,7 @@
 
 
 
-<script src="<?=base_url()?>assets/css/vendors/jquery/dist/jquery.min.js"></script>
-<script src="<?=base_url()?>assets/css/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?=base_url()?>assets/css/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
-<script src="<?=base_url()?>assets/css/vendors/switchery/dist/switchery.min.js"></script>
 
-    <script src="<?=base_url()?>assets/css/vendors/fastclick/lib/fastclick.js"></script>
-    <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>
-    <script src="<?=base_url()?>assets/css/vendors/dropzone/dist/min/dropzone.min.js"></script>
-
-    <script src="<?=base_url()?>assets/js/registrar/jquery.validate.min.js"></script>
     
 
               <script>
@@ -256,6 +266,12 @@ $( "#myForm" ).validate({
     },
     userfile2:{
       required: "Se requiere una imagen."
+    }
+  },
+  success: "valid",
+  submitHandler: function(){
+    if(confirm("¿Quieres insertar la pelicula?")){
+      myForm.submit();
     }
   }
 });

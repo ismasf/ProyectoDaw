@@ -69,7 +69,7 @@
     <!-- NProgress 
     <script src="<?=base_url()?>assets/css/vendors/nprogress/nprogress.js"></script>-->
     <!-- Datatables -->
-    <script src="<?=base_url()?>assets/css/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?=base_url()?>assets/css/vendors/datatables.net/js/jquery.dataTables.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="<?=base_url()?>assets/css/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>

@@ -171,13 +171,17 @@ $(document).ready(function(){
 	            idCorreoOlvidado: {
 	            	required: "Introduzca un correo",
 	            	email: "Introcuzca un correo valido",
-	                remote: "El correo que has introducido no esta registrado "
+	                remote: "El correo que has introducido no esta registrado, o no ha sido verificado."
 	            }
 	            
 	            
 	        },
 	          
 	         submitHandler: function(form) {
+	        	 
+	        	 
+	        	 
+	        	 $('#idBtnOlvidado').prop("disabled", true);
 	            
 	        /*$(form).ajaxSubmit();*/
 	        	 
@@ -190,6 +194,7 @@ $(document).ready(function(){
 	                     
 	                	 if(response.trim()=="ok"){
 	                		 //alert("bien")
+	                		 
 	                		$('div.remodal').html('<h1>Se le ha mandado una nueva contraseña a su correo<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
 	                		 
 	                		 segundos=5;
@@ -234,6 +239,31 @@ $(document).ready(function(){
 	
 	
     }
+	
+	
+	$('ul.listaDias li').on('click',function(){
+		
+		
+		 $(this).siblings().removeClass("active");
+		 $(this).addClass("active");
+		 
+		 
+		 
+		 dia= $(this).children().html();
+		 
+		 $('button.btn-dias').html(dia);
+		 
+		 $('div.horas div').removeClass('active');
+		 
+		 partesDia=dia.split(" ");
+		 
+		 
+		 $('div.horas div#'+partesDia[1].toLowerCase()).addClass("active");
+		 
+		
+	})
+	
+	
 	
 	
 	

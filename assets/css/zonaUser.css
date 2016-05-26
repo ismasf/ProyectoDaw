@@ -39,3 +39,204 @@ table.dataTable tbody th, table.dataTable tbody td {
  
     padding-left: 4% !important;
 }
+
+
+.circularUser {
+	width: 200px;
+	height: 200px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	    background-color: #EAE8E8;
+	    
+	     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	
+	}
+	
+	.photoUser{
+	    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    
+    
+    }
+    
+    
+    #miFormUpdate{
+        border: 2px solid #CACACA;
+    border-radius: 10%;
+    padding: 0 10% 10% 10%;
+    }
+    
+    #parrafoImage{
+    	color: gray;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+    
+    }
+    
+    
+    .circularUser #imageUser{
+    
+        width: 70%;
+    margin: 0px !important;
+    margin-top: 16%;
+    
+    }
+    
+    
+    #errorImage{
+    color: darkred;
+    }
+    
+    .successImg{
+    color:green !important;
+    }
+    
+    #navImagenUser{
+    width:35px !important;
+    border-radius: 50%;
+    }
+    
+    a#navLogin{
+    	font-size: 0.8em !important;
+    }
+    
+    
+    @media (min-width: 768px){
+    
+    #dropDownLogin{
+    	float:right;
+    }
+    
+    }
+
+    
+    @media (max-width: 770px){
+     	#navImagenUser{
+       margin: 0px 0px 0px 0px !important;
+    }
+    
+    div.dropdown-menu a{
+    color:white;
+    }
+    
+    }
+    
+    
+    div.errordiv span {
+    color: darkred;
+}
+
+td{
+	    min-width: 70px;
+	word-break: break-all;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+
+#containerChat{
+            
+            
+            height: 400px;
+            width: 98%;
+            
+            border: 2px solid blue;
+            
+            overflow: scroll;
+            padding: 15px;
+                padding-left: 79px;
+            
+        }
+        
+        
+  .bubble{
+            
+     width: 45%;
+    padding: 2%;
+    border-radius: 22px;
+    max-height: 185px;
+    background-color: dimgray;
+    float: left;
+    word-break: break-all;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow: hidden;
+            
+        }
+        
+        .row{
+           width: 98%;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: auto;
+        }
+    
+        
+        
+        
+        .bubble2{
+            
+                width: 45%;
+    padding: 2%;
+    border-radius: 22px;
+    max-height: 185px;
+    background-color: dodgerblue;
+    float: right;
+    word-break: break-all;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    overflow: hidden;
+            
+        }
+        
+        
+        
+   @media (max-width: 770px){
+   
+   div#containerChat .row{
+   
+   font-size: 0.7em !important;
+    width: 98% !important;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: auto;
+    margin-left: -27px !important;
+   
+   
+   }
+   
+   .bubble2{
+       width: 75% !important;
+    padding: 3% !important;
+   
+   
+   
+   }
+   
+   
+   .bubble{
+       width: 75% !important;
+    padding: 3% !important;
+   
+   
+   
+   }
+   
+   
+   }

@@ -19,16 +19,13 @@ session_start ();*/
 <style>
 body {
 	padding-top: 30px;
+<<<<<<< HEAD
 	background: url(<?= base_url()?>assets/img/fondos/footer_lodyas.png) no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
 color:white !important;
-}
-
-.quitarC{
-	cursor:default;
 }
 
 footer {
@@ -81,6 +78,18 @@ nav{
 <?= script_tag('assets/js/login/login.js')?>
 
 <?= script_tag('assets/js/table/dataTables.min.js')?>
+<?= script_tag('assets/js/video.js')?>
+<?= script_tag('assets/js/videojs-resolution-switcher.js')?>
+
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/video/video-js.min.css"); ?>" />
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/video/videojs-resolution-switcher.css"); ?>" />
+	
+<link rel="stylesheet"
+	href="<?php echo base_url("assets/css/video/video.css"); ?>" />
+
+
 
 </head>
 
@@ -135,10 +144,10 @@ nav{
           
 					
 					<li class="dropdown" id="menuLogin"><a class="dropdown-toggle"
-						href="#" data-toggle="dropdown" id="navLogin"><?= $_SESSION['correoUser']; ?></a>
+						href="#" data-toggle="dropdown" id="navLogin"><img src="<?=base_url()."assets/img/photoUser/".$_SESSION['imagenUser']?>" id="navImagenUser">&nbsp;&nbsp;<?= $_SESSION['correoUser']; ?></a>
 						<div class="dropdown-menu" style="padding: 17px;">
 
-							<a href="<?=base_url()?>Usuarios/zonaUser">Mi cuenta</a>
+							<a href="<?=base_url()?>Usuarios/zonaUser">Mi cuenta</a><br>
 							<button class="btn" id="idBtnDesconectar">Desconectar</button>
 						</div>
             <?php endif;?>

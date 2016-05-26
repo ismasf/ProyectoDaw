@@ -103,6 +103,10 @@ $('body').on('click', 'button.descargar', function(e){
 	});
 	
 	
+
+	
+	
+	
 	
 	
 	function cargarDatosFacturas(){
@@ -268,7 +272,7 @@ $('body').on('click', 'button.descargar', function(e){
         maxDate: fechaAyer// Now can select only dates, which goes after today
     })
     
-    
+    $('#idFechaN').attr('readOnly', 'true');
     $user=document.getElementById("navLogin").innerHTML;
         
     
@@ -285,7 +289,7 @@ $('body').on('click', 'button.descargar', function(e){
 	                		 
 	                		 
 	                		 var obj = JSON.parse(response);
-	                	
+	                		 console.log(obj.imagen);
 	                		 
 	                		document.getElementById("idNombre").value=obj[0].nombre;
 	                		document.getElementById("idApellidos").value=obj[0].apellidos;
@@ -294,9 +298,11 @@ $('body').on('click', 'button.descargar', function(e){
 	                		f=fechaN.split("-");
 	                		
 	                		document.getElementById("idFechaN").value=f[2]+"/"+f[1]+"/"+f[0];
+	                		
+	                		//console.log(baseUrl);
+	                		// $('img#imageUser').attr('src',baseUrl+'assets/img/photoUser/'+obj.imagen);
 	                		 
-	                		 
-	                		 
+	                		$('.circularUser').css("background-image", "url('"+baseUrl+"assets/img/photoUser/"+obj.imagen+"')");  
 	                		
 	                		
 	                		 
@@ -451,6 +457,8 @@ $('body').on('click', 'button.descargar', function(e){
 	        },
 	          
 	         submitHandler: function(form) {
+	        	 
+	        	 $('#idBtnRegistrar').prop("disabled", true);
 	            
 	        /*$(form).ajaxSubmit();*/
 	        	 
@@ -458,10 +466,11 @@ $('body').on('click', 'button.descargar', function(e){
 	        	 $.ajax({
 	                 type: "POST",
 	                 url: baseUrl+"Usuarios/actualizar",
-	                 data: $(form).serialize(),
+	                 data: $(form).serialize(), 
 	                 success: function (response) {
 	                     
 	                	 if(response.trim()=="ok"){
+	                		 $('#idBtnRegistrar').prop("disabled", false);
 	                		 //alert("bien")
 	                		 $('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
 	                		 inst.open();
@@ -491,7 +500,12 @@ $('body').on('click', 'button.descargar', function(e){
 	                	 
 	                 }
 	                     });
+	        	        	 
+	                    	 
+	                    	 
+	                    
 	        	 
+	        	
 	        	 
 	        	 
 	        	 
@@ -518,6 +532,147 @@ $('body').on('click', 'button.descargar', function(e){
 		
 		
 		
+	$('body').on('click','div.circularUser', function(){
+		
+		
+		$('input#fileImage').click();
+		
+		
+		
+		
+	});
+	
+	
+		
+	
+		
+		$(document).on('change', 'input[type="file"]' , function(e){
+			var _URL = window.URL || window.webkitURL;
+		
+			 var file, img;
+
+
+			    if ((file = this.files[0])) {
+			    	
+			        img = new Image();
+			        img.onload = function() {
+			            //alert(this.width + " " + this.height);
+			        	
+			        	if(file.type=="image/jpeg" || file.type=="image/png" || file.type=="image/jpg"){
+			        		
+			        		
+			        		
+			        		if(file.size<=1500000){
+			        			
+			        			
+			        			if(this.width<=900 && this.height<=900){
+			        				
+			        				
+			        				
+			        				 
+			       	        	 var file_data = $('#fileImage').prop('files')[0];   
+			       	             var form_data = new FormData();                  
+			       	             form_data.append('file', file_data);
+			       	        	 
+			       	          $.ajax({
+			 	                 type: "POST",
+			 	                dataType: 'text',  // what to expect back from the PHP script, if anything
+			 	                cache: false,
+			 	                contentType: false,
+			 	                processData: false,
+			 	                 url: baseUrl+"Usuarios/guardarImage",
+			 	                 data: form_data, 
+			 	                 success: function (response) {
+			 	                     
+			 	                	 if(response.trim()!="no"){
+			 	                		 
+			 	                		 
+			 	                		$('.circularUser').css("background-image", "url('"+baseUrl+"assets/img/photoUser/"+response.trim()+"')");
+			 	                		$('#errorImage').html("La imagen se ha guardado correctamente");
+			 	                		$('#errorImage').addClass("successImg");
+			 	                		 
+			 	                		 //alert("bien")
+			 	                		 /*$('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+			 	                		 inst.open();
+			 	                		 segundos=5;
+			 	                		idInterval = setInterval(function() {
+			 	                			 inst = $('[data-remodal-id=modal]').remodal();
+			 	                	         
+			 	                	 			
+			 	                	         
+			 	                			segundos--;
+			 	                			if(segundos<1){
+			 	                				clearInterval(idInterval);
+			 	                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+			 	                				window.location.replace(baseUrl);
+			 	                				inst.close();
+			 	                				
+			 	                			}
+			 	                			
+			 	                			
+			 	                		},500);*/
+			 	                		
+			 	                		
+			 	                		 
+			 	                	 }else{
+			 	                		 
+			 	                		$('#errorImage').html("La imagen no se ha podido guardar");
+			 	                		$('#errorImage').removeClass("successImg"); 
+			 	                		 
+			 	                	 }
+			 	                	 
+			 	                 }
+			 	                     });
+			       	        	 
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        				
+			        			}else{
+			        				$('#errorImage').html("La imagen seleccionada excede las medidas maximas permitidas, 900px X 900px");
+			        				$('#errorImage').removeClass("successImg"); 
+			        				imageData="ninguna";
+			        				this.files[0]=null;
+			        				
+			        			}
+			        			
+			        			
+			        			
+			        		}else{
+			        			$('#errorImage').html("La imagen seleccionada excede del tamaño maximo, que son 1,5Mb.");
+			        			$('#errorImage').removeClass("successImg"); 
+			        			imageData="ninguna";
+			        			this.files[0]=null;
+			        			
+			        			
+			        		}
+			        		
+			        	}else{
+			        		
+			        		$('#errorImage').html("Solo son permitidos los formatos de imagen: JPEG, PNG");
+			        		$('#errorImage').removeClass("successImg"); 
+			        		imageData="ninguna";
+			        		this.files[0]=null;
+			        	}
+			        	
+			        	
+			        	
+			        };
+			        img.onerror = function() {
+			            alert( "Imagen no valida: " + file.type);
+			        };
+			        img.src = _URL.createObjectURL(file);
+
+
+			    }
+	});
 		
 		
 		
@@ -525,6 +680,332 @@ $('body').on('click', 'button.descargar', function(e){
 		
 		
 		
+		
+		
+		
+		$('a#idIncidencias').on('click',  function(event){
+			
+			event.preventDefault();
+			$('div#containerUser').load(baseUrl+"assets/html/zonaUser/incidencias.html",cargarDatosIncidencias);
+			
+		});
+
+
+
+			function cargarDatosIncidencias(){
+				
+				
+				
+				
+				$.ajax({
+	                type: "POST",
+	                url: baseUrl+"Incidencias/incidenciasUsuario",
+	                data: {username:""} ,
+	                success: function (response) {
+	                    
+	               	 if(response.trim()!="" && response.trim()!="no" && response.trim()!=[]){
+	               		 
+	               		objeto = JSON.parse(response);
+	               		
+	               		$.each(objeto, function (index, obj) {
+	               			
+	               			
+	               		   var filaI= document.createElement("tr");
+	               		   var columna1= document.createElement("td");
+	               		   var columna2= document.createElement("td");
+	               		   var columna3= document.createElement("td");
+	               		   var columna4= document.createElement("td");
+	               		 
+	               		   var columna5= document.createElement("td");
+	               		   var textNode1 = document.createTextNode(obj.uniqid);
+	               		   var textNode2 = document.createTextNode(obj.problema);
+	               		   var textNode3= document.createTextNode(obj.fecha_incidencia);
+	               		   var textNode4= document.createTextNode(obj.estado);
+	               		   //var textNode5= document.createTextNode('<input type="button" id="button.'+obj.id+'" value="Ver">');
+	               		   
+	               		  $('table#tablaIncidencias tbody').append(filaI);
+	               		   
+	               		
+	                       filaI.appendChild(columna1);
+	                       filaI.appendChild(columna2);
+	                       filaI.appendChild(columna3);
+	                       filaI.appendChild(columna4);
+	                       filaI.appendChild(columna5);
+	                       columna1.appendChild(textNode1);
+	                       columna2.appendChild(textNode2);
+	                       columna3.appendChild(textNode3);
+	                       columna4.appendChild(textNode4);
+	                       columna5.innerHTML='<button id="button.'+obj.id+'" class="verMensajes">Ver</button> ';
+	               			
+	               		});
+	               		
+	               		
+	               		
+	               		 
+	               		 
+	               	 }else{
+	               		 
+	               		
+	               	 }
+	               	 
+	               	 
+	               	 $.extend( true, $.fn.dataTable.defaults, {
+	            		    "searching": true,
+	            		 "language": {
+	                      "lengthMenu": "Display _MENU_ records per page",
+	                      "zeroRecords": "Nothing found - sorry",
+	                      "info": "Ver paginas _PAGE_ de _PAGES_",
+	                      "infoEmpty": "No existen incidencias",
+	                      "infoFiltered": "(filtered from _MAX_ total records)",
+	                      "searching": "Busqueda",
+	                      "oPaginate": {
+	                  		"sFirst":    	"Primera",
+	                  		"sPrevious": 	"Anterior",
+	                  		"sNext":     	"Siguiente",
+	                  		"sLast":     	"Ultima"
+	                  	},
+	                  }
+	            		} );
+	               	  $('#tablaIncidencias').DataTable();
+	               	
+				
+				
+				
+				if($('td.dataTables_empty').length>0){
+					
+					$('td.dataTables_empty').html("No existen incidencias");
+					
+					
+					
+				}
+				
+				if($('div#tablaIncidencias_filter').length>0){
+					
+					$('div#tablaIncidencias_filter label').html('Buscar:<input type="search" class="" placeholder="" aria-controls="tablaIncidencias">');
+					
+					
+					
+				}
+				
+				$('div.dataTables_length').css('visibility','hidden');
+	               	 
+	                }
+	                
+	               
+	                
+	                
+	                
+	                    });
+				
+				
+				
+				
+				
+				//DataTable
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				/*Validate Incidencias*/
+				
+				
+				$('#formNuevaIncidencia').validate({
+			        
+			    	errorElement: 'span',
+			        errorClass: 'help-inline',
+			        
+			        errorPlacement: function(error, element) {error.appendTo (element.siblings(".errordiv")); },
+			    	
+			    	
+			        rules: 
+			        {
+			          idproblema: {
+			            required: true,
+			           
+			              maxlength: 50,
+			              minlength: 3
+			          },
+			            idmensaje: {
+			                required: true,
+			                
+			              maxlength: 250,
+			              minlength: 4
+			                
+			                
+			            },
+			            
+			            
+			            
+			            
+			        },
+			          
+			        messages: 
+			        {
+			        	idproblema:{
+			            required: "Por favor, introduzca un problema",
+			              maxlength: "Problema demasiado largo",
+			              minlength: "Problema demasiado corto"
+			          },
+			            
+			          idmensaje:{
+			            required: "Por favor, introduzca un mensaje",
+			              maxlength: "Mensaje demasiados largos",
+			              minlength: "Mensaje demasiados cortos"
+			          }
+			            
+			            
+			        },
+			          
+			         submitHandler: function(form) {
+			        	 
+			        	 $('#idBtnRegistrar').prop("disabled", true);
+			            
+			        /*$(form).ajaxSubmit();*/
+			        	 
+
+			        	 $.ajax({
+			                 type: "POST",
+			                 url: baseUrl+"Incidencias/crearNuevaIncidencia",
+			                 data: $(form).serialize(), 
+			                 success: function (response) {
+			                     
+			                	 if(response.trim()=="ok"){
+			                		 $('#idBtnRegistrar').prop("disabled", false);
+			                		 //alert("bien")
+			                		 $('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+			                		 inst.open();
+			                		 segundos=5;
+			                		idInterval = setInterval(function() {
+			                			 inst = $('[data-remodal-id=modal]').remodal();
+			                	         
+			                	 			
+			                	         
+			                			segundos--;
+			                			if(segundos<1){
+			                				clearInterval(idInterval);
+			                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+			                				window.location.replace(baseUrl);
+			                				inst.close();
+			                				
+			                			}
+			                			
+			                			
+			                		},500);
+			                		
+			                		
+			                		 
+			                	 }else{
+			                		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+			                	 }
+			                	 
+			                 }
+			                     });
+			        	        	 
+			                    	 
+			                    	 
+			                    
+			        	 
+			        	
+			        	 
+			        	 
+			        	 
+			  } 
+			        	 
+			        	 
+			          
+			          
+			          
+			          
+			      });
+				
+				
+				
+				
+				
+				
+				
+				
+			}	
+		
+		
+		$('body').on('click', 'table#tablaIncidencias button', function(){
+			
+			idButton=$(this).prop('id');
+			partesIdButton=idButton.split(".");
+			
+			idIncidencia=partesIdButton[1].trim();
+			
+			$('div#containerUser').load(baseUrl+"assets/html/zonaUser/mensajesIncidencias.html",cargarMensajesIncidencias(idIncidencia));
+			
+			
+			
+			
+					
+		})
+		
+		function cargarMensajesIncidencias(idIncidencia){
+			
+			
+			$.ajax({
+                type: "POST",
+                url: baseUrl+"Incidencias/getAllMensajes",
+                data: {idIncidencia:idIncidencia}, 
+                success: function (response) {
+                    
+               	 if(response.trim()!="ok"){
+               		
+               		objeto = JSON.parse(response);
+               		
+               		$('div#containerChat').html("");
+               		$.each(objeto, function (index, obj) {
+               			
+               			if(obj.remitente.trim() == "soporte"){
+               				
+               				incidenciaId=obj.incidencia_id;
+               				
+               				mensaje='<div class="row"> <div class="bubble"><p><strong>'+obj.remitente+'</strong>:<br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
+               				$('div#containerChat').append(mensaje);
+               				
+               				
+               			}else{
+               				
+               				mensaje='<div class="row"> <div class="bubble2"><p><strong>'+obj.remitente+':</strong><br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
+               				$('div#containerChat').append(mensaje);
+               				
+               				
+               			}
+               			
+               			
+               			
+               		});
+               		 
+               		
+               		
+               		 
+               	 }else{
+               		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+               	 }
+               	 
+                }
+                    });
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}
 		
 		
 		
@@ -532,3 +1013,93 @@ $('body').on('click', 'button.descargar', function(e){
 		
 	
 });
+
+
+function addNuevoMensaje(){
+	
+	
+	mensaje=$('#idmensajenuevo').val();
+	
+	if(mensaje.length>250 || mensaje.length<5){
+		
+		$('#errorNuevo').html('<span>El mensaje debe ser mayor de 5 caracteres y menor de 250.</span>')
+		
+		
+	}else{
+		
+		
+		$.ajax({
+            type: "POST",
+            url: baseUrl+"Incidencias/nuevoMensaje",
+            data: {idIncidencia:idIncidencia, txtMensaje:mensaje}, 
+            success: function (response) {
+                
+           	 if(response.trim()){
+           		
+           		refreshSms(idIncidencia);
+           		 
+           		
+           		
+           		 
+           	 }else{
+           		alert("mal")
+           	 }
+           	 
+            }
+                });
+		
+		
+	}
+	
+	
+	
+}
+
+
+function refreshSms(idIncidencia){
+	
+	$.ajax({
+        type: "POST",
+        url: baseUrl+"Incidencias/getAllMensajes",
+        data: {idIncidencia:idIncidencia}, 
+        success: function (response) {
+            
+       	 if(response.trim()!="ok"){
+       		
+       		objeto = JSON.parse(response);
+       		
+       		$('div#containerChat').html("");
+       		$.each(objeto, function (index, obj) {
+       			
+       			if(obj.remitente.trim() == "soporte"){
+       				
+       				incidenciaId=obj.incidencia_id;
+       				
+       				mensaje='<div class="row"> <div class="bubble"><p><strong>'+obj.remitente+'</strong>:<br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
+       				$('div#containerChat').append(mensaje);
+       				
+       				
+       			}else{
+       				
+       				mensaje='<div class="row"> <div class="bubble2"><p><strong>'+obj.remitente+':</strong><br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
+       				$('div#containerChat').append(mensaje);
+       				
+       				
+       			}
+       			
+       			
+       			
+       		});
+       		 
+       		
+       		
+       		 
+       	 }else{
+       		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+       	 }
+       	 
+        }
+            });
+	
+	
+}

@@ -1,0 +1,65 @@
+div#player{
+
+height: 300px;
+
+ 
+}
+
+@media (min-width: 992px){
+	
+	
+div#player{
+	
+	    height: 350px;
+	    margin-top: 150px !important;
+	
+	
+}
+	
+	
+}
+
+@media (min-width: 770px){
+	
+	
+div#player{
+	
+	    
+	    margin-top: 150px !important;
+	
+	
+}
+	
+	
+}
+
+
+@media (max-width: 450px){
+	
+	
+div#player{
+	
+	    height: 250px;
+	    margin-top: 0px !important;
+	
+	
+}
+	
+	
+}
+
+
+
+@media (max-width: 390px){
+	
+	
+div#player{
+	
+	    height: 200px;
+	
+	    margin-top: 0px !important;
+	
+}
+	
+	
+}

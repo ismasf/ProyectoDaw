@@ -107,6 +107,8 @@ $.validator.addMethod("dateFormat",
      })
     
     
+     $('#idFechaN').attr('readOnly', 'true');
+  
     
     
     
@@ -241,6 +243,8 @@ $.validator.addMethod("dateFormat",
         },
           
          submitHandler: function(form) {
+        	 
+        	 $('#idBtnRegistrar').prop("disabled", true);
             
         /*$(form).ajaxSubmit();*/
         	 
@@ -253,6 +257,7 @@ $.validator.addMethod("dateFormat",
                      
                 	 if(response.trim()=="ok"){
                 		 //alert("bien")
+                		 $('#idBtnRegistrar').prop("disabled", false);
                 		 $('div.remodal').html('<h1>Registro correcto, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
                 		 
                 		 segundos=5;
@@ -276,6 +281,7 @@ $.validator.addMethod("dateFormat",
                 		
                 		 
                 	 }else{
+                		 $('#idBtnRegistrar').prop("disabled", false);
                 		 alert("No hemos podido darle de alta en nuestra base de datos, por favor intentelo mas tarde")
                 	 }
                 	 

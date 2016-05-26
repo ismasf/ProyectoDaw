@@ -55,12 +55,12 @@
             <div class="profile">
               <div class="profile_pic">
               <!-- *Imagen de perfil -->
-                <img src="" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url()?>assets/img/photoUser/imageUser<?=$_SESSION["idUserAdmin"]["id"]?>.jpeg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
                 <!-- *Nombre de perfil -->
-                <h2>Tu nombre</h2>
+                <h2><?=$_SESSION['idUserAdmin']['nombre']?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -72,7 +72,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Cartelera <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-image"></i> Cartelera <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/cartelera">Modificar cartelera</a>
                       </li>
@@ -85,32 +85,32 @@
                       </li>
                       <li><a href="<?= base_url()?>administrador/modificarPelicula">Modificar pelicula</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Eliminar pelicula</a>
+                      <li><a href="<?= base_url()?>administrador/eliminarPelicula">Eliminar pelicula</a>
                       </li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-user"></i> Usuarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?= base_url()?>">Activar usuario</a>
+                      <li><a href="<?= base_url()?>administrador/activarUsuario">Activar usuario</a>
                       </li>
                       <li><a href="<?= base_url()?>">Modificar usuario</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Eliminar usuario</a>
+                      <li><a href="<?= base_url()?>administrador/eliminarUsuario">Eliminar usuario</a>
                       </li>
                      
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-film"></i> Sala <span class="fa fa-chevron-down"></span></a>
+                  <!-- <li><a><i class="fa fa-film"></i> Sala <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>">Ver salas</a>
                       </li>
                     </ul>
-                  </li>
+                  </li> -->
                   <li><a><i class="fa fa-calendar"></i> Sesión <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/crearSesiones">Crear sesión</a>
                       </li>
-                      <li><a href="<?= base_url()?>administrador/pruebaSesiones">Eliminar sesión</a>
+                      <li><a href="<?= base_url()?>administrador/eliminarSesiones">Eliminar sesión</a>
                       </li>
                      
                     </ul>
@@ -123,7 +123,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
+              <a data-toggle="tooltip" data-placement="top" title="Desconectar" href="<?=base_url()?>administrador/desconectar">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -144,11 +144,11 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <!-- *Nombre e imagen de perfil -->
-                    <img src="" alt="">Tu nombre
+                    <img src="<?=base_url()?>assets/img/photoUser/imageUser<?=$_SESSION["idUserAdmin"]["id"]?>.jpeg" alt=""><?=$_SESSION['idUserAdmin']['nombre']?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <li><a href="<?=base_url()?>administrador/desconectar"><i class="fa fa-sign-out pull-right"></i> Desconectar</a>
                     </li>
                   </ul>
                 </li>

@@ -7,6 +7,9 @@ $jueves = ($hoy==4?'class="active"':"");
 $viernes = ($hoy==5?'class="active"':"");
 $sabado = ($hoy==6?'class="active"':"");
 $domingo = ($hoy==7?'class="active"':"");
+
+//var_dump($trailers);
+
 $a = date("d");
 $l = "";$ma = ""; $mi = ""; $j = ""; $v = ""; $s = ""; $d = "";
 switch ($hoy) {
@@ -18,6 +21,7 @@ switch ($hoy) {
        $v = $a+4;
        $s = $a+5;
        $d = $a+6;
+       $diaLetter="Lunes";
         break;
 
     case 2:
@@ -28,7 +32,7 @@ switch ($hoy) {
         $v = $a+3;
         $s = $a+4;
         $d = $a+5;
-
+        $diaLetter="Martes";
         break;
 
     case 3:
@@ -39,6 +43,7 @@ switch ($hoy) {
         $v = $a+2;
         $s = $a+3;
         $d = $a+4;
+        $diaLetter="Miercoles";
         break;
 
     case 4:
@@ -49,6 +54,7 @@ switch ($hoy) {
         $v = $a+1;
         $s = $a+2;
         $d = $a+3;
+        $diaLetter="Jueves";
         break;
 
     case 5:
@@ -59,6 +65,7 @@ switch ($hoy) {
         $v = $a;
         $s = $a+1;
         $d = $a+2;
+        $diaLetter="Viernes";
         break;
 
     case 6:
@@ -69,6 +76,7 @@ switch ($hoy) {
         $v = $a+6;
         $s = $a;
         $d = $a+1;
+        $diaLetter="Sabado";
         break;
 
     case 0:
@@ -79,7 +87,9 @@ switch ($hoy) {
         $v = $a+5;
         $s = $a+6;
         $d = $a;
+        $diaLetter="Domingo";
         break;
+        
     
     default:
         # code...
@@ -91,11 +101,11 @@ switch ($hoy) {
 <div class="container">
 	<h1><?=$pelicula->titulo?></h1>
 	<div class="row">
-		<div class="media-left">
+		<div class="col-sm-3">
 			<img 
 				src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula->id?>.jpg">
 		</div>
-		<div class="media-body">
+		<div class="col-sm-9">
 			
 			Director: <?= $pelicula->director?>
 			<br>
@@ -157,10 +167,12 @@ Tiene estas sesiones:
                                             ?>
                                         
                                         <?php endforeach;?>
-		                                <div class="col-md-8">
+		                                <div class="col-md-8 tab-disappear">
                                     <!-- Nav tabs --><div class="card">
+                                    
+                                    
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
+                                        <li role="presentation" id="idlunes" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
                                         <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
                                         <li role="presentation" <?=$miercoles?>><a href="#miercoles" aria-controls="miercoles" role="tab" data-toggle="tab"><?=$mi?> Miercoles</a></li>
                                         <li role="presentation" <?=$jueves?>><a href="#jueves" aria-controls="jueves" role="tab" data-toggle="tab"><?=$j?> Jueves</a></li>
@@ -182,6 +194,87 @@ Tiene estas sesiones:
                                     </div>
 </div>
                                 </div>
+                                
+                                 <div class="col-md-8 nav-disappear" style="height:300px;">
+                                 	<div class="dropdown" >
+   						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown"><?=$a." ".$diaLetter?></button>
+    			</button>
+    							<ul class="dropdown-menu listaDias">
+     									 <li role="presentation" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
+                                        <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
+                                        <li role="presentation" <?=$miercoles?>><a href="#miercoles" aria-controls="miercoles" role="tab" data-toggle="tab"><?=$mi?> Miercoles</a></li>
+                                        <li role="presentation" <?=$jueves?>><a href="#jueves" aria-controls="jueves" role="tab" data-toggle="tab"><?=$j?> Jueves</a></li>
+                                        <li role="presentation" <?=$viernes?>><a href="#viernes" aria-controls="viernes" role="tab" data-toggle="tab"><?=$v?> Viernes</a></li>
+                                        <li role="presentation" <?=$sabado?>><a href="#sabado" aria-controls="sabado" role="tab" data-toggle="tab"><?=$s?> Sabado</a></li>
+                                        <li role="presentation" <?=$domingo?>><a href="#domingo" aria-controls="domingo" role="tab" data-toggle="tab"><?=$d?> Domingo</a></li>
+    </ul>
+  </div>
+                                 
+                                  <div class="horas">
+                                  
+                                  	<div role="tabpanel" <?=$lunes?> id="lunes"><?=$lun ?></div>
+                                        <div role="tabpanel"  <?=$martes?> id="martes"><?=$mar ?></div>
+                                        <div role="tabpanel" <?=$miercoles?> id="miercoles"><?=$mie ?></div>
+                                        <div role="tabpanel" <?=$jueves?> id="jueves"><?=$jue ?></div>
+                                        <div role="tabpanel" <?=$viernes?> id="viernes"><?=$vie ?></div>
+                                        <div role="tabpanel" <?=$sabado?> id="sabado"><?=$sab ?></div>
+                                        <div role="tabpanel" <?=$domingo?> id="domingo"><?=$dom ?></div>
+                                    	
+                                       
+                                    </div>
+                                  
+                                 
+                                 </div>
+                   
+                                
 	</div>
+	
+	
 </div>
 
+<div class="row">
+<div id="player" class="col-sm-12 col-md-offset-2" style="max-width:690px;">
+	
+		<div class="video-js" style="width: 100%; height: 100%;">
+			<video id="video_1" class="video-js vjs-default-skin" style="width: 99%; height: 100%;" controls data-setup='{}' >
+			
+				<?= $trailers?>
+			
+			</video>
+		
+		</div>
+		
+		<br><br><br>
+			
+	
+	</div>
+	
+</div>
+
+<script>
+
+
+//videojs('video_1').videoJsResolutionSwitcher();
+
+
+videojs('video_1', {
+	autoHeight: '16:9', 
+    controls: true,
+    plugins: {
+      videoJsResolutionSwitcher: {
+        default: 'low', // Default resolution [{Number}, 'low', 'high'],
+        dynamicLabel: true
+      }
+    }
+
+  
+  }, function(){
+    var player = this;
+    window.player = player
+   
+    player.on('resolutionchange', function(){
+      console.info('Source changed to %s', player.src())
+    })
+  })
+
+</script>
