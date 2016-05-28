@@ -19,7 +19,6 @@ session_start ();*/
 <style>
 body {
 	padding-top: 30px;
-<<<<<<< HEAD
 	background: url(<?= base_url()?>assets/img/fondos/footer_lodyas.png) no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -55,6 +54,11 @@ a{
 
 nav{
 	background-color:#22464A !important;
+}
+
+a img{
+	width:150px;
+	height:200px;
 }
 </style>
 
