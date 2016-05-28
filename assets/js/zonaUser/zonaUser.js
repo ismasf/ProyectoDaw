@@ -875,28 +875,9 @@ $('body').on('click', 'button.descargar', function(e){
 			                 data: $(form).serialize(), 
 			                 success: function (response) {
 			                     
-			                	 if(response.trim()=="ok"){
-			                		 $('#idBtnRegistrar').prop("disabled", false);
-			                		 //alert("bien")
-			                		 $('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
-			                		 inst.open();
-			                		 segundos=5;
-			                		idInterval = setInterval(function() {
-			                			 inst = $('[data-remodal-id=modal]').remodal();
-			                	         
-			                	 			
-			                	         
-			                			segundos--;
-			                			if(segundos<1){
-			                				clearInterval(idInterval);
-			                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
-			                				window.location.replace(baseUrl);
-			                				inst.close();
-			                				
-			                			}
-			                			
-			                			
-			                		},500);
+			                	 if(response.trim()){
+			                		
+			                		 cargarDatosIncidencias();
 			                		
 			                		
 			                		 

@@ -14,9 +14,9 @@ class Incidencias_model extends CI_Model{
 	
 	
 	
-	public function getAllIncidencias(){
+	public function getAllIncidenciasActive(){
 		
-		$incidencias = R::getAll("SELECT * FROM incidencias  ORDER BY fecha_incidencia", array());
+		$incidencias = R::getAll("SELECT * FROM incidencias where estado='activa' ORDER BY fecha_incidencia", array());
 		
 		return $incidencias;
 		
@@ -69,17 +69,27 @@ class Incidencias_model extends CI_Model{
 				
 				$incidencia->ownMensaje($mensajeIn);
 				
-				R::store($incidencia);
+				$idInc=R::store($incidencia);
+				
+				if($idInc){
+					
+					return true;
+					
+				}else{
+					
+					return false;
+				}
 				
 				
 			}else{
 				
 				
-				
+				return false;
 			}
 			
 		}else{
 			
+			return false;
 			
 		}
 		
@@ -133,21 +143,39 @@ class Incidencias_model extends CI_Model{
 		}
 		
 	}
+	
+	
+	
+	
+public function verMensajesAdmin ($idIncidencia){
+	
 
-	public function crearAsientos(){
-		for($i=0; $i<15; $i++){
-			for($j=0; $j<19; $j++){
-				$asiento = R::dispense("asientos");
-				$asiento->nom = "f".$i."a".$j;
-				$asiento->sala_id = 2;
-				R::store($asiento);
-			}
-				
-		}
+	$mensajes = R::getAll("SELECT * FROM mensajes WHERE incidencia_id = :id  ORDER BY fecha_hora ASC", array(':id'=>$idIncidencia));
+	
+	
+	return $mensajes;
+	
+	
+}
 
-	}
+public function getIdIncidencia($uniqid){
+	
+	$idIncidencia = R::getAll("SELECT id, usuario_id FROM incidencias WHERE uniqid = :uniqid" , array(':uniqid'=>$uniqid));
+	
+	
+	return $idIncidencia;
+	
+	
+}
+
+public function datosUser($usuarioId) {
+
+	$result = R::getAll("SELECT * FROM usuario WHERE id = :usuarioId", array(':usuarioId'=>$usuarioId));
+
+	return $result;
 
 
+}
 
 
 

@@ -175,3 +175,9 @@ a:hover{
 i.red{
     color:#BC0213;
 }
+
+
+body{
+	
+	 background-image: url("../img/background.jpg");
+}

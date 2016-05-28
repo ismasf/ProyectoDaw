@@ -97,7 +97,8 @@
                       </li>
                       <li><a href="<?= base_url()?>administrador/eliminarUsuario">Eliminar usuario</a>
                       </li>
-                     
+                      <li><a href="<?= base_url()?>administrador/incidencias">Incidencias</a>
+                      </li>
                     </ul>
                   </li>
                   <!-- <li><a><i class="fa fa-film"></i> Sala <span class="fa fa-chevron-down"></span></a>

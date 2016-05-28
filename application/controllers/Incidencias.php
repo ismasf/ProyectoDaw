@@ -75,6 +75,16 @@ class Incidencias extends CI_Controller{
 			$this->load->model ( 'Incidencias_model', '', true );
 			$estado = $this->Incidencias_model->nuevaIncidenciaUser ($idUsuario,$usuario,$problema,$mensaje);
 		
+			
+			if($estado){
+				
+				$this->output->set_output("true");
+				
+			}else{
+				
+				$this->output->set_output($estado);
+				
+			}
 		
 			
 			
@@ -152,6 +162,41 @@ class Incidencias extends CI_Controller{
 			
 		}
 		
+		
+		
+		
+	}
+	
+	
+	
+	public function mensajesIncidenciasAdmin($uniqid){
+		
+		
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+
+		
+		$this->load->model ( 'Incidencias_model', '', true );
+		
+		
+		
+		$datosIncidencia=$this->Incidencias_model->getIdIncidencia ($uniqid);
+		
+		$idUsuaio=$datosIncidencia[0]['usuario_id'];
+		$idIncidencia=$datosIncidencia[0]['id'];
+		
+		$datos['usuario']=$this->Incidencias_model->datosUser ($idUsuaio);
+		
+		
+		$mensajes = $this->Incidencias_model->verMensajesAdmin ($idIncidencia);
+		
+		$datos['mensajes']=$mensajes;
+		
+		
+		$this->template->load("plantillaAdmin","administrador/mensajesIncidencias",$datos);
 		
 		
 		
