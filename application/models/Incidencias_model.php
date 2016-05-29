@@ -146,6 +146,42 @@ class Incidencias_model extends CI_Model{
 	
 	
 	
+	public function nuevoMensajeAdmin ($idIncidencia,$mensaje, $idUsuario){
+	
+		$incidencias=R::load('incidencias',$idIncidencia);
+		$mensajeIn=R::dispense('mensajes');
+		$time = time();
+	
+		$mensajeIn->incidencia=$incidencias;
+		$mensajeIn->mensaje=$mensaje;
+		$mensajeIn->remitente="soporte";
+		$mensajeIn->fecha_hora=date("Y-m-d H:i:s", $time);
+		$mensajeIn->remitente_id=$idUsuario;
+	
+		$idM=R::store($mensajeIn);
+	
+		//$incidencia=R::load('incidencias',$idIncidencia);
+	
+		$incidencias->ownMensaje($mensajeIn);
+	
+		$idInc=R::store($incidencias);
+	
+	
+		if($idInc && $idM){
+			return true;
+		}else{
+			return false;
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 public function verMensajesAdmin ($idIncidencia){
 	

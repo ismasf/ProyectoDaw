@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <script>
+baseUrl = "<?=base_url()?>";
+</script>
   <?php
   $datoCant = isset($datoCant)?$datoCant:2;
   ?>
@@ -55,7 +58,7 @@
             <div class="profile">
               <div class="profile_pic">
               <!-- *Imagen de perfil -->
-                <img src="<?=base_url()?>assets/img/photoUser/imageUser<?=$_SESSION["idUserAdmin"]["id"]?>.jpeg" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url()?>assets/img/photoUser/<?=$_SESSION['imagenUser']?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -145,7 +148,7 @@
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <!-- *Nombre e imagen de perfil -->
-                    <img src="<?=base_url()?>assets/img/photoUser/imageUser<?=$_SESSION["idUserAdmin"]["id"]?>.jpeg" alt=""><?=$_SESSION['idUserAdmin']['nombre']?>
+                    <img src="<?=base_url()?>assets/img/photoUser/<?=$_SESSION['imagenUser']?>" alt=""><?=$_SESSION['idUserAdmin']['nombre']?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

@@ -38,6 +38,49 @@ class Administrador extends CI_Controller{
 				
 				$_SESSION['idUserAdmin']['id']=$fila['0']['id'];
 				$_SESSION['idUserAdmin']['nombre']=$fila['0']['nombre'];
+				
+				
+				if(isset($_SESSION['idUserAdmin']['id']) && $_SESSION['idUserAdmin']['id']!=null){
+				
+				
+					$imagenUserJpeg = 'assets/img/photoUser/imageUser'.$_SESSION['idUserAdmin']['id'].'.jpeg';
+					$imagenUserJpg = 'assets/img/photoUser/imageUser'.$_SESSION['idUserAdmin']['id'].'.jpg';
+					$imagenUserPng = 'assets/img/photoUser/imageUser'.$_SESSION['idUserAdmin']['id'].'.png';
+				
+					if (file_exists($imagenUserJpeg)) {
+							
+						$imagen='imageUser'.$_SESSION['idUserAdmin']['id'].'.jpeg';
+							
+							
+							
+							
+					}else if(file_exists($imagenUserJpg)){
+							
+						$imagen='imageUser'.$_SESSION['idUserAdmin']['id'].'.jpg';
+							
+					}else if(file_exists($imagenUserPng)){
+							
+							
+						$imagen='imageUser'.$_SESSION['idUserAdmin']['id'].'.png';
+							
+							
+					}else{
+							
+						$imagen='anonimo.png';
+						//$imagen='/assets/img/photoUser/imageUser'.$_SESSION['idUser'].'.jpeg';
+					}
+				
+				
+						
+				
+					$_SESSION['imagenUser']=$imagen;
+				
+				
+				}
+				
+				
+				
+				
 				echo "OK";
 			}else{
 				echo "FAIL";
@@ -487,11 +530,11 @@ class Administrador extends CI_Controller{
 	public function incidencias(){
 		
 		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
-		
 		session_name ( "cineProyecto" );
 		ini_set ( "session.cookie_lifetime", "7200" );
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
 		
 		
 		
@@ -502,7 +545,7 @@ class Administrador extends CI_Controller{
 		
 		if($datos==[]){
 				
-			$this->template->load("plantillaAdmin","administrador/error",$datos);
+			$this->template->load("plantillaAdmin","administrador/error");
 				
 				
 		}else{
@@ -511,7 +554,11 @@ class Administrador extends CI_Controller{
 		}
 		
 		
-		
+		}else{
+			
+			$this->load->view("administrador/error");
+			
+		}
 		
 		
 	}

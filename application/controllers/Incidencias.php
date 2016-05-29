@@ -177,6 +177,7 @@ class Incidencias extends CI_Controller{
 		ini_set ( "session.cookie_lifetime", "7200" );
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
 
 		
 		$this->load->model ( 'Incidencias_model', '', true );
@@ -194,14 +195,87 @@ class Incidencias extends CI_Controller{
 		$mensajes = $this->Incidencias_model->verMensajesAdmin ($idIncidencia);
 		
 		$datos['mensajes']=$mensajes;
+		$datos['caso']=$uniqid;
 		
 		
 		$this->template->load("plantillaAdmin","administrador/mensajesIncidencias",$datos);
 		
-		
+		}else{
+			
+			$this->template->load("plantillaAdmin","administrador/error");
+		}
 		
 	}
 
+	
+	public function mensajesIncidenciasAdminId(){
+		
+		
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+		
+		
+			$this->load->model ( 'Incidencias_model', '', true );
+		
+			$idIncidencia=$this->input->post('idIncidencia');
+		
+		
+			$mensajes = $this->Incidencias_model->verMensajesAdmin ($idIncidencia);
+		
+			$mensajesJson=json_encode($mensajes);
+			
+			$this->output->set_output($mensajesJson);
+		
+			
+		
+		}else{
+				
+			$this->template->load("plantillaAdmin","administrador/error");
+		}
+		
+		}
+	
+	public function nuevoMensajeAdmin(){
+		
+		
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			
+			$idIncidencia=$this->input->post('idIncidencia');
+			$mensaje=$this->input->post('txtMensaje');
+			$idUsuario=$this->input->post('idUsuario');
+			
+			$this->load->model ( 'Incidencias_model', '', true );
+			$mensajes = $this->Incidencias_model->nuevoMensajeAdmin ($idIncidencia, $mensaje, $idUsuario);
+			
+			
+		if($mensajes){
+			
+			$this->output->set_output(true);
+			
+		}else{
+			
+			$this->output->set_output(false);
+			
+		}
+			
+		}else{
+			
+			
+			$this->output->set_output(false);
+			
+		}
+		
+		
+	}
 
 }
 

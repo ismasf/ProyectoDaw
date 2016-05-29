@@ -951,13 +951,15 @@ $('body').on('click', 'button.descargar', function(e){
                				incidenciaId=obj.incidencia_id;
                				
                				mensaje='<div class="row"> <div class="bubble"><p><strong>'+obj.remitente+'</strong>:<br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
-               				$('div#containerChat').append(mensaje);
+               				$('div#containerChat').append(mensaje).scrollTop($('div#containerChat')[0].scrollHeight);;
+               				$('div#containerChat').scrollTop($('div#containerChat')[0].scrollHeight);
                				
                				
                			}else{
                				
                				mensaje='<div class="row"> <div class="bubble2"><p><strong>'+obj.remitente+':</strong><br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
-               				$('div#containerChat').append(mensaje);
+               				$('div#containerChat').append(mensaje).scrollTop($('div#containerChat')[0].scrollHeight);;
+               				$('div#containerChat').scrollTop($('div#containerChat')[0].scrollHeight);
                				
                				
                			}
@@ -1057,13 +1059,15 @@ function refreshSms(idIncidencia){
        				incidenciaId=obj.incidencia_id;
        				
        				mensaje='<div class="row"> <div class="bubble"><p><strong>'+obj.remitente+'</strong>:<br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
-       				$('div#containerChat').append(mensaje);
+       				$('div#containerChat').append(mensaje).scrollTop($('div#containerChat')[0].scrollHeight);;
+       				$('div#containerChat').scrollTop($('div#containerChat')[0].scrollHeight);
        				
        				
        			}else{
        				
        				mensaje='<div class="row"> <div class="bubble2"><p><strong>'+obj.remitente+':</strong><br>'+obj.mensaje+'<br><strong>'+obj.fecha_hora+'</strong></p></div></div>';
-       				$('div#containerChat').append(mensaje);
+       				$('div#containerChat').append(mensaje).scrollTop($('div#containerChat')[0].scrollHeight);;
+       				$('div#containerChat').scrollTop($('div#containerChat')[0].scrollHeight);
        				
        				
        			}
