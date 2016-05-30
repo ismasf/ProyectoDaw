@@ -195,7 +195,7 @@ Tiene estas sesiones:
 </div>
                                 </div>
                                 
-                                 <div class="col-md-8 nav-disappear" style="height:300px;">
+                                 <div class="col-md-8 nav-disappear" style="">
                                  	<div class="dropdown" >
    						 <button class="btn btn-primary dropdown-toggle btn-dias" type="button" data-toggle="dropdown"><?=$a." ".$diaLetter?></button>
     			</button>
@@ -232,7 +232,14 @@ Tiene estas sesiones:
 	
 </div>
 
+
+
 <div class="row">
+
+&nbsp;&nbsp;&nbsp;&nbsp;______________________
+<br>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<?=$trailerName?></p>
+<br>
 <div id="player" class="col-sm-12 col-md-offset-2" style="max-width:690px;">
 	
 		<div class="video-js" style="width: 100%; height: 100%;">

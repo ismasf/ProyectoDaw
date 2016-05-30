@@ -57,6 +57,30 @@ img {
 	}
 	
 	
-	.active{
+	ul.listaDias li.active{
 		display:block !important;
+	}
+	
+	ul.listaDias  > li > a:hover{
+		background-color: #22464A !important;
+	
+	}
+	
+	ul.listaDias > .active > a, ul.listaDias > .active > a:hover, ul.listaDias> .active > a:focus {
+		background-color: #22464A !important;
+	}
+	
+	ul.listaDias{
+		    background-color: gray;
+	}
+	
+	div.container div.col-md-8.nav-disappear div.dropdown button.btn-dias{
+	
+	background-color: #22464A !important;
+	}
+	
+	div.dropdown.open ul.dropdown-menu.listaDias{
+		    position: static;
+    		float: none;
+	
 	}

@@ -42,11 +42,13 @@ class Pelicula extends CI_Controller{
 			$optionsMp4.='<source src="'.base_url().'assets/mp4/'.$idPelicula.'/'.$idPelicula.'-720p.mp4" type="video/mp4" label="HD" res="720">';
 				
 			$contMps4++;
+			$data['trailerName']="Trailer de ".$data["pelicula"]['titulo'];
 				
 		}
 		
 		if($contMps4==0){
 			$optionsMp4.='<source src="'.base_url().'assets/mp4/proximamente.mp4" type="video/mp4" label="SD" res="360">';
+			$data['trailerName']="Trailer de proximos lanzamientos";
 			
 		}
 		
