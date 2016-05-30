@@ -23,7 +23,7 @@
 				<?php endfor;?>
 			</ol>
 			<!-- Contenedor de slides -->
-			<div class="carousel-inner" role="listbox">
+			<div class="carousel-inner fixImg" role="listbox">
 				<?php $b=0;?>
 				<?php foreach ($cartelera as $pelicula):?>
 				

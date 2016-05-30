@@ -60,6 +60,11 @@ a img{
 	width:150px;
 	height:200px;
 }
+
+.fixImg img{
+	width:1917px;
+	height:389px;
+}
 </style>
 
 <title>Tu Cine</title>
