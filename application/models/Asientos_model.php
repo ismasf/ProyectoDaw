@@ -9,15 +9,51 @@ class Asientos_model extends CI_Model{
 	
 	}
 
-	public function crearAsientos(){
-		for($i=0; $i<15; $i++){
-			for($j=0; $j<19; $j++){
+	public function crearAsientos1(){
+		for($i=1; $i<15; $i++){
+			for($j=1; $j<20; $j++){
+				$asiento = R::dispense("asientos");
+				$asiento->nom = "f".$i."a".$j;
+				$asiento->sala_id = 1;
+				R::store($asiento);
+			}
+			
+		}
+		
+	}
+
+	public function crearAsientos2(){
+		for($i=1; $i<15; $i++){
+			for($j=1; $j<20; $j++){
 				$asiento = R::dispense("asientos");
 				$asiento->nom = "f".$i."a".$j;
 				$asiento->sala_id = 2;
 				R::store($asiento);
 			}
 			
+		}
+		
+	}
+
+	public function crearAsientos3(){
+		for($i=1; $i<9; $i++){
+			for($j=6; $j<13; $j++){
+				$asiento = R::dispense("asientos");
+				$asiento->nom = "f".$i."a".$j;
+				$asiento->sala_id = 3;
+				R::store($asiento);
+			}
+			
+		}
+
+		for($i=9; $i<15; $i++){
+			for($j=1; $j<20; $j++){
+				$asiento = R::dispense("asientos");
+				$asiento->nom = "f".$i."a".$j;
+				$asiento->sala_id = 3;
+				R::store($asiento);
+			}
+
 		}
 		
 	}
