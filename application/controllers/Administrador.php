@@ -563,6 +563,67 @@ class Administrador extends CI_Controller{
 		
 	}
 
+	public function modificarUsuario(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			$data['usuario']=$this->usuarios_model->getListaUsuariosTodos();
+			//print_r($data['usuario']);
+			$this->template->load("plantillaAdmin","administrador/modificarUsuario",$data);
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+		
+		
+		
+	}
+
+	public function modificarUsuarioGet($id){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			$data['usuario']=$this->usuarios_model->getUsuarioId($id);
+			//print_r($data['usuario']);
+			$this->template->load("plantillaAdmin","administrador/modificarUsuarioGet",$data);
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+	}
+
+	public function modificarUsuarioPost($id){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("usuarios_model");
+			//$data['usuario']=$this->usuarios_model->getUsuarioId($id);
+			//print_r($data['usuario']);
+			$this->usuarios_model->modificarUsuario($id);
+			$this->template->load("plantillaAdmin","administrador/modificarUsuarioPost");
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+	}
+
 
 
 

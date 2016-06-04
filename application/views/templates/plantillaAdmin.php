@@ -96,7 +96,7 @@ baseUrl = "<?=base_url()?>";
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url()?>administrador/activarUsuario">Activar usuario</a>
                       </li>
-                      <li><a href="<?= base_url()?>">Modificar usuario</a>
+                      <li><a href="<?= base_url()?>administrador/modificarUsuario">Modificar usuario</a>
                       </li>
                       <li><a href="<?= base_url()?>administrador/eliminarUsuario">Eliminar usuario</a>
                       </li>

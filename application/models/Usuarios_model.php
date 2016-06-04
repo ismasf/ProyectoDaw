@@ -424,6 +424,28 @@ public function  informacionZonaUser($usuarioId){
 		R::trash($usuario);
 	}
 
+	public function getUsuarioId($id){
+		$usuario =R::load("usuario",$id);
+	
+	
+		return $usuario;
+	}
+
+	public function modificarUsuario($id){
+		$usuario = R::load("usuario",$id);
+		$nombre = $_POST["nombre"];
+		$apellidos = $_POST['apellidos'];
+		$ciudad = $_POST['ciudad'];
+		$usuario->nombre=$nombre;
+		$usuario->apellidos=$apellidos;
+		$usuario->ciudad=$ciudad;
+		$fecha = explode("/", $_POST['fecha']);
+		$usuario->fechanacimiento = "$fecha[2]-$fecha[0]-$fecha[1]";
+		$usuario->verificado = isset($_POST["verificado"])?"SI":"NO";
+		$usuario->admin = isset($_POST["administrador"])?"SI":"";
+		R::store($usuario);
+	}
+
 
 
 }
