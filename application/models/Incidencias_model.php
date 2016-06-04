@@ -214,6 +214,17 @@ public function datosUser($usuarioId) {
 }
 
 
+public function cambiarEstadoIncidenciaUser ($idIncidencia,$idUsuario,$usuarioEmail,$operacion){
+	
+	
+	
+	$query="UPDATE incidencias SET estado='$operacion' WHERE usuario_id='$idUsuario' AND id='$idIncidencia'";
+	
+	$estado=R::exec( $query );
+	return $estado;
+}
+
+
 
 }
 

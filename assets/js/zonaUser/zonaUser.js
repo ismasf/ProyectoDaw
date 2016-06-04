@@ -104,6 +104,9 @@ $('body').on('click', 'button.descargar', function(e){
 	
 	
 
+	$('body').on('click', '#buttonEstadoUser', cambiarEstadoIncidencia);
+	
+	
 	
 	
 	
@@ -735,7 +738,7 @@ $('body').on('click', 'button.descargar', function(e){
 	                       columna2.appendChild(textNode2);
 	                       columna3.appendChild(textNode3);
 	                       columna4.appendChild(textNode4);
-	                       columna5.innerHTML='<button id="button.'+obj.id+'" class="verMensajes">Ver</button> ';
+	                       columna5.innerHTML='<button id="button.'+obj.id+'" data-estado="'+obj.estado+'" class="verMensajes">Ver</button> ';
 	               			
 	               		});
 	               		
@@ -918,11 +921,14 @@ $('body').on('click', 'button.descargar', function(e){
 		$('body').on('click', 'table#tablaIncidencias button', function(){
 			
 			idButton=$(this).prop('id');
+			
+			estado=$(this).attr('data-estado');
+			
 			partesIdButton=idButton.split(".");
 			
 			idIncidencia=partesIdButton[1].trim();
 			
-			$('div#containerUser').load(baseUrl+"assets/html/zonaUser/mensajesIncidencias.html",cargarMensajesIncidencias(idIncidencia));
+			$('div#containerUser').load(baseUrl+"assets/html/zonaUser/mensajesIncidencias.html",cargarMensajesIncidencias(idIncidencia, estado));
 			
 			
 			
@@ -930,7 +936,11 @@ $('body').on('click', 'button.descargar', function(e){
 					
 		})
 		
-		function cargarMensajesIncidencias(idIncidencia){
+		function cargarMensajesIncidencias(idIncidencia, estado){
+			
+			//console.log(estado);
+			
+			
 			
 			
 			$.ajax({
@@ -966,10 +976,24 @@ $('body').on('click', 'button.descargar', function(e){
                			
                			
                			
+               			
+               			
                		});
                		 
                		
-               		
+               		if(estado.trim()=="activa"){
+        				
+        				
+        				$('#buttonEstadoUser').addClass("incidenciaActiva").html("Desactivar");
+        				
+        				
+        			}else if(estado=="desactivado"){
+        				
+        				
+        				$('#buttonEstadoUser').addClass("incidenciaDesactivada").html("Activar");
+        				
+        				
+        			}
                		 
                	 }else{
                		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
@@ -1085,6 +1109,61 @@ function refreshSms(idIncidencia){
        	 
         }
             });
+	
+	
+}
+
+
+function cambiarEstadoIncidencia(){
+	
+	estadoI=$(this).html();
+	
+	if(estadoI.trim()=="Desactivar"){
+		
+		
+		operacion="desactivado";
+		
+		
+	}else if(estadoI.trim()=="Activar"){
+		
+		
+		operacion="activa";
+		
+	}
+	
+	
+	
+	$.ajax({
+        type: "POST",
+        url: baseUrl+"Incidencias/cambiarEstadoIncidenciaUser",
+        data: {idIncidencia:idIncidencia, operacion:operacion}, 
+        success: function (response) {
+            
+       	 if(response.trim()){
+       		
+       		
+       		 if(operacion.trim()=="desactivado"){
+       			 
+       			 
+       			$('#buttonEstadoUser').removeClass('incidenciaActiva').addClass("incidenciaDesactivada").html("Activar");
+       			 
+       		 }else if(operacion.trim()=="activa"){
+       			 
+       			$('#buttonEstadoUser').removeClass('incidenciaDesactivada').addClass("incidenciaActiva").html("Desactivar");
+       			 
+       		 }
+       		
+       		 
+       	 }else{
+       		 
+       		 
+       		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+       	 }
+       	 
+        }
+            });
+	
+	
 	
 	
 }

@@ -277,6 +277,38 @@ class Incidencias extends CI_Controller{
 		
 	}
 
+	
+	public function cambiarEstadoIncidenciaUser(){
+		
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		
+		
+		$idUsuario=$_SESSION['idUser'];
+		$usuarioEmail=$_SESSION['correoUser'];
+		$idIncidencia=$this->input->post('idIncidencia');
+		$operacion=$this->input->post('operacion');
+		
+		$this->load->model ( 'Incidencias_model', '', true );
+		$cambio = $this->Incidencias_model->cambiarEstadoIncidenciaUser ($idIncidencia,$idUsuario,$usuarioEmail,$operacion);
+		
+		if($cambio){
+			
+			$this->output->set_output("true");
+			
+		}else{
+			
+			$this->output->set_output("false");
+			
+		}
+		
+	}
+	
+	
+	
 }
 
 
