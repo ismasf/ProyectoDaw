@@ -8,41 +8,39 @@
 <?php
 
 if($sala['tipo']=='A'){
-	print_r($actuales);
-	$cont = 0;
-	foreach ( $asientos as $asiento ) {
-		$color = "verde";
-		foreach ( $bloqueados as $bloqueado ) {
-			if (in_array ( $asiento ["id"], $bloqueado )) {
-				$color = "azul";
-			}
-		}
-		foreach ( $actuales as $actual) {
-			if (in_array ( $asiento ["id"], $actual )) {
-				$color = "negro";
-			}
-		}
-		foreach ( $reservas as $reserva ) {
-			if (in_array ( $asiento ["id"], $reserva )) {
-				$color = "rojo";
-			}
-		}
-		if ($cont % 21 == 0) {		
-		//echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
-		//echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
-			echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
-		} else {
-		//echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
-			echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
-		//echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
-		}
+	// print_r($actuales);
+	// $cont = 0;
+	// foreach ( $asientos as $asiento ) {
+	// 	$color = "verde";
+	// 	foreach ( $bloqueados as $bloqueado ) {
+	// 		if (in_array ( $asiento ["id"], $bloqueado )) {
+	// 			$color = "azul";
+	// 		}
+	// 	}
+	// 	foreach ( $actuales as $actual) {
+	// 		if (in_array ( $asiento ["id"], $actual )) {
+	// 			$color = "negro";
+	// 		}
+	// 	}
+	// 	foreach ( $reservas as $reserva ) {
+	// 		if (in_array ( $asiento ["id"], $reserva )) {
+	// 			$color = "rojo";
+	// 		}
+	// 	}
+	// 	if ($cont % 21 == 0) {		
+	// 	//echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+	// 	//echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+	// 		echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+	// 	} else {
+	// 	//echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+	// 		echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+	// 	//echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+	// 	}
 	
-		$cont ++;
-	}
-}else if($sala['tipo']=='B'){
-	//print_r($actuales);
+	// 	$cont ++;
+	// }
 	$cont = 0;
-	foreach ( $asientos as $asiento ) {
+	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
 		foreach ( $bloqueados as $bloqueado ) {
 			if (in_array ( $asiento ["id"], $bloqueado )) {
@@ -63,12 +61,12 @@ if($sala['tipo']=='A'){
 
 
 		if($cont==4){
-				echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+				echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
 
 		}else if($cont == 13){
-			echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+			echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
 		}else{
-			echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+			echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
 		}
 
 
@@ -89,6 +87,141 @@ if($sala['tipo']=='A'){
 		if($cont==0){
 			echo "<br>";
 		}
+	}
+
+
+
+
+
+
+}else if($sala['tipo']=='B'){
+	//print_r($actuales);
+	$cont = 0;
+	$cont2 = 0;
+	foreach ( array_reverse($asientos) as $asiento ) {
+		$color = "verde";
+		foreach ( $bloqueados as $bloqueado ) {
+			if (in_array ( $asiento ["id"], $bloqueado )) {
+				$color = "azul";
+			}
+		}
+		foreach ( $actuales as $actual) {
+			if (in_array ( $asiento ["id"], $actual )) {
+				$color = "negro";
+			}
+		}
+		foreach ( $reservas as $reserva ) {
+			if (in_array ( $asiento ["id"], $reserva )) {
+				$color = "rojo";
+			}
+		}
+
+
+
+		if($cont==4){
+				echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+
+		}else if($cont == 13){
+			echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+			
+		}else{
+			echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+		}
+
+
+
+
+
+		// if ($cont % 21 == 0) {		
+		// //echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+		// //echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+		// 	echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		// } else {
+		// //echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+		// 	echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		// //echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+		// }
+	
+		$cont ++;
+		if($cont==19){
+			$cont=0;
+		}
+		if($cont==0){
+			echo "<br>";
+			$cont2++;
+		}
+		if($cont2 == 7){
+			$cont2++;
+			echo "<br>";
+		}
+	}
+}else if($sala['tipo']=='C'){
+	//print_r($actuales);
+	$cont = 0;
+	$cont2 = 0;
+	$cont3 = 0;
+	foreach ( array_reverse($asientos) as $asiento ) {
+		$color = "verde";
+		foreach ( $bloqueados as $bloqueado ) {
+			if (in_array ( $asiento ["id"], $bloqueado )) {
+				$color = "azul";
+			}
+		}
+		foreach ( $actuales as $actual) {
+			if (in_array ( $asiento ["id"], $actual )) {
+				$color = "negro";
+			}
+		}
+		foreach ( $reservas as $reserva ) {
+			if (in_array ( $asiento ["id"], $reserva )) {
+				$color = "rojo";
+			}
+		}
+
+		if($cont2<6){
+			if($cont==4){
+				echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+
+		}else if($cont == 13){
+			echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+			
+		}else{
+			echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+		}
+
+
+		// if ($cont % 21 == 0) {		
+		// //echo "</tr><tr><td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+		// //echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+		// 	echo "<br><img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		// } else {
+		// //echo "<td bgcolor=$color id=\"" . $asiento ["id"] . "\" ".($color=="red"?"":($color=="yellow"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">" . $asiento ["nom"] . "</td>";
+		// 	echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].") class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].")"))).">";
+		// //echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"onclick=asientoDesbloquear(".$asiento ["id"].")":"onclick=asiento(".$asiento ["id"].")")).">";
+		// }
+	
+		$cont ++;
+		if($cont==19){
+			$cont=0;
+		}
+		if($cont==0){
+			echo "<br>";
+			$cont2++;
+		}
+	}else{
+		if($cont3 == 0){
+			echo "<img width=35 height=35 style=\"visibility: hidden\"><img width=35 height=35 style=\"visibility: hidden\"><img width=35 height=35 style=\"visibility: hidden\"><img width=35 height=35 style=\"visibility: hidden\"><img width=35 height=35 style=\"margin-right: 30px; visibility: hidden\">";
+		}
+		echo "<img width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
+		$cont3++;
+		if($cont3 == 9){
+			echo "<br>";
+			$cont3 = 0;
+		}
+	}
+
+
+
 	}
 }
 ?>

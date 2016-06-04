@@ -566,22 +566,22 @@ class Administrador extends CI_Controller{
 
 
 
-//	 public function crearAsientos(){
-//	 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
-//	 	session_name ( "cineProyecto" );
-//	 	ini_set ( "session.cookie_lifetime", "7200" );
-//	 	ini_set ( "session.gc_maxlifetime", "7200" );
-//	 	session_start ();
-//	 	$this->load->model('asientos_model');
-//	 	$this->asientos_model->crearAsientos();
-//		
-//		
-//	 	R::close();
-//	 	$this->template->load("plantillaAdmin","administrador/principal", $datos);
-//	 	//$this->template->load("plantilla","administrador/principal");
-//	 	// $this->load->view("prueba/Prue",$datos);
-//	 	//$this->load->view("entrada/aConfirmar");
-//	 }
+	 // public function crearAsientos(){
+	 // 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+	 // 	session_name ( "cineProyecto" );
+	 // 	ini_set ( "session.cookie_lifetime", "7200" );
+	 // 	ini_set ( "session.gc_maxlifetime", "7200" );
+	 // 	session_start ();
+	 // 	$this->load->model('asientos_model');
+	 // 	$this->asientos_model->crearAsientos3();
+		
+		
+	 // 	R::close();
+	 // 	$this->template->load("plantillaAdmin","administrador/principal");
+	 // 	//$this->template->load("plantilla","administrador/principal");
+	 // 	// $this->load->view("prueba/Prue",$datos);
+	 // 	//$this->load->view("entrada/aConfirmar");
+	 // }
 
 		//  public function crearAdmin(){
 	 // 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');

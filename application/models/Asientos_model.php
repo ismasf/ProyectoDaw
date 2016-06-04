@@ -37,7 +37,7 @@ class Asientos_model extends CI_Model{
 
 	public function crearAsientos3(){
 		for($i=1; $i<9; $i++){
-			for($j=6; $j<13; $j++){
+			for($j=6; $j<15; $j++){
 				$asiento = R::dispense("asientos");
 				$asiento->nom = "f".$i."a".$j;
 				$asiento->sala_id = 3;
