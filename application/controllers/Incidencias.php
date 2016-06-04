@@ -196,6 +196,9 @@ class Incidencias extends CI_Controller{
 		
 		$datos['mensajes']=$mensajes;
 		$datos['caso']=$uniqid;
+		$datos['estado']=$datosIncidencia[0]['estado'];
+		$datos['problema']=$datosIncidencia[0]['problema'];
+		$datos['idIncidencia']=$datosIncidencia[0]['id'];
 		
 		
 		$this->template->load("plantillaAdmin","administrador/mensajesIncidencias",$datos);
@@ -306,6 +309,49 @@ class Incidencias extends CI_Controller{
 		}
 		
 	}
+	
+	
+	public function cambiarEstadoIncidenciaAdmin(){
+	
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			
+			
+			
+		
+		$uniqId=$this->input->post('uniqId');
+		$operacion=$this->input->post('operacion');
+	
+		$this->load->model ( 'Incidencias_model', '', true );
+		$cambio = $this->Incidencias_model->cambiarEstadoIncidenciaAdmin ($uniqId,$operacion);
+	
+		if($cambio){
+				
+			$this->output->set_output("true");
+				
+		}else{
+				
+			$this->output->set_output("false");
+				
+		}
+		
+		}else{
+			
+			
+		}
+	
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

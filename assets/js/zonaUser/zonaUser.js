@@ -112,6 +112,7 @@ $('body').on('click', 'button.descargar', function(e){
 	
 	
 	
+	
 	function cargarDatosFacturas(){
 	
 		
@@ -693,6 +694,29 @@ $('body').on('click', 'button.descargar', function(e){
 			
 		});
 
+		
+		
+		
+		$('body').on('mouseenter', '#btnReloadSms', function(){
+			
+			$('#btnReloadSms').css('background-image', "url("+baseUrl+"assets/img/buttons/reload-hover.png)");
+			
+			
+			
+		});
+		
+$('body').on('mouseleave', '#btnReloadSms', function(){
+			
+			$('#btnReloadSms').css('background-image', "url("+baseUrl+"assets/img/buttons/reload.png)");
+			
+			
+			
+		});
+		
+		
+
+
+		
 
 
 			function cargarDatosIncidencias(){
@@ -994,6 +1018,16 @@ $('body').on('click', 'button.descargar', function(e){
         				
         				
         			}
+               		
+               		
+               		$('#btnReloadSms').css('background-image', "url("+baseUrl+"assets/img/buttons/reload.png)");
+               		
+               		$('body').on('click', '#btnReloadSms', function(){
+               			
+               			
+               			refreshSms(idIncidencia);
+               		});
+               		
                		 
                	 }else{
                		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
@@ -1116,6 +1150,8 @@ function refreshSms(idIncidencia){
 
 function cambiarEstadoIncidencia(){
 	
+	$( "#buttonEstadoUser" ).prop( "disabled", true );
+	
 	estadoI=$(this).html();
 	
 	if(estadoI.trim()=="Desactivar"){
@@ -1138,6 +1174,7 @@ function cambiarEstadoIncidencia(){
         url: baseUrl+"Incidencias/cambiarEstadoIncidenciaUser",
         data: {idIncidencia:idIncidencia, operacion:operacion}, 
         success: function (response) {
+        	$( "#buttonEstadoUser" ).prop( "disabled", false );
             
        	 if(response.trim()){
        		

@@ -16,7 +16,7 @@ class Incidencias_model extends CI_Model{
 	
 	public function getAllIncidenciasActive(){
 		
-		$incidencias = R::getAll("SELECT * FROM incidencias where estado='activa' ORDER BY fecha_incidencia", array());
+		$incidencias = R::getAll("SELECT * FROM incidencias  ORDER BY fecha_incidencia", array());
 		
 		return $incidencias;
 		
@@ -196,7 +196,7 @@ public function verMensajesAdmin ($idIncidencia){
 
 public function getIdIncidencia($uniqid){
 	
-	$idIncidencia = R::getAll("SELECT id, usuario_id FROM incidencias WHERE uniqid = :uniqid" , array(':uniqid'=>$uniqid));
+	$idIncidencia = R::getAll("SELECT * FROM incidencias WHERE uniqid = :uniqid" , array(':uniqid'=>$uniqid));
 	
 	
 	return $idIncidencia;
@@ -224,6 +224,14 @@ public function cambiarEstadoIncidenciaUser ($idIncidencia,$idUsuario,$usuarioEm
 	return $estado;
 }
 
+public function cambiarEstadoIncidenciaAdmin($uniqId, $operacion){
+	
+	$query="UPDATE incidencias SET estado='$operacion' WHERE uniqid='$uniqId'";
+	
+	$estado=R::exec( $query );
+	return $estado;
+	
+}
 
 
 }

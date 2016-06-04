@@ -10,6 +10,7 @@
   function verIncidencia(id){
 
 	  //alert(id);
+	   
     
      window.location="<?=base_url()?>incidencias/mensajesIncidenciasAdmin/"+id;
     

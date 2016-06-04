@@ -240,6 +240,19 @@ td{
    
    }
    
+   .button-reload{
+	
+	
+	   
+    background-size: 100% 100%;
+    
+        width: 45px !important;
+    height: 40px !important;
+    
+        top: 53% !important;
+        right:10% !important;
+}
+   
    
    }
    
@@ -387,4 +400,27 @@ button.verMensajes{
     outline: 0;
     float:right;
     margin-bottom:5%;
+        margin-right: 15px;
 }
+
+
+.button-reload{
+	
+	
+	   
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    
+        width: 55px;
+    height: 50px;
+    position:absolute;
+    z-index:2;
+    top: 53% !important;
+        right:10% !important;
+        top: 54% !important;
+    right: 7% !important;
+}
+
+
+

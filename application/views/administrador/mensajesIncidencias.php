@@ -3,6 +3,7 @@
 /*var_dump($mensajes);*/
 
 ?>
+<script>idIncidencia=<?=$idIncidencia;?></script>
 <link rel="stylesheet"
 	href="<?php echo base_url("assets/css/chatAdmin.css"); ?>" />
 <div class="">
@@ -25,7 +26,21 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <p>N&ordm; de Incidencica: <?=$caso?> </p><p>Nombre Usuario: <?= $usuario[0]['nombre']." ".$usuario[0]['apellidos']?> </p>
+                  <div style="width:70%; float:left;">
+                  <p id="nInc" data-uniqId="<?=$caso?>">N&ordm; de Incidencica: <?=$caso?> </p><p>Nombre Usuario: <?= $usuario[0]['nombre']." ".$usuario[0]['apellidos']?> </p><p>Problema: <?=$problema?> </p>
+                   </div> 
+                   
+                   <div style="float:right; width:20%;">
+                   
+                   
+                   <?php if($estado=="activa"):?>
+                  <button class="remodalInc incidenciaActiva" id="buttonEstadoUser" >Desactivar</button>
+                   <?php else :?>
+                  <button class="remodalInc incidenciaDesactivada" id="buttonEstadoUser" >Activar</button>
+                   <?php endif;?>
+                   
+                   </div>
+                    <button class="button-reload" id="btnReloadSms"></button>
                     <div id="containerChat">
                     
                     

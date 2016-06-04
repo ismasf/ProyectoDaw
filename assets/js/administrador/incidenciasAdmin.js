@@ -2,6 +2,33 @@ $(document).ready(function() {
 
 	$('div#containerChat').scrollTop($('div#containerChat')[0].scrollHeight);
 	
+	$('body').on('click', '#buttonEstadoUser', cambiarEstadoIncidencia);
+	
+	$('#btnReloadSms').css('background-image', "url("+baseUrl+"assets/img/buttons/reload.png)");
+		
+		$('body').on('click', '#btnReloadSms', function(){
+			
+			
+			refreshSms(idIncidencia);
+		});
+		
+
+		$('body').on('mouseenter', '#btnReloadSms', function(){
+			
+			$('#btnReloadSms').css('background-image', "url("+baseUrl+"assets/img/buttons/reload-hover.png)");
+			
+			
+			
+		});
+		
+$('body').on('mouseleave', '#btnReloadSms', function(){
+			
+			$('#btnReloadSms').css('background-image', "url("+baseUrl+"assets/img/buttons/reload.png)");
+			
+			
+			
+		});
+	
 	
 
 });
@@ -149,6 +176,64 @@ function refreshSms(idIncidencia){
        	 
         }
             });
+	
+	
+}
+function cambiarEstadoIncidencia(){
+	
+	$( "#buttonEstadoUser" ).prop( "disabled", true );
+	
+	estadoI=$(this).html();
+	
+	if(estadoI.trim()=="Desactivar"){
+		
+		
+		operacion="desactivado";
+		
+		
+	}else if(estadoI.trim()=="Activar"){
+		
+		
+		operacion="activa";
+		
+	}
+	
+	uniqId=$('p#nInc').attr('data-uniqId');
+	
+	
+	$.ajax({
+        type: "POST",
+        url: baseUrl+"Incidencias/cambiarEstadoIncidenciaAdmin",
+        data: {uniqId:uniqId, operacion:operacion}, 
+        success: function (response) {
+        	
+        	$( "#buttonEstadoUser" ).prop( "disabled", false );
+            
+       	 if(response.trim()){
+       		
+       		
+       		 if(operacion.trim()=="desactivado"){
+       			 
+       			 
+       			$('#buttonEstadoUser').removeClass('incidenciaActiva').addClass("incidenciaDesactivada").html("Activar");
+       			 
+       		 }else if(operacion.trim()=="activa"){
+       			 
+       			$('#buttonEstadoUser').removeClass('incidenciaDesactivada').addClass("incidenciaActiva").html("Desactivar");
+       			 
+       		 }
+       		
+       		 
+       	 }else{
+       		 
+       		 
+       		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+       	 }
+       	 
+        }
+            });
+	
+	
 	
 	
 }
