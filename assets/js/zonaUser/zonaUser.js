@@ -594,6 +594,11 @@ $('body').on('click', 'button.descargar', function(e){
 			 	                		$('.circularUser').css("background-image", "url('"+baseUrl+"assets/img/photoUser/"+response.trim()+"')");
 			 	                		$('#errorImage').html("La imagen se ha guardado correctamente");
 			 	                		$('#errorImage').addClass("successImg");
+			 	                		
+			 	                		$('#navImagenUser').attr('src', baseUrl+"assets/img/photoUser/"+response.trim());
+			 	                		console.log("'"+baseUrl+"assets/img/photoUser/"+response.trim()+"'");
+			 	                		
+			 	                		//location.reload();
 			 	                		 
 			 	                		 //alert("bien")
 			 	                		 /*$('div.remodal').html('<h1>Se ha actualizado su informacion correctamente, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');

@@ -37,6 +37,10 @@ $(document).ready(function(){
     return this.optional(element) || /^[a-zA-Z áÁãâäàéÉêëèíÍîïìóÓõôöòúÚûüùçÑñ]+$/i.test(value);
 }, "Letras y espacios solo");
     
+    jQuery.validator.addMethod('claveNumberLetter', function(value, element) {
+        return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/i.test(value);
+    }, "La contraseña debe tener al menos 1 letra y un numero");
+    
     
     
 $.validator.addMethod("dateFormat",
@@ -175,8 +179,9 @@ $.validator.addMethod("dateFormat",
             idPassword: {
                 required: true,
             letterDigitsOnly: true,
-              maxlength: 25,
-              minlength: 4
+            claveNumberLetter:true,
+              maxlength: 12,
+              minlength: 6
                 
                 
             }, 
@@ -184,8 +189,8 @@ $.validator.addMethod("dateFormat",
              idPasswordConfirm: {
                 required: true,
             equalTo: '#idPassword',
-              maxlength: 25,
-              minlength: 4
+              maxlength: 12,
+              minlength: 6
                 
                 
             }, 
