@@ -41,7 +41,7 @@ color:red;
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="myFormContacto" action="<?=base_url()?>administrador/contactar" class="form-horizontal form-label-left" method='POST' >
+                    <form id="myFormContacto" action="<?=base_url()?>contacto/correo" class="form-horizontal form-label-left" method='POST' >
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span class="required">*</span></label>
