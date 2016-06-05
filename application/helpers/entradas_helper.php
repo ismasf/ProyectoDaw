@@ -318,7 +318,7 @@ HTML;
 		$html.='<table ><tr><td ><img id="cartel"  src="http://localhost/Proyecto/assets/img/pelicula/'.$idPelicula.'.png"></td><td><div id="datosPelicula" style="width:400px">';
 		
 		$html.='<label>Usuario:</label><br><p>'.$dato['nombre']." ".$dato['apellidos'].'</p><br><label>Pelicula:</label><br><p>'.$dato['titulo'].'</p><br><label>Fecha:</label><br><p>'.$fecha.'</p><br><label>Hora:</label><br><p>'.$hora.'</p><br>
-                <label>Session:</label><br><p>1bc20</p><br><label>Asientos:</label><br><p>FILA: '.$fila.' ASIENTO: '.$asiento.'</p><br></div></td> </tr> </table><br><br><br>';
+                <label>Sala:</label><br><p>'.$dato['sala_id'].'</p><br><label>Asientos:</label><br><p>FILA: '.$fila.' ASIENTO: '.$asiento.'</p><br></div></td> </tr> </table><br><br><br>';
 		
 	
 		
