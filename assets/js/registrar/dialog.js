@@ -263,7 +263,37 @@ $.validator.addMethod("dateFormat",
                 	 if(response.trim()=="ok"){
                 		 //alert("bien")
                 		 $('#idBtnRegistrar').prop("disabled", false);
-                		 $('div.remodal').html('<h1>Registro correcto, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+                		 
+                		 $('div.remodal').html('<h1 id="registroCorrecto">Registro correcto, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+                		 
+                		 segundos=5;
+                		idInterval = setInterval(function() {
+                			 inst = $('[data-remodal-id=modal]').remodal();
+                	         
+                	 			
+                	         
+                			segundos--;
+                			if(segundos<1){
+                				clearInterval(idInterval);
+                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+                				location.href=baseUrl;
+                				inst.close();
+                				
+                				
+                				
+                			}
+                			
+                			
+                		},500);
+                		
+                		$('#estadoRegistro').val('si');
+                		
+                		 
+                	 }else{
+                		 $('#idBtnRegistrar').prop("disabled", false);
+                		 $('#estadoRegistro').val('no');
+                		
+ $('div.remodal').html('<h1 id="registroFallado">No hemos podido darle de alta en nuestra base de datos, por favor intentelo mas tarde, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
                 		 
                 		 segundos=5;
                 		idInterval = setInterval(function() {
@@ -282,12 +312,6 @@ $.validator.addMethod("dateFormat",
                 			
                 			
                 		},500);
-                		
-                		
-                		 
-                	 }else{
-                		 $('#idBtnRegistrar').prop("disabled", false);
-                		 alert("No hemos podido darle de alta en nuestra base de datos, por favor intentelo mas tarde")
                 	 }
                 	 
                  }
