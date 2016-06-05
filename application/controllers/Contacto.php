@@ -23,7 +23,9 @@ class Contacto extends CI_Controller{
 			$mensaje=$_POST["mensaje"];
 			
 			$this->load->model("correo_model");
-			$this->correo_model->enviarCorreo($para,$asunto,$de,$mensaje);
+			if($this->correo_model->enviarCorreo($para,$asunto,$de,$mensaje)){
+				$this->template->load("plantilla","correoContacto/enviado");
+			}
 			
 		}
 	}
