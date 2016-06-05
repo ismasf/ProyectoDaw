@@ -1,19 +1,3 @@
-<br/>
-<!--  <div class="container">
-<form id="formulario" action="" method="post" novalidate><br/>
-     <label for="nombre">Nombre  *</label> <input type="text" id="nombre" name="nombre"><br/>
-     <label for="apellidos">Apellidos  *</label> <input type="text" id="apellidos" name="apellidos"><br/>
-     <label for="telefono">Teléfono  *</label><input type="tel" id="telefono" name="telefono"><br/>
-     <label for="email">Email  *</label> <input type="email" id="email" name="email"><br/>
-     <label for="email2">Confirmar Email  *</label> <input type="email" id="email2" name="email2"><br/>
-     <label for="mensaje">Escribe el mensaje *</label> <input type="text" id="iban" name="iban"><br/>
-     <input class="enviar" type="submit" value="Enviar">
-</form>
-</div>-->
-
-
-    
-
 <script>
   function enviar(){
     return false;
@@ -30,6 +14,10 @@
 color:red;
     font-weight: 700;
 }
+
+#myFormContacto span.help-inline.valid{
+
+border:none;
 
 </style>
 <div class="row tile_count">

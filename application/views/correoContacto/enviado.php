@@ -4,6 +4,6 @@
 <?php 
 $direccion=base_url()."contacto";
   header( "refresh:2;url=$direccion"); 
-  echo 'Seras redireccionado en breve.';
+  echo 'Seras redireccionado en breve, Muchas gracias por contactar con nosotros.';
 ?> 
 </div>
