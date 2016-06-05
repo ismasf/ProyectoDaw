@@ -14,6 +14,7 @@ session_start ();*/
 ?>
 
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, user-scalable=no initial-scale=1">
 <style>

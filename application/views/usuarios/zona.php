@@ -32,7 +32,7 @@
               <li class="active"><a href="#" id="datosPersonales">Datos Personales</a></li>
               <li><a href="#">Contacto</a></li>
               <li><a href="" id="idIncidencias">Incidencias</a></li>
-              <li><a href="#">Preguntas Frecuentes</a></li>
+              <li><a href="<?= base_url()."Preguntas/"?>">Preguntas Frecuentes</a></li>
          
              
               <!--  <li class="nav-header">Sidebar</li>

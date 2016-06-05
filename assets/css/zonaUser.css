@@ -423,4 +423,22 @@ button.verMensajes{
 }
 
 
+h3.acordeonPersonalizado{
+	
+	    background: darkcyan;
+    border: 4px solid #22464A;
+    border-radius: 25px;
+    padding: 5px;
+    color: white;
+	
+	
+}
 
+div.acordeonContenedor{
+	
+	
+	    border-radius: 7px;
+    padding: 5px;
+        word-break: break-word;
+            height: inherit !important;
+}
