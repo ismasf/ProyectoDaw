@@ -12,7 +12,7 @@
 </div>-->
 
 
-    <script src="<?=base_url()?>assets/js/registrar/jquery.validate.min.js"></script>
+    
 
 <script>
   function enviar(){
@@ -23,6 +23,15 @@
 
 
 </script>
+
+<style>
+#myFormContacto span.help-inline{
+
+color:red;
+    font-weight: 700;
+}
+
+</style>
 <div class="row tile_count">
                 <div class="x_panel">
                   <div class="x_title">
@@ -32,7 +41,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="myForm" action="<?=base_url()?>administrador/contactar" class="form-horizontal form-label-left" method='POST' >
+                    <form id="myFormContacto" action="<?=base_url()?>administrador/contactar" class="form-horizontal form-label-left" method='POST' >
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span class="required">*</span></label>
@@ -58,7 +67,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Mensaje: <span class="required">*</span>
                         </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="6" placeholder='Mensaje' name="mensaje"></textarea>
+                          <textarea class="form-control" rows="6" placeholder='Mensaje' name="mensaje" id="mensaje"></textarea>
                         </div>
                       </div>      
                         </div>
@@ -80,7 +89,9 @@
  <script type="text/javascript">
  $(document).ready(function(){   
 
-$( "#myForm" ).validate({
+$( "#myFormContacto" ).validate({
+	errorElement: 'span',
+    errorClass: 'help-inline',
   rules: {
     nombre: {
       required: true,
@@ -94,7 +105,7 @@ $( "#myForm" ).validate({
       required: true,
     },
     mensaje:{
-      required:true
+      required:true,
       minlength: 10
     },
 
@@ -110,9 +121,10 @@ $( "#myForm" ).validate({
     },
     email:{
       required: "Email obligatorio.",
+      email: "Introcuzca un correo valido"
     },
     mensaje:{
-      required: "Debe escribir un mensaje."
+      required: "Debe escribir un mensaje.",
       minlength: "El mensaje es demasiado pequeño."
     },
   },
