@@ -8,6 +8,7 @@ $viernes = ($hoy==5?'class="active"':"");
 $sabado = ($hoy==6?'class="active"':"");
 $domingo = ($hoy==7?'class="active"':"");
 
+
 //var_dump($trailers);
 
 $a = date("d");
@@ -79,7 +80,7 @@ switch ($hoy) {
         $diaLetter="Sabado";
         break;
 
-    case 0:
+    case 7:
         $l = $a+1;
         $ma = $a+2;
         $mi = $a+3;
