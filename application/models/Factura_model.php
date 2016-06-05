@@ -69,7 +69,7 @@ class Factura_model extends CI_Model{
 		
 		
 		
-		$result= R::getAll("SELECT DISTINCT u.nombre, u.apellidos, er.fecha, a.nom, p.titulo, s.hora, u.id FROM entradareserva_factura ef, pelicula p, entradareserva er, sesion s, asientos a, usuario u, factura f WHERE ef.factura_id = :idFact AND er.id=ef.entradareserva_id AND s.id = er.sesion_id AND p.id = s.pelicula_id AND a.id = er.asientos_id AND f.id = ef.factura_id AND u.id = f.usuario_id;", array(':idFact'=>$idFact));
+		$result= R::getAll("SELECT DISTINCT u.nombre, u.apellidos, er.fecha, er.sala_id, a.nom, p.titulo, s.hora, u.id FROM entradareserva_factura ef, pelicula p, entradareserva er, sesion s, asientos a, usuario u, factura f WHERE ef.factura_id = :idFact AND er.id=ef.entradareserva_id AND s.id = er.sesion_id AND p.id = s.pelicula_id AND a.id = er.asientos_id AND f.id = ef.factura_id AND u.id = f.usuario_id;", array(':idFact'=>$idFact));
 		
 		return $result;
 		//SELECT u.nombre, u.apellidos, er.fecha, a.nom, p.titulo FROM entradareserva_factura ef, pelicula p, entradareserva er, sesion s, asientos a, usuario u, factura f WHERE ef.factura_id = :idFactura AND er.id=ef.entradareserva_id AND s.id = er.sesion_id AND p.id = s.pelicula_id AND a.id = er.asientos_id AND f.id = ef.factura_id AND u.id = f.usuario_id", array(':idFactura'=>$idFactura

@@ -199,24 +199,40 @@ $('body').on('click', 'button.descargar', function(e){
            		
            		document.getElementById("containerUser").appendChild(tableI);
            		 
-           		$.extend( true, $.fn.dataTable.defaults, {
-           		    "searching": false,
-           		 "language": {
-                     "lengthMenu": "Display _MENU_ records per page",
-                     "zeroRecords": "Nothing found - sorry",
-                     "info": "Ver paginas _PAGE_ de _PAGES_",
-                     "infoEmpty": "No records available",
-                     "infoFiltered": "(filtered from _MAX_ total records)",
-                     "oPaginate": {
-                 		"sFirst":    	"Primera",
-                 		"sPrevious": 	"Anterior",
-                 		"sNext":     	"Siguiente",
-                 		"sLast":     	"Ultima"
-                 	},
-                 }
-           		} );
+           	 $.extend( true, $.fn.dataTable.defaults, {
+     		    "searching": true,
+     		 "language": {
+               "lengthMenu": "Display _MENU_ records per page",
+               "search": "Buscar:",
+               "zeroRecords": "Nothing found - sorry",
+               "info": "Ver paginas _PAGE_ de _PAGES_",
+               "infoEmpty": "No existen incidencias",
+               "infoFiltered": "(Filtradas de _MAX_ entradas totales)",
+               
+               "oPaginate": {
+           		"sFirst":    	"Primera",
+           		"sPrevious": 	"Anterior",
+           		"sNext":     	"Siguiente",
+           		"sLast":     	"Ultima"
+           	},
+           }
+     		} );
            		
            		 $('#tableFac').DataTable();
+         		 
+if($('td.dataTables_empty').length>0){
+					
+					$('td.dataTables_empty').html("No existen incidencias");
+					
+					
+					
+				}
+				
+				
+				
+				$('div.dataTables_length').css('visibility','hidden');
+	               	 
+	                
            		 
            		 
            		
@@ -788,8 +804,8 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 	                      "zeroRecords": "Nothing found - sorry",
 	                      "info": "Ver paginas _PAGE_ de _PAGES_",
 	                      "infoEmpty": "No existen incidencias",
-	                      "infoFiltered": "(filtered from _MAX_ total records)",
-	                      "searching": "Busqueda",
+	                      "infoFiltered": "(Filtradas de _MAX_ incidencias totales)",
+	                      "search": "Buscar:",
 	                      "oPaginate": {
 	                  		"sFirst":    	"Primera",
 	                  		"sPrevious": 	"Anterior",
@@ -811,13 +827,7 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 					
 				}
 				
-				if($('div#tablaIncidencias_filter').length>0){
-					
-					$('div#tablaIncidencias_filter label').html('Buscar:<input type="search" class="" placeholder="" aria-controls="tablaIncidencias">');
-					
-					
-					
-				}
+				
 				
 				$('div.dataTables_length').css('visibility','hidden');
 	               	 

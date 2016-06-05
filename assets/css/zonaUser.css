@@ -442,3 +442,14 @@ div.acordeonContenedor{
         word-break: break-word;
             height: inherit !important;
 }
+
+div.dataTables_wrapper *{
+	
+	color:white;
+}
+
+div.dataTables_info{
+	
+	
+	color: #E8E8E8 !important;
+}
