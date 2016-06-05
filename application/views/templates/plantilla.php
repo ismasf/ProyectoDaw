@@ -179,7 +179,7 @@ a img{
 		<div class="container">
 			<div class="row">
 				<ul class="list-unstyled">
-					<li class="col-sm-4 col-xs-5"><a href="<?=base_url()?>Equipo">Trabaja con nosotros</a>
+					<li class="col-sm-4 col-xs-5"><a href="<?=base_url()?>Contacto">Contacto</a>
 					</li>
 					<li class="col-sm-4 col-xs-5"><a href="#">Politicas de Privacidad</a>
 					</li>
