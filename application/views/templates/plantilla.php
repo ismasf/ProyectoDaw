@@ -182,17 +182,17 @@ a img{
 				<ul class="list-unstyled">
 					<li class="col-sm-4 col-xs-5"><a href="<?=base_url()?>Contacto">Contacto</a>
 					</li>
-					<li class="col-sm-4 col-xs-5"><a href="#">Politicas de Privacidad</a>
+					<li class="col-sm-4 col-xs-5"><a href="<?=base_url()?>Privacidad">Politicas de Privacidad</a>
 					</li>
-					<li class="col-sm-4 col-xs-2"><a href="#">Ayuda</a></li>
+					<li class="col-sm-4 col-xs-2"><a href="<?=base_url()?>Preguntas">Ayuda</a></li>
 				</ul>
 				<div class="col-md-12">
                     <ul class="social-network social-circle">
-                        <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                        <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="http://www.rss.nom.es/" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="https://www.facebook.com/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://plus.google.com/collections/featured" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="https://www.linkedin.com/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                     </ul>				
 				</div>
 		</div>

@@ -46,7 +46,9 @@
 
 </div>
 <div class="container" >
-	
+<div class="container" >
+<div class="container" >
+<div class="container" >
 		<div class="row">
 		<div>
 		<?php foreach ($cartelera as $pelicula):?>
@@ -60,5 +62,8 @@
 			</div>
 		<?php endforeach;?>
 		</div>
+	</div>
+	</div>
+	</div>
 	</div>
 </div>
