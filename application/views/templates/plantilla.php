@@ -168,6 +168,7 @@ a img{
 		</div>
 		<!-- /.container -->
 	</nav>
+	<input type="text" id="estadoRegistro" style="visibility: hidden;" value="no">
 	<div class="container">
 <?php echo $body; ?>
 </div>
