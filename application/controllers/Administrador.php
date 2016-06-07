@@ -624,6 +624,44 @@ class Administrador extends CI_Controller{
 		R::close();
 	}
 
+	public function configuracionesGet(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("configuraciones_model");
+			$datos["conf"]=$this->configuraciones_model->getDatos();
+			
+			$this->template->load("plantillaAdmin","administrador/configuracionesGet",$datos);
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+	}
+
+	public function configuracionesPost(){
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		session_name ( "cineProyecto" );
+		ini_set ( "session.cookie_lifetime", "7200" );
+		ini_set ( "session.gc_maxlifetime", "7200" );
+		session_start ();
+		if(isset($_SESSION["idUserAdmin"])){
+			$this->load->model("configuraciones_model");
+			$this->configuraciones_model->modificarDatos();
+			
+			$this->template->load("plantillaAdmin","administrador/configuracionesPOST");
+		
+		}else{
+			$this->load->view("administrador/error");
+		}
+		
+		R::close();
+	}
+
 
 
 

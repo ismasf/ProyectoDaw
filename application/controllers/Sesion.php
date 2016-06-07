@@ -21,6 +21,8 @@ class Sesion extends CI_Controller{
 		
 		//$datos["sesion"]=$_SESSION;
 		$datos["idAle"]=$idAleatoria = rand(1, 20000);
+		$this->load->model("configuraciones_model");
+		$datos["conf"]=$this->configuraciones_model->getDatos();
 		R::close();
 		//$this->load->view("sesion/sesion",$datos);
 		$this->template->load("plantilla","sesion/sesion",$datos);

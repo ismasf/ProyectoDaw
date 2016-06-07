@@ -119,6 +119,13 @@ baseUrl = "<?=base_url()?>";
                      
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-video-camera"></i> Configuración <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?= base_url()?>administrador/configuracionesGet">Modificar configuración</a>
+                      </li>
+                      
+                    </ul>
+                  </li>
                 </ul>
               </div>
 

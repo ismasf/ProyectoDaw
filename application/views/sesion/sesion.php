@@ -23,7 +23,7 @@ $(document).ready(function(){
 		    $("#divAsientos").html(datos);
 		  });
 		
-	}, 1500);
+	}, <?=$conf->tiemporecarga?>);
 	
 	
 });

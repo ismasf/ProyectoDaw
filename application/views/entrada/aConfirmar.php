@@ -6,7 +6,7 @@ $asientos=$_POST["asientos"];
 $sesion=$_POST["sesion"];
 $div = preg_split("/[,]/",substr($asientos, 0,strlen($asientos)-1));
 echo "SESION: $sesion<br>";
-$precio = 6.7;
+$precio = $conf->precio;
 $total = 0;
 foreach ($div as $idAsiento){
 	echo "<br>Asiento: " . $idAsiento." Precio: ". $precio;
