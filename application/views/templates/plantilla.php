@@ -175,7 +175,7 @@ a img{
 	<br />
 	<br />
 	<br />
-	<footer>
+	<footer class="footerZ">
 		<!--footer-->
 		<div class="container">
 			<div class="row">

@@ -104,7 +104,7 @@ switch ($hoy) {
 	<div class="row">
 		<div class="col-sm-3">
 			<img 
-				src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula->id?>.jpg">
+				src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula->id?>.jpg" width="150px"height="200px">
 		</div>
 		<div class="col-sm-9">
 			
@@ -130,7 +130,6 @@ switch ($hoy) {
 		</div>
 	</div>
 </div>
-______________________
 <br>
 Tiene estas sesiones:
 <br>
@@ -169,7 +168,7 @@ Tiene estas sesiones:
                                         
                                         <?php endforeach;?>
 		                                <div class="col-md-8 tab-disappear">
-                                    <!-- Nav tabs --><div class="card">
+                                    <!-- Nav tabs --><div class="card colorActive">
                                     
                                     
                                     <ul class="nav nav-tabs" role="tablist">
@@ -237,10 +236,9 @@ Tiene estas sesiones:
 
 <div class="row">
 
-&nbsp;&nbsp;&nbsp;&nbsp;______________________
-<br>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;<?=$trailerName?></p>
-<br>
+<br><br>
+<p class="titulos">&nbsp;&nbsp;&nbsp;&nbsp;<?=$trailerName?></p>
+
 <div id="player" class="col-sm-12 col-md-offset-2" style="max-width:690px;">
 	
 		<div class="video-js" style="width: 100%; height: 100%;">
