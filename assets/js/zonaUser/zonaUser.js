@@ -204,9 +204,9 @@ $('body').on('click', 'button.descargar', function(e){
      		 "language": {
                "lengthMenu": "Display _MENU_ records per page",
                "search": "Buscar:",
-               "zeroRecords": "Nothing found - sorry",
+               "zeroRecords": "No funciona - Lo siento",
                "info": "Ver paginas _PAGE_ de _PAGES_",
-               "infoEmpty": "No existen incidencias",
+               "infoEmpty": "No existen Facturas",
                "infoFiltered": "(Filtradas de _MAX_ entradas totales)",
                
                "oPaginate": {
@@ -754,9 +754,11 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 	               	 if(response.trim()!="" && response.trim()!="no" && response.trim()!=[]){
 	               		 
 	               		objeto = JSON.parse(response);
+	               		$('table#tablaIncidencias tbody').html("");
 	               		
 	               		$.each(objeto, function (index, obj) {
 	               			
+	               			console.log("Hola");
 	               			
 	               		   var filaI= document.createElement("tr");
 	               		   var columna1= document.createElement("td");

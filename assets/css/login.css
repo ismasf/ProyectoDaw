@@ -56,6 +56,12 @@ img {
 		display:none;
 	}
 	
+	div.horas div.active {
+    display: block !important;
+    text-align: center;
+    margin-top: 20px;
+    
+	}
 	
 	ul.listaDias li.active{
 		display:block !important;
