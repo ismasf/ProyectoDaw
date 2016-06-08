@@ -179,7 +179,7 @@ $ci->load->library('m_pdf');
 
 function descargarEntradaPdf($datos,$idPelicula){
 	
-	$direccionImage=base_url("/assets/img/$idPelicula.png");
+	$direccionImage=base_url("/assets/img/".$idPelicula.".png");
 	
 	
 	$html=<<<HTML
@@ -315,7 +315,7 @@ HTML;
 		$hora=$datosFecha[1];
 		
 		
-		$html.='<table ><tr><td ><img id="cartel"  src="http://localhost/Proyecto/assets/img/pelicula/'.$idPelicula.'.png"></td><td><div id="datosPelicula" style="width:400px">';
+		$html.='<table ><tr><td ><img id="cartel"  src="'.$direccionImage.'"></td><td><div id="datosPelicula" style="width:400px">';
 		
 		$html.='<label>Usuario:</label><br><p>'.$dato['nombre']." ".$dato['apellidos'].'</p><br><label>Pelicula:</label><br><p>'.$dato['titulo'].'</p><br><label>Fecha:</label><br><p>'.$fecha.'</p><br><label>Hora:</label><br><p>'.$hora.'</p><br>
                 <label>Sala:</label><br><p>'.$dato['sala_id'].'</p><br><label>Asientos:</label><br><p>FILA: '.$fila.' ASIENTO: '.$asiento.'</p><br></div></td> </tr> </table><br><br><br>';

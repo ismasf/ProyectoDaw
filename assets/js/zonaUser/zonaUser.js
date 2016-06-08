@@ -204,9 +204,9 @@ $('body').on('click', 'button.descargar', function(e){
      		 "language": {
                "lengthMenu": "Display _MENU_ records per page",
                "search": "Buscar:",
-               "zeroRecords": "Nothing found - sorry",
+               "zeroRecords": "No funciona - Lo siento",
                "info": "Ver paginas _PAGE_ de _PAGES_",
-               "infoEmpty": "No existen incidencias",
+               "infoEmpty": "No existen Facturas",
                "infoFiltered": "(Filtradas de _MAX_ entradas totales)",
                
                "oPaginate": {
