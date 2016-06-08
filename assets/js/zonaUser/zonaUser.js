@@ -754,9 +754,11 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 	               	 if(response.trim()!="" && response.trim()!="no" && response.trim()!=[]){
 	               		 
 	               		objeto = JSON.parse(response);
+	               		$('table#tablaIncidencias tbody').html("");
 	               		
 	               		$.each(objeto, function (index, obj) {
 	               			
+	               			console.log("Hola");
 	               			
 	               		   var filaI= document.createElement("tr");
 	               		   var columna1= document.createElement("td");
