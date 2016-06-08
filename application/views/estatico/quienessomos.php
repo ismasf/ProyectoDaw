@@ -1,4 +1,4 @@
-<video autoplay loop poster="screenshot.jpg" id="background">
+<video autoplay loop muted poster="screenshot.jpg" id="background">
 <!--autoplay loop muted poster para silenciar-->
         <source src="<?=base_url()?>assets/mp4/1/1-720p.mp4" type="video/mp4">
     </video>
