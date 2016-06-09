@@ -213,3 +213,35 @@ div.colorActive a{
 	font-size:2em;
 }
 
+.grow { transition: all .2s ease-in-out;border:5px solid #22464A; }
+.grow:hover { transform: scale(1.1);}
+
+@media (max-width: 480px) {
+	.tamanio{
+		width:55px ;
+		height:95px ;
+		
+	}
+}
+
+
+html, body {
+  height: 100% !important;
+}
+
+#wrap {
+  min-height: 60% !important;
+}
+
+#main {
+  overflow:auto !important;
+  padding-bottom:150px !important; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative !important;
+  margin-top: -150px !important; /* negative value of footer height */
+  height: 200px !important;
+  clear:both !important;
+  padding-top:20px !important;
+} 

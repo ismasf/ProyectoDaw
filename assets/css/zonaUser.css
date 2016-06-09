@@ -20,6 +20,11 @@
     padding-left: 10px;
     
 }
+      .nav > li :hover{
+    padding-left: 10px;
+	background-color: darkcyan !important;
+    
+}
 
 
 

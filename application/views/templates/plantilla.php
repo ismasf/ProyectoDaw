@@ -175,9 +175,14 @@ a img{
 	<br />
 	<br />
 	<br />
-	<footer class="footerZ">
-		<!--footer-->
-		<div class="container">
+
+	
+	<div id="wrap">
+  <div id="main" class="container clear-top">
+  </div>
+</div>
+<footer class="footer ">
+<div class="container">
 			<div class="row">
 				<ul class="list-unstyled">
 					<li class="col-sm-4 col-xs-5"><a href="<?=base_url()?>Contacto">Contacto</a>
@@ -197,11 +202,7 @@ a img{
 				</div>
 		</div>
 			</div>
-			<!--/row-->
-
-		<!--/container-->
-	</footer>
-	<!--/footer-->
+</footer>
 
 	<script type="text/javascript"
 		src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
