@@ -42,7 +42,7 @@ if($sala['tipo']=='A'){
 	// }
 	$cont = 0;
 	$contador--;
-	echo "Fila: ".$contador;
+	echo $contador;
 	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
 		foreach ( $bloqueados as $bloqueado ) {
@@ -92,7 +92,7 @@ if($sala['tipo']=='A'){
 			if($contador!=1){
 			$contador--;
 			$contador=sprintf("%02d",$contador);
-			echo "Fila: ".$contador;
+			echo $contador;
 			}
 		}
 	}
@@ -107,7 +107,7 @@ if($sala['tipo']=='A'){
 	$cont = 0;
 	$cont2 = 0;
 	$contador--;
-	echo "Fila: ".$contador;
+	echo $contador;
 	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
 		foreach ( $bloqueados as $bloqueado ) {
@@ -164,14 +164,14 @@ if($sala['tipo']=='A'){
 				if ($contador==8){
 					//$contador--;
 					$contador=sprintf("%02d",$contador);
-					echo "Fila: ".$contador;
+					echo $contador;
 				}
 				elseif ($cont2==6){
 					
 				}
 				else{
 				$contador=sprintf("%02d",$contador);
-				echo "Fila: ".$contador;
+				echo $contador;
 				}
 			}
 			$cont2++;
@@ -179,7 +179,7 @@ if($sala['tipo']=='A'){
 		if($cont2 == 7){
 			$cont2++;
 			echo "<br>";
-			echo "Fila: 07";
+			echo "07";
 			/*$contador=sprintf("%02d",$contador);
 			echo "Fila: ".$contador;*/
 		}
