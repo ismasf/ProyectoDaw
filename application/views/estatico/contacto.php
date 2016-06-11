@@ -1,3 +1,40 @@
+<?php 
+
+
+
+if(isset($usuarioInfo) && $usuarioInfo[0]['nombre']!=null ){
+	
+	$nombre=$usuarioInfo[0]['nombre'];
+}else{
+	
+	$nombre="";
+	
+}
+
+if(isset($usuarioInfo) && $usuarioInfo[0]['apellidos']!=null ){
+	
+	$apellidos=$usuarioInfo[0]['apellidos'];
+}else{
+	
+	
+	$apellidos="";
+}
+
+
+if(isset($usuarioInfo) && $usuarioInfo[0]['user']!=null ){
+
+	$email=$usuarioInfo[0]['user'];
+}else{
+
+
+	$email="";
+}
+
+
+?>
+
+
+
 <script>
   function enviar(){
     return false;
@@ -34,20 +71,20 @@ border:none;
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nombre: <span class="required">*</span></label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre">
+                          <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" value="<?=$nombre?>">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Apellido: <span class="required">*</span></label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="Apellido" name="apellido">
+                          <input type="text" class="form-control" placeholder="Apellido" name="apellido" value="<?=$apellidos?>">
                         </div>
                       </div>
                       
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Email: <span class="required">*</span></label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="email" class="form-control" placeholder="Email" name="email">
+                          <input type="email" class="form-control" placeholder="Email" name="email" value="<?=$email?>">
                         </div>
                       </div>
 

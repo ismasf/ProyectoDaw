@@ -290,7 +290,7 @@ class Usuarios_model extends CI_Model{
 	
 public function  informacionZonaUser($usuarioId){
 	
-	$result = R::getAll("SELECT nombre, apellidos, fechanacimiento, ciudad FROM usuario WHERE id = :usuarioId", array(':usuarioId'=>$usuarioId));
+	$result = R::getAll("SELECT nombre, apellidos, fechanacimiento, ciudad, user FROM usuario WHERE id = :usuarioId", array(':usuarioId'=>$usuarioId));
 	
 	
 	if(isset($_SESSION['idUser']) && $_SESSION['idUser']!=null){

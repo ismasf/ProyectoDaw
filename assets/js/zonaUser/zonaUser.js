@@ -1048,7 +1048,7 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 		$('body').on('click', '#userContact', function(){
 			
 			
-			alert("Hola");
+			
 			
 			//$.post(baseUrl+"contacto/index", { userContact: "true" } );
 			

@@ -49,8 +49,8 @@
       </div><!--/row-->
 
       <hr>
-	<form id="formUserContact" action="<?php echo base_url("contacto/index"); ?>">
-  <input type="hidder" value="true" name="zonaUser" id="zonaUser">
+	<form id="formUserContact" action="<?php echo base_url("contacto/index"); ?>" method="post">
+  <input type="hidden" value="true" name="zonaUser" id="zonaUser">
   
 </form>
       <footer>
