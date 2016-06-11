@@ -20,10 +20,15 @@
     padding-left: 10px;
     
 }
-      .nav > li :hover{
+     /* .nav > li :hover{
     padding-left: 10px;
 	background-color: darkcyan !important;
     
+}*/
+
+.navbar-inverse .navbar-nav > li > a:hover{
+	 padding-left: 10px;
+	background-color: darkcyan !important;
 }
 
 
