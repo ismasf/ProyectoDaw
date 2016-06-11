@@ -44,7 +44,7 @@ function asientoDesbloquear(id){
 </script>
 
 	<br><div class="container"><h2>Elige tus asientos  <?=isset($_SESSION["idUser"])?"":"No has iniciado sesion"?></h2></div><br>
-		<div id="divAsientos" class="container" ></div>
+		<div id="divAsientos" ></div>
 		
 		
 		

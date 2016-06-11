@@ -106,7 +106,7 @@ if($sala['tipo']=='A'){
 	//print_r($actuales);
 	$cont = 0;
 	$cont2 = 0;
-	//$contador--;
+	$contador--;
 	echo "Fila: ".$contador;
 	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
@@ -161,15 +161,27 @@ if($sala['tipo']=='A'){
 			echo "<br>";
 			if($contador!=1){
 				$contador--;
+				if ($contador==8){
+					//$contador--;
+					$contador=sprintf("%02d",$contador);
+					echo "Fila: ".$contador;
+				}
+				elseif ($cont2==6){
+					
+				}
+				else{
 				$contador=sprintf("%02d",$contador);
 				echo "Fila: ".$contador;
+				}
 			}
 			$cont2++;
 		}
 		if($cont2 == 7){
 			$cont2++;
 			echo "<br>";
-			$contador--;
+			echo "Fila: 07";
+			/*$contador=sprintf("%02d",$contador);
+			echo "Fila: ".$contador;*/
 		}
 	}
 }else if($sala['tipo']=='C'){
