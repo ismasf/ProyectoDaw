@@ -7,8 +7,19 @@ class Contacto extends CI_Controller{
 		ini_set ( "session.cookie_lifetime", "7200" );
 		ini_set ( "session.gc_maxlifetime", "7200" );
 		session_start ();
-		$zonaUser=$this->input->post('userContact');
-		$this->template->load("plantilla","estatico/contacto");
+		R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
+		$zonaUser=$this->input->post('zonaUser');
+		
+		if(isset($zonaUser) && $zonaUser!=null && $zonaUser!="" && isset($_SESSION['idUser'])){
+			$this->load->model ( 'Usuarios_model', '', true );
+			$datos['usuarioInfo']=$this->Usuarios_model->informacionZonaUser ($_SESSION['idUser']);
+			$this->template->load("plantilla","estatico/contacto", $datos);
+			
+		}else{
+			
+			$this->template->load("plantilla","estatico/contacto");
+		}
+		
 	}
 	
 	public function correo(){
