@@ -99,7 +99,7 @@ a img{
 <link rel="stylesheet"
 	href="<?php echo base_url("assets/css/video/video.css"); ?>" />
 
-
+<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon2.ico"); ?>" />
 
 </head>
 
