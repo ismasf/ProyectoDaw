@@ -6,7 +6,8 @@
 </style>
 
 <?php
-
+ $contador=15;
+ $contador=sprintf("%02d",$contador);
 if($sala['tipo']=='A'){
 	// print_r($actuales);
 	// $cont = 0;
@@ -40,6 +41,8 @@ if($sala['tipo']=='A'){
 	// 	$cont ++;
 	// }
 	$cont = 0;
+	$contador--;
+	echo "Fila: ".$contador;
 	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
 		foreach ( $bloqueados as $bloqueado ) {
@@ -59,7 +62,7 @@ if($sala['tipo']=='A'){
 		}
 
 
-
+		
 		if($cont==4){
 				echo "<img style=\"margin-right: 30px; \" width=35 height=35 src=\"".base_url()."assets/img/asientos/".$color.".png\" id=\"".$asiento["id"]."\" ".($color=="rojo"?"":($color=="azul"?"":($color=="negro"?"onclick=asientoDesbloquear(".$asiento ["id"].");alert('".$asiento ["nom"]."') class=\"selecionado\"":"onclick=asiento(".$asiento ["id"].");alert('".$asiento ["nom"]."')"))).">";
 
@@ -86,6 +89,11 @@ if($sala['tipo']=='A'){
 		}
 		if($cont==0){
 			echo "<br>";
+			if($contador!=1){
+			$contador--;
+			$contador=sprintf("%02d",$contador);
+			echo "Fila: ".$contador;
+			}
 		}
 	}
 
@@ -98,6 +106,8 @@ if($sala['tipo']=='A'){
 	//print_r($actuales);
 	$cont = 0;
 	$cont2 = 0;
+	//$contador--;
+	echo "Fila: ".$contador;
 	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
 		foreach ( $bloqueados as $bloqueado ) {
@@ -145,14 +155,21 @@ if($sala['tipo']=='A'){
 		$cont ++;
 		if($cont==19){
 			$cont=0;
+			
 		}
 		if($cont==0){
 			echo "<br>";
+			if($contador!=1){
+				$contador--;
+				$contador=sprintf("%02d",$contador);
+				echo "Fila: ".$contador;
+			}
 			$cont2++;
 		}
 		if($cont2 == 7){
 			$cont2++;
 			echo "<br>";
+			$contador--;
 		}
 	}
 }else if($sala['tipo']=='C'){

@@ -43,25 +43,17 @@ function asientoDesbloquear(id){
 
 </script>
 
-
-
-<?php
-
-//session_name("cineProyecto");
-//session_start();
-print_r($_SESSION);
-?>
-	<br>Estas con el usuario, <?=isset($_SESSION["idUser"])?$_SESSION["idUser"]:"No has iniciado sesion"?>.<br>
-		Asientos:
-		<div id="divAsientos"></div>
+	<br><div class="container"><h2>Elige tus asientos  <?=isset($_SESSION["idUser"])?"":"No has iniciado sesion"?></h2></div><br>
+		<div id="divAsientos" class="container" ></div>
 		
 		
 		
-<form action="<?=base_url()?>entrada" method="POST">
+<div class="container"><form action="<?=base_url()?>entrada" method="POST">
 <br><input type="hidden" id="asientos" name="asientos">
 <br><input type="hidden" id="sesion" name="sesion" value="<?=$_GET["idSesion"]?>">
-<br><input type="submit">
+<br><input type="submit" class="btn btn-info" value="Confirmar">
 </form>
+</div>
 
 
 
