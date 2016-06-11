@@ -189,6 +189,8 @@ if($sala['tipo']=='A'){
 	$cont = 0;
 	$cont2 = 0;
 	$cont3 = 0;
+	$contador--;
+	echo $contador;
 	foreach ( array_reverse($asientos) as $asiento ) {
 		$color = "verde";
 		foreach ( $bloqueados as $bloqueado ) {
@@ -236,6 +238,11 @@ if($sala['tipo']=='A'){
 		if($cont==0){
 			echo "<br>";
 			$cont2++;
+			if($contador!=1){
+				$contador--;
+				$contador=sprintf("%02d",$contador);
+				echo $contador;
+			}
 		}
 	}else{
 		if($cont3 == 0){
@@ -246,6 +253,11 @@ if($sala['tipo']=='A'){
 		if($cont3 == 9){
 			echo "<br>";
 			$cont3 = 0;
+			if($contador!=1){
+				$contador--;
+				$contador=sprintf("%02d",$contador);
+				echo $contador;
+			}
 		}
 	}
 
