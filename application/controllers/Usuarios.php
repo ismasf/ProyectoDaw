@@ -211,13 +211,19 @@ function pdfEntrada(){
 	R::setup('mysql:host=localhost;dbname=proyecto', 'root', '');
 	$idFact=$this->input->get('idFact');
 	$this->load->model ( 'factura_model', '', true );
+	
+	
+	
+	if(isset($_SESSION['idUser'])){
 	$datos=$this->factura_model->obteneDatosEntradaFac ($idFact);
 	
 	
 	$this->load->model ( 'pelicula_model', '', true );
 	
 	
-	if(isset($datos) && $datos!=null ){
+	
+	
+	if(isset($datos) && $datos!=null){
 		
 		
 		
@@ -267,6 +273,11 @@ function pdfEntrada(){
 		
 	}
 	
+ 
+	}else{
+		
+		$this->template->load("plantilla","usuarios/noLogin");
+	}
 	
 
 
@@ -458,8 +469,18 @@ function actualizar(){
 	$id=uniqid();
 	
 	$this->load->model ( 'Usuarios_model', '', true );
+	
+	if(isset($_SESSION['idUser']) && $_SESSION['idUser']!=null){
 	$datos ['status'] = $this->Usuarios_model->actualizarUsuario ($nombre, $apellidos, $ciudad, $contraseña, $fecha);
 	R::close();
+	
+	
+	
+	}else{
+		
+		$this->template->load("plantilla","usuarios/noLogin");
+		
+	}
 	
 }
 

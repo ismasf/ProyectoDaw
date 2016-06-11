@@ -179,7 +179,7 @@ $ci->load->library('m_pdf');
 
 function descargarEntradaPdf($datos,$idPelicula){
 	
-	$direccionImage=base_url("/assets/img/".$idPelicula.".png");
+	$direccionImage=base_url("/assets/img/pelicula/".$idPelicula.".png");
 	
 	
 	$html=<<<HTML

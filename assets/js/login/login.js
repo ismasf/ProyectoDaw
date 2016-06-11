@@ -20,8 +20,8 @@ $(document).ready(function(){
             loginpassword: {
                 required: true,
             letterDigitsOnly: true,
-              maxlength: 25,
-              minlength: 4
+              maxlength: 12,
+              minlength: 6
                 
                 
             }
@@ -59,7 +59,11 @@ $(document).ready(function(){
                 		 
                 		 
                 	 }else{
-                		 alert(response)
+                		 
+                		 
+                		 $('#formlogin #username').css("border","2px solid darkred");
+                		 $('#formlogin #loginpassword').css("border","2px solid darkred");
+                		 
                 	 }
                 	 
                  }

@@ -7,6 +7,29 @@
 
 $(document).ready(function(){
 	
+	//VALIDATION
+	
+	 jQuery.validator.addMethod('lettersonly', function(value, element) {
+		    return this.optional(element) || /^[a-zA-Z áÁãâäàéÉêëèíÍîïìóÓõôöòúÚûüùçÑñ]+$/i.test(value);
+		}, "Letras y espacios solo");
+		    
+		    jQuery.validator.addMethod('claveNumberLetter', function(value, element) {
+		        return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/i.test(value);
+		    }, "La contraseña debe tener al menos 1 letra y un numero");
+		    
+		    
+		    $.validator.addMethod("dateFormat",
+		    	    function(value, element) {
+		    	        return value.match(/^\d\d?\/\d\d?\/\d\d\d\d$/);
+		    	    },
+		    	    "Por favor introduce una fecha con el formato dd-mm-yyyy.");
+		    	    
+		    	  
+		    	 jQuery.validator.addMethod('letterDigitsOnly', function(value, element) {
+		    	    return this.optional(element) || /^[a-z0-9]+$/i.test(value);
+		    	}, "Letras y numeros solo");
+		    	 
+	
 $('body').on('click', 'button.descargar', function(e){
 	
 	
@@ -413,8 +436,9 @@ if($('td.dataTables_empty').length>0){
 	            idPassword: {
 	                required: true,
 	            letterDigitsOnly: true,
-	              maxlength: 25,
-	              minlength: 4
+	            claveNumberLetter:true,
+	              maxlength: 12,
+	              minlength: 6
 	                
 	                
 	            }, 
@@ -422,8 +446,8 @@ if($('td.dataTables_empty').length>0){
 	             idPasswordConfirm: {
 	                required: true,
 	            equalTo: '#idPassword',
-	              maxlength: 25,
-	              minlength: 4
+	              maxlength: 12,
+	              minlength: 6
 	                
 	                
 	            }, 
@@ -515,7 +539,28 @@ if($('td.dataTables_empty').length>0){
 	                		
 	                		 
 	                	 }else{
-	                		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+	                		 
+	                		 
+	                		 
+	                		 $('div.remodal').html('<h1>No hemos podido actualizar su informacion, por favor intentelo mas tarde, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la misma pagina, presione <a href="# id="seguirAqui">Aqui</a></p>');
+	                		 inst.open();
+	                		 segundos=5;
+	                		idInterval = setInterval(function() {
+	                			 inst = $('[data-remodal-id=modal]').remodal();
+	                	         
+	                	 			
+	                	         
+	                			segundos--;
+	                			if(segundos<1){
+	                				clearInterval(idInterval);
+	                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+	                				window.location.replace(baseUrl);
+	                				inst.close();
+	                				
+	                			}
+	                			
+	                			
+	                		},500);
 	                	 }
 	                	 
 	                 }
@@ -927,6 +972,28 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 			                		 
 			                	 }else{
 			                		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+			                		 
+			                		 $('div.remodal').html('<h1>No hemos podido crear la incidencia, por favor intentelo mas tarde, se le va a redirigir a la pagina principal<h1><br><br><p>Si quieres permanecer en la pagina de usuarios, presione <a href="# id="zonaSocios">Aqui</a></p>');
+			                		 inst.open();
+			                		 segundos=5;
+			                		idInterval = setInterval(function() {
+			                			 inst = $('[data-remodal-id=modal]').remodal();
+			                	         
+			                	 			
+			                	         
+			                			segundos--;
+			                			if(segundos<1){
+			                				clearInterval(idInterval);
+			                				$('div.remodal').load(baseUrl+"assets/html/registro.html");
+			                				window.location.replace(baseUrl);
+			                				inst.close();
+			                				
+			                			}
+			                			
+			                			
+			                		},500);
+			                		 
+			                		 
 			                	 }
 			                	 
 			                 }
@@ -976,6 +1043,23 @@ $('body').on('mouseleave', '#btnReloadSms', function(){
 			
 					
 		})
+		
+		
+		$('body').on('click', '#userContact', function(){
+			
+			
+			alert("Hola");
+			
+			//$.post(baseUrl+"contacto/index", { userContact: "true" } );
+			
+			$( "#formUserContact" ).submit();
+			
+					
+		})
+		
+		
+		
+		
 		
 		function cargarMensajesIncidencias(idIncidencia, estado){
 			
@@ -1100,7 +1184,7 @@ function addNuevoMensaje(){
            		
            		 
            	 }else{
-           		alert("mal")
+           		alert("Se ha producido un error")
            	 }
            	 
             }
@@ -1155,7 +1239,7 @@ function refreshSms(idIncidencia){
        		
        		 
        	 }else{
-       		 alert("No hemos podido actualizar su informacion, por favor intentelo mas tarde")
+       		 alert("Se ha producido un error")
        	 }
        	 
         }

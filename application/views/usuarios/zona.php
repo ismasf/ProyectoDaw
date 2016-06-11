@@ -25,12 +25,12 @@
             <ul class="nav nav-list">
              <li class="nav-header">Entradas</li>
               <li><a href="#" id="facturasCliente">Facturas y Descargas</a></li>
-              <li><a id="" href="#">Promociones</a></li>
-              <li><a id="" href="#">Ultimos Estrenos</a></li>
+              <!--  <li><a id="" href="#">Promociones</a></li>
+              <li><a id="" href="#">Ultimos Estrenos</a></li>-->
  
               <li class="nav-header">  Ajustes</li>
               <li class="active"><a href="#" id="datosPersonales">Datos Personales</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li><a href="#" id="userContact">Contacto</a></li>
               <li><a href="" id="idIncidencias">Incidencias</a></li>
               <li><a href="<?= base_url()."Preguntas/"?>">Preguntas Frecuentes</a></li>
          
@@ -49,7 +49,10 @@
       </div><!--/row-->
 
       <hr>
-
+	<form id="formUserContact" action="<?php echo base_url("contacto/index"); ?>">
+  <input type="hidder" value="true" name="zonaUser" id="zonaUser">
+  
+</form>
       <footer>
         <p>&copy; Company 2013</p>
       </footer>
