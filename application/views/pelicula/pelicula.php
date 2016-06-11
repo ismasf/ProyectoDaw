@@ -9,6 +9,15 @@ $sabado = ($hoy==6?'class="active"':"");
 $domingo = ($hoy==7?'class="active"':"");
 
 
+$lunesP = ($hoy==1?'class="active tab-pane"':"class='tab-pane'");
+$martesP = ($hoy==2?'class="active tab-pane"':"class='tab-pane'");
+$miercolesP = ($hoy==3?'class="active tab-pane"':"class='tab-pane'");
+$juevesP = ($hoy==4?'class="active tab-pane"':"class='tab-pane'");
+$viernesP = ($hoy==5?'class="active tab-pane"':"class='tab-pane'");
+$sabadoP = ($hoy==6?'class="active tab-pane"':"class='tab-pane'");
+$domingoP = ($hoy==7?'class="active tab-pane"':"class='tab-pane'");
+
+
 //var_dump($trailers);
 
 $a = date("d");
@@ -184,13 +193,13 @@ Tiene estas sesiones:
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                     	
-                                        <div role="tabpanel" class="tab-pane active" id="lunes"><?=$lun ?></div>
-                                        <div role="tabpanel" class="tab-pane" id="martes"><?=$mar ?></div>
-                                        <div role="tabpanel" class="tab-pane" id="miercoles"><?=$mie ?></div>
-                                        <div role="tabpanel" class="tab-pane" id="jueves"><?=$jue ?></div>
-                                        <div role="tabpanel" class="tab-pane" id="viernes"><?=$vie ?></div>
-                                        <div role="tabpanel" class="tab-pane" id="sabado"><?=$sab ?></div>
-                                        <div role="tabpanel" class="tab-pane" id="domingo"><?=$dom ?></div>
+                                        <div role="tabpanel" <?=$lunesP?> id="lunes"><?=$lun ?></div>
+                                        <div role="tabpanel" <?=$martesP?> id="martes"><?=$mar ?></div>
+                                        <div role="tabpanel" <?=$miercolesP?> id="miercoles"><?=$mie ?></div>
+                                        <div role="tabpanel" <?=$juevesP?> id="jueves"><?=$jue ?></div>
+                                        <div role="tabpanel" <?=$viernesP?> id="viernes"><?=$vie ?></div>
+                                        <div role="tabpanel" <?=$sabadoP?> id="sabado"><?=$sab ?></div>
+                                        <div role="tabpanel" <?=$domingoP?> id="domingo"><?=$dom ?></div>
                                     </div>
 </div>
                                 </div>
