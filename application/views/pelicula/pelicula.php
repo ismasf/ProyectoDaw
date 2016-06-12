@@ -111,7 +111,7 @@ switch ($hoy) {
 <div class="container">
 	<h1><?=$pelicula->titulo?></h1>
 	<div class="row">
-		<div class="col-sm-3">
+		<div class="col-sm-3"  id="imgPeliculaSection">
 			<img 
 				src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula->id?>.jpg" width="150px"height="200px">
 		</div>

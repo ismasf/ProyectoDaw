@@ -245,3 +245,30 @@ html, body {
   clear:both !important;
   padding-top:20px !important;
 } 
+
+
+div#divAsientos img{
+	
+	width: 4%;
+    height: 4%;
+	
+}
+
+div#divAsientos {
+    font-size: 88%;
+}
+
+
+
+
+@media (max-width: 500px){
+	
+	div#divAsientos{
+	
+	width:356.4px !important;
+	height:252px !important;
+	 
+	}
+	
+	
+}
