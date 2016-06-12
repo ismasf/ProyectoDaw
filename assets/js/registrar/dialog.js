@@ -288,6 +288,11 @@ $.validator.addMethod("dateFormat",
                 		
                 		$('#estadoRegistro').val('si');
                 		
+                	 }else if(response.trim()="errorValidacion"){
+                		 
+                		 alert("Error validacion");
+                		 
+                		 
                 		 
                 	 }else{
                 		 $('#idBtnRegistrar').prop("disabled", false);
