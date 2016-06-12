@@ -230,7 +230,7 @@ html, body {
 }
 
 #wrap {
-  min-height: 60% !important;
+  min-height: 100% !important;
 }
 
 #main {

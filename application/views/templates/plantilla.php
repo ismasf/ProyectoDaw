@@ -99,7 +99,8 @@ a img{
 <link rel="stylesheet"
 	href="<?php echo base_url("assets/css/video/video.css"); ?>" />
 
-<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon2.ico"); ?>" />
+
+<link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo base_url("assets/img/favicono.png"); ?>">
 
 </head>
 
@@ -120,7 +121,7 @@ a img{
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="#">Peliculas</a></li>
+					<li><a href="<?=base_url()?>Peliculas">Peliculas</a></li>
 					<li><a href="#">Promociones</a></li>
 					<li><a href="<?=base_url()?>Aqui">Estamos aquí</a></li>
 					<li><a href="<?=base_url()?>Equipo">Quienes somos</a></li>
