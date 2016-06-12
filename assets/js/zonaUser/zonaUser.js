@@ -536,7 +536,9 @@ if($('td.dataTables_empty').length>0){
 	                			
 	                		},500);
 	                		
-	                		
+	                	 }else if(response.trim()="errorValidacion"){
+	                		 
+	                		 alert("Error validacion");
 	                		 
 	                	 }else{
 	                		 

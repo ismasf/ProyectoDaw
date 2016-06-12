@@ -74,8 +74,23 @@ function guardar(){
 	
 	
 	$this->load->model ( 'Usuarios_model', '', true );
-	$datos ['status'] = $this->Usuarios_model->guardarUsuario ($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha);
-	R::close();
+	
+	if(filter_var($correo, FILTER_VALIDATE_EMAIL)){
+		
+		if(preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/",$contraseña) && strlen($contraseña)>=6 && strlen($contraseña)<=12){
+			
+			$datos ['status'] = $this->Usuarios_model->guardarUsuario ($nombre, $apellidos, $correo, $ciudad, $contraseña, $fecha);
+			R::close();
+			
+		}else{
+			
+			$this->output->set_output("errorValidacion");
+		}
+	
+	}else{
+		$this->output->set_output("false");
+		
+	}
 	
 }
 
@@ -471,9 +486,14 @@ function actualizar(){
 	$this->load->model ( 'Usuarios_model', '', true );
 	
 	if(isset($_SESSION['idUser']) && $_SESSION['idUser']!=null){
-	$datos ['status'] = $this->Usuarios_model->actualizarUsuario ($nombre, $apellidos, $ciudad, $contraseña, $fecha);
-	R::close();
-	
+		
+		if(preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/",$contraseña) && strlen($contraseña)>=6 && strlen($contraseña)<=12){
+			$datos ['status'] = $this->Usuarios_model->actualizarUsuario ($nombre, $apellidos, $ciudad, $contraseña, $fecha);
+			R::close();
+		}else{
+			
+			$this->output->set_output("errorValidacion");
+		}
 	
 	
 	}else{
