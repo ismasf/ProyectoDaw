@@ -119,10 +119,11 @@ switch ($hoy) {
 		<?php $cont=0;?>
 		<?php foreach ($cartelera as $pelicula):?>
 		
+		<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><h1><?=$pelicula["titulo"]?></h1></a>
 		<div class="row">
 			<div class="col-sm-3" id="imgPeliculaSection">
 				
-				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><h1><?=$pelicula["titulo"]?></h1><img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" class="grow tamanio"/></a><br>
+				<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><img src="<?= base_url()?>assets/img/pelicula/<?='c'.$pelicula["id"]?>.jpg" class="grow tamanio"/></a><br>
 			</div>
 			
 			<div class="col-sm-9 card colorActive" id="peliculas" style="min-width:667px">
