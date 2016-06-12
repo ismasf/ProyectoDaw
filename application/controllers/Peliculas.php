@@ -17,7 +17,7 @@ public function index(){
 		foreach ($cartelera as $pelicula){
 			$sesionesPelicula=$this->sesion_model->getSesionPelicula($pelicula["id"],"a");
 			//Insertamos la pelicula con su sesion al array
-			$arra[]=$sesionesPelicula;
+			$arra["pelicula-".$pelicula["id"]]=$sesionesPelicula;
 				
 		}
 		$data["arraSesiones"]=$arra;
