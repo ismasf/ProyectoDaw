@@ -118,6 +118,9 @@ class Pelicula_model extends CI_Model{
 
 		//----------------*/
 		move_uploaded_file( $_FILES [ 'userfile2' ][ 'tmp_name' ],"assets/img/pelicula/c$pelicula->id.jpg");
+		mkdir("assets/mp4/$pelicula->id");
+		move_uploaded_file( $_FILES [ 'userfile3' ][ 'tmp_name' ],"assets/mp4/$pelicula->id/$pelicula->id-360p.mp4");
+		move_uploaded_file( $_FILES [ 'userfile4' ][ 'tmp_name' ],"assets/mp4/$pelicula->id/$pelicula->id-720p.mp4");
 		//----------------
 
 
