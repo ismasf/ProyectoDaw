@@ -90,6 +90,13 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Imagen de pelicula: <span class="required">*</span></label><input type="file" name="userfile2"></input><br>
                       </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Trailer 360p:</label><input type="file" name="userfile3"></input><br>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Trailer 720p:</label><input type="file" name="userfile4"></input><br>
+                      </div>
                      
 
                       <div class="ln_solid"></div>
