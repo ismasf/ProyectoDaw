@@ -57,7 +57,7 @@ class Pelicula_model extends CI_Model{
 		fclose($fh);
 		$i = $pelicula->id.'.png';
 		move_uploaded_file( $_FILES [ 'userfile' ][ 'tmp_name' ],"assets/img/pelicula/$i");
-		//----------------
+		/*//----------------
 
 
 		$rutaImagenOriginal="assets/img/pelicula/$i";
@@ -82,13 +82,13 @@ class Pelicula_model extends CI_Model{
 			$ancho_final = $ancho;
 			$alto_final = $alto;
 		}
-		/*
+		
 		 * si proporcion horizontal*alto mayor que el alto maximo,
 		 * alto final es alto por la proporcion horizontal
 		 * es decir, le quitamos al alto, la misma proporcion que 
 		 * le quitamos al alto
 		 * 
-		*/
+		
 		elseif (($x_ratio * $alto) < $max_alto){
 			$alto_final = ceil($x_ratio * $alto);
 			$ancho_final = $max_ancho;
@@ -96,7 +96,7 @@ class Pelicula_model extends CI_Model{
 		/*
 		 * Igual que antes pero a la inversa
 		*/
-		else{
+		/*else{
 			$ancho_final = ceil($y_ratio * $ancho);
 			$alto_final = $max_alto;
 		}
@@ -114,14 +114,14 @@ class Pelicula_model extends CI_Model{
 		$calidad=95;
 		
 		//Se crea la imagen final en el directorio indicado
-		imagejpeg($tmp,"assets/img/pelicula/$i",$calidad);
+		imagejpeg($tmp,"assets/img/pelicula/$i",$calidad);*/
 
-		//----------------
+		//----------------*/
 		move_uploaded_file( $_FILES [ 'userfile2' ][ 'tmp_name' ],"assets/img/pelicula/c$pelicula->id.jpg");
 		//----------------
 
 
-		$rutaImagenOriginal="assets/img/pelicula/c$pelicula->id.jpg";
+		/*$rutaImagenOriginal="assets/img/pelicula/c$pelicula->id.jpg";
 	
 		//Creamos una variable imagen a partir de la imagen original
 		$img_original = imagecreatefromjpeg($rutaImagenOriginal);
@@ -143,20 +143,20 @@ class Pelicula_model extends CI_Model{
 			$ancho_final = $ancho;
 			$alto_final = $alto;
 		}
-		/*
+		
 		 * si proporcion horizontal*alto mayor que el alto maximo,
 		 * alto final es alto por la proporcion horizontal
 		 * es decir, le quitamos al alto, la misma proporcion que 
 		 * le quitamos al alto
 		 * 
-		*/
+		
 		elseif (($x_ratio * $alto) < $max_alto){
 			$alto_final = ceil($x_ratio * $alto);
 			$ancho_final = $max_ancho;
 		}
 		/*
 		 * Igual que antes pero a la inversa
-		*/
+		
 		else{
 			$ancho_final = ceil($y_ratio * $ancho);
 			$alto_final = $max_alto;
@@ -177,7 +177,7 @@ class Pelicula_model extends CI_Model{
 		//Se crea la imagen final en el directorio indicado
 		imagejpeg($tmp,"assets/img/pelicula/c$pelicula->id.jpg",$calidad);
 
-		//----------------
+		//----------------*/
 
 		return $pelicula-> id;
 	}

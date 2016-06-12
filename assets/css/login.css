@@ -10,7 +10,7 @@
 /**Pelicula*/
 
 @media (max-width: 770px){
-img {
+div#imgPeliculaSection img {
     width: 60%;
     margin-right: 20%;
     margin-left: 20%;
