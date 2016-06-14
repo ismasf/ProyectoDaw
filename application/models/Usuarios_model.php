@@ -422,6 +422,37 @@ public function  informacionZonaUser($usuarioId){
 	public function eliminarUsuario($id){
 		$usuario = R::load("usuario",$id);
 		R::trash($usuario);
+		
+		$comprobarJPG="assets/img/photoUser/imageUser".$id.".jpg";
+		$comprobarJPEG="assets/img/photoUser/imageUser".$id.".jpeg";
+		$comprobarPNG="assets/img/photoUser/imageUser".$id.".png";
+		
+		if(file_exists($comprobarJPEG) ){
+				
+				
+			unlink($comprobarJPEG);
+				
+			
+			
+				
+		}
+		
+		if(file_exists($comprobarJPG)){
+				
+				
+				
+			unlink($comprobarJPG);
+			
+			
+		}
+		
+		if(file_exists($comprobarPNG)){
+				
+			unlink($comprobarPNG);
+			
+	
+		
+	}
 	}
 
 	public function getUsuarioId($id){

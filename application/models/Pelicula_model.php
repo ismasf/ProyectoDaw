@@ -219,6 +219,49 @@ class Pelicula_model extends CI_Model{
 		R::trash($pelicula);
 		
 		
+		$trailer720p="assets/mp4/".$id."/".$id."-720p.mp4";
+		$trailer360p="assets/mp4/".$id."/".$id."-360p.mp4";
+		$imagenCartel="assets/img/pelicula/".$id.".png";
+		$imagenPelicula="assets/img/pelicula/c".$id.".jpg";
+		
+		
+		
+		
+		if(file_exists($trailer360p)){
+				
+				
+			unlink($trailer360p);
+				
+		}
+		
+		
+		if(file_exists($trailer720p)){
+		
+		
+		
+		
+			unlink($trailer720p);
+		
+		}
+		
+		if(file_exists($imagenCartel)){
+		
+		
+		
+		
+			unlink($imagenCartel);
+		
+		}
+		if(file_exists($imagenPelicula)){
+		
+		
+		
+		
+			unlink($imagenPelicula);
+		
+		}
+		
+		
 	}
 
 	

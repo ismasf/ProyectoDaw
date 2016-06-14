@@ -518,7 +518,13 @@ class Administrador extends CI_Controller{
 		if(isset($_SESSION["idUserAdmin"])){
 			$this->load->model("usuarios_model");
 			$this->usuarios_model->eliminarUsuario($id);
+			
+			
+			
+			
 			$this->template->load("plantillaAdmin","administrador/eliminarUsuarioGet");
+			
+			
 		}else{
 			$this->load->view("administrador/error");
 		}
