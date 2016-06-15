@@ -212,9 +212,13 @@ div.colorActive a{
 .titulos{
 	font-size:2em;
 }
+.grow{
+	border:5px solid #22464A;
+	
+}
 
-.grow { transition: all .2s ease-in-out;border:5px solid #22464A; }
-.grow:hover { transform: scale(1.1);}
+.grow2 { transition: all .2s ease-in-out; margin-bottom:15px; }
+.grow2:hover { transform: scale(1.1);}
 
 @media (max-width: 480px) {
 	.tamanio{
@@ -222,6 +226,36 @@ div.colorActive a{
 		height:95px ;
 		
 	}
+}
+
+
+@media (max-width: 650px) {
+	.fixImg img {
+    width: 1917px;
+    height: 300px;
+}
+}
+
+@media (max-width: 550px) {
+	.fixImg img {
+    width: 1917px;
+    height: 240px;
+}
+}
+
+@media (max-width: 440px) {
+	.fixImg img {
+    width: 1917px;
+    height: 195px;
+}
+}
+
+
+@media (max-width: 768px) {
+	 img.grow.tamanio {
+       width: 224px !important;
+    height: 320px !important;
+}
 }
 
 
