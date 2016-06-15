@@ -1,5 +1,24 @@
 $(document).ready(function(){
 	
+	$('img.tamanio.grow').on('mouseenter',function(){
+        
+        
+        $(this).closest('.grow2').css('transform', 'scale(1.1)');
+        
+        
+    });
+    
+    $('img.tamanio.grow').on('mouseleave',function(){
+        
+      
+        $(this).closest('.grow2').css('transform', 'scale(1)');
+        
+        
+    })
+	
+	
+	
+	
 	
 	
 	$('div.remodal').load(baseUrl+"assets/html/registro.html");

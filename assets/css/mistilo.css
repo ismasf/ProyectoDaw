@@ -218,7 +218,7 @@ div.colorActive a{
 }
 
 .grow2 { transition: all .2s ease-in-out; margin-bottom:15px; }
-.grow2:hover { transform: scale(1.1);}
+/*.grow2:hover { transform: scale(1.1);}*/
 
 @media (max-width: 480px) {
 	.tamanio{

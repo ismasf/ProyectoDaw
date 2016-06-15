@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<?php echo "<p>Hola</p>";?>
+<meta name="theme-color" content="#4285f4"/>
+
+<meta name="msapplication-navbutton-color" content="#4285f4"/>
+
+<meta name="apple-mobile-web-app-status-bar-style" content="#4285f4"/>
 <script>
 baseUrl = "<?=base_url()?>";
 </script>
