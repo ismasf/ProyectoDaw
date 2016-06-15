@@ -116,8 +116,9 @@ switch ($hoy) {
 <div class="container" >
 		<div class="row">
 		<div>
-		<?php $cont=0;?>
+		<?php $cont=0; $contP=0;?>
 		<?php foreach ($cartelera as $pelicula):?>
+		<?php $contP++; ?>
 		
 		<a href="<?=base_url()."pelicula?id=".$pelicula["id"]?>"><h1><?=$pelicula["titulo"]?></h1></a>
 		<div class="row">
@@ -163,24 +164,24 @@ switch ($hoy) {
 				<?php endforeach;?>
 				
 				 <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" id="idlunes" <?=$lunes?>><a href="#lunes" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
-                                        <li role="presentation" <?=$martes?>><a href="#martes" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
-                                        <li role="presentation" <?=$miercoles?>><a href="#miercoles" aria-controls="miercoles" role="tab" data-toggle="tab"><?=$mi?> Miercoles</a></li>
-                                        <li role="presentation" <?=$jueves?>><a href="#jueves" aria-controls="jueves" role="tab" data-toggle="tab"><?=$j?> Jueves</a></li>
-                                        <li role="presentation" <?=$viernes?>><a href="#viernes" aria-controls="viernes" role="tab" data-toggle="tab"><?=$v?> Viernes</a></li>
-                                        <li role="presentation" <?=$sabado?>><a href="#sabado" aria-controls="sabado" role="tab" data-toggle="tab"><?=$s?> Sabado</a></li>
-                                        <li role="presentation" <?=$domingo?>><a href="#domingo" aria-controls="domingo" role="tab" data-toggle="tab"><?=$d?> Domingo</a></li>
+                                        <li role="presentation" id="idlunes" <?=$lunes?>><a href="#lunes<?=$contP?>" aria-controls="lunes" role="tab" data-toggle="tab"><?=$l?> Lunes</a></li>
+                                        <li role="presentation" <?=$martes?>><a href="#martes<?=$contP?>" aria-controls="martes" role="tab" data-toggle="tab"><?=$ma?> Martes</a></li>
+                                        <li role="presentation" <?=$miercoles?>><a href="#miercoles<?=$contP?>" aria-controls="miercoles" role="tab" data-toggle="tab"><?=$mi?> Miercoles</a></li>
+                                        <li role="presentation" <?=$jueves?>><a href="#jueves<?=$contP?>" aria-controls="jueves" role="tab" data-toggle="tab"><?=$j?> Jueves</a></li>
+                                        <li role="presentation" <?=$viernes?>><a href="#viernes<?=$contP?>" aria-controls="viernes" role="tab" data-toggle="tab"><?=$v?> Viernes</a></li>
+                                        <li role="presentation" <?=$sabado?>><a href="#sabado<?=$contP?>" aria-controls="sabado" role="tab" data-toggle="tab"><?=$s?> Sabado</a></li>
+                                        <li role="presentation" <?=$domingo?>><a href="#domingo<?=$contP?>" aria-controls="domingo" role="tab" data-toggle="tab"><?=$d?> Domingo</a></li>
                                     </ul>
                                     
                                    <div class="tab-content">
                                     	
-                                        <div role="tabpanel" <?=$lunesP?> id="lunes"><?=$lun ?></div>
-                                        <div role="tabpanel" <?=$martesP?> id="martes"><?=$mar ?></div>
-                                        <div role="tabpanel" <?=$miercolesP?> id="miercoles"><?=$mie ?></div>
-                                        <div role="tabpanel" <?=$juevesP?> id="jueves"><?=$jue ?></div>
-                                        <div role="tabpanel" <?=$viernesP?> id="viernes"><?=$vie ?></div>
-                                        <div role="tabpanel" <?=$sabadoP?> id="sabado"><?=$sab ?></div>
-                                        <div role="tabpanel" <?=$domingoP?> id="domingo"><?=$dom ?></div>
+                                        <div role="tabpanel" <?=$lunesP?> id="lunes<?=$contP?>"><?=$lun ?></div>
+                                        <div role="tabpanel" <?=$martesP?> id="martes<?=$contP?>"><?=$mar ?></div>
+                                        <div role="tabpanel" <?=$miercolesP?> id="miercoles<?=$contP?>"><?=$mie ?></div>
+                                        <div role="tabpanel" <?=$juevesP?> id="jueves<?=$contP?>"><?=$jue ?></div>
+                                        <div role="tabpanel" <?=$viernesP?> id="viernes<?=$contP?>"><?=$vie ?></div>
+                                        <div role="tabpanel" <?=$sabadoP?> id="sabado<?=$contP?>"><?=$sab ?></div>
+                                        <div role="tabpanel" <?=$domingoP?> id="domingo<?=$contP?>"><?=$dom ?></div>
                                     </div>
 				
 				
